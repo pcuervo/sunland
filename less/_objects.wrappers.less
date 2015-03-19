@@ -2,7 +2,7 @@
  * Main containers 100% height
 **/
 html, body,
-.container, .content-wrapper{
+.container{
 	height: 100%;
 	background: @light;
 }
@@ -13,10 +13,8 @@ html, body,
 .container {
 	background: @light;
 	position: relative;
-	overflow: hidden;
 }
-.content-wrapper, .content { position: relative; }
-.content-wrapper { overflow-y: scroll; -webkit-overflow-scrolling: touch; }
+
 
 /**
  * Maintains everything at the same widht
@@ -34,6 +32,8 @@ html, body,
 	.clearfix;
 	margin-left: -5px; margin-right: -5px;
 }
+
+hr{ border: solid 1px @highlight; }
 
 /**
  * Column wrapper for clearfix and floats

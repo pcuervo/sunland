@@ -82,7 +82,7 @@ module.exports = function(grunt) {
     //Watch
     grunt.registerTask('dev', [ 'watch' ]);
 
-    //Serer
+    //Server
     grunt.registerTask('server', [ 'express', 'watch' ]);
 
 };

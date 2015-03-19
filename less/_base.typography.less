@@ -24,24 +24,27 @@
 /**
  * HTML general elements
 **/
-body{ font-family: 'font-name'; color: @dark; }
+body{ font-family: 'lato'; color: @dark; }
 
 /**
  * Headers
 **/
 h1, h2, h3, h4, h5, h6{
 	margin-top: 0;
-	//font-family: '';
+	font-family: 'lato';
+	font-weight: 900;
+	color: @highlight;
 }
 
 /**
  * Titles, subtitles
 **/
 .title{
-
+	font-size: 2em;
 }
 .sub-title{
-
+	font-size: 1.2em;
+	.dark{ color: @dark; }
 }
 
 .bg-image .title, .bg-image .sub-title{ color: @light; }
@@ -55,9 +58,10 @@ h1, h2, h3, h4, h5, h6{
 **/
 p{
 	margin: 0 0 1em 0;
-	.font( 20px, 30px, normal, 'font-name' );
+	.font( 1em, 30px, 'museo-sans' );
 }
 
+i{ font-size: 2em !important; }
 
 /**
  * Image captions
