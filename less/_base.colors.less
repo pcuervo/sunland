@@ -5,9 +5,32 @@
 .highlight{ color: @highlight; }
 .dark{ color: @dark; }
 
+
+
+/**
+ * Shades
+**/
+.light-shade{ color: darken(@light, 10%); }
+.highlight-shade{ color: darken(@highlight, 10%); }
+.dark-shade{ color: darken(@dark, 10%); }
+.lighter-dark-shade{ color: darken(@lighter-dark, 10%); }
+
+
+
 /**
  * Backgrounds
 **/
 .bg-light{ background-color: @light; }
 .bg-highlight{ background-color: @highlight; }
 .bg-dark{ background-color: @dark; }
+.bg-lighter-dark{ background-color: @lighter-dark; }
+
+
+
+/**
+ * Background Shades
+**/
+.bg-light-shade{ background-color: darken(@light, 10%); }
+.bg-highlight-shade{ background-color: darken(@highlight, 10%); }
+.bg-dark-shade{ background-color: darken(@dark, 10%); }
+.bg-lighter-dark-shade{ background-color: darken(@lighter-dark, 10%); }

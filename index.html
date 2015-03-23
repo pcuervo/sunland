@@ -2,10 +2,10 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Title</title>
+		<title>Sunland School of th Arts</title>
 		<link rel="shortcut icon" href="images/favicon.ico">
 		<link rel="stylesheet" href="style.css">
-		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 		<meta name="description" content="">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,26 +23,58 @@
 		<![endif]-->
 		<div class="container">
 			<header>
-				<h1>
-					<a href="#">
-						
-					</a>
-				</h1>
+				<nav id="sunland-mmenu">
+					<h1>
+						<img src="">
+					</h1>	
+					<ul>
+						<li><a href="#">Home</a></li>
+						<li><a href="#about">About us</a>
+							<ul>
+								<li><a href="#about/history">History</a></li>
+								<li><a href="#about/team">The team</a>
+									<ul>
+										<li><a href="#about/team/management">Management</a></li>
+										<li><a href="#about/team/sales">Sales</a></li>
+										<li><a href="#about/team/development">Development</a></li>
+									</ul>
+								</li>
+								<li><a href="#about/address">Our address</a></li>
+							</ul>
+						</li>
+						<li><a href="#contact">Contact</a></li>
+					</ul>
+				</nav>
 			</header>
 			<div class="main wrapper">
-				<h2 class="[ title ]">Sunland</h2>
+				<h2 class="[ title ]"><a href="#sunland-mmenu">Sunland</a></h2>
 				<!-- PALETA DE COLORES -->
 				<div class="[ span xmall-12 ] [ margin-bottom--large ]">
 					<h3 class="[ sub-title dark ]">Paleta de colores</h3>
 					<div class="[ columna xmall-12 medium-6 ]">
-						<div class="[ columna xmall-12 medium-4 ][ cuadro rojo ]">
-							<h3 class="[ padding--top ] [ sub-title dark ]">Rojo</h3>
+						<div class="[ span xmall-12 medium-4 ]">
+							<div class="[ columna xmall-6 medium-12 ][ bg-highlight ]">
+								<h3 class="[ padding--top ] [ sub-title dark ] [ text-center ]">Red</h3>
+							</div>
+							<div class="[ columna xmall-6 medium-12 ][ bg-highlight-shade ]">
+								<h3 class="[ padding--top ] [ sub-title dark ][ text-center ]">Shade</h3>
+							</div>
 						</div>
-						<div class="[ columna xmall-12 medium-4 ][ cuadro dark ]">
-							<h3 class="[ padding--top ] [ sub-title light ]">Dark</h3>
+						<div class="[ span xmall-12 medium-4 ]">
+							<div class="[ columna xmall-6 medium-12 ][ bg-dark ]">
+								<h3 class="[ padding--top ] [ sub-title light ] [ text-center ]">Dark</h3>
+							</div>
+							<div class="[ columna xmall-6 medium-12 ][ bg-dark-shade ]">
+								<h3 class="[ padding--top ] [ sub-title light ] [ text-center ]">Shade</h3>
+							</div>
 						</div>
-						<div class="[ columna xmall-12 medium-4 ][ cuadro light-dark ]">
-							<h3 class="[ padding--top ] [ sub-title dark ]">Light dark</h3>
+						<div class="[ span xmall-12 medium-4 ]">
+							<div class="[ columna xmall-6 medium-12 ][ bg-lighter-dark ]">
+								<h3 class="[ padding--top ] [ sub-title dark ] [ text-center ]">Light dark</h3>
+							</div>
+							<div class="[ columna xmall-6 medium-12 ][ bg-lighter-dark-shade ]">
+								<h3 class="[ padding--top ] [ sub-title dark ] [ text-center ]">Shade</h3>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -58,11 +90,22 @@
 				<!--  -->
 				<hr class="[ margin-bottom--large ]" />
 				<!-- ICONOS -->
-				<div class="[ span xmall-12 ]">
+				<div class="[ span xmall-12 ] [ margin-bottom--large ]">
 					<h3 class="[ sub-title dark ]">Iconos</h3>
 					<div class="[ bg-highlight ]">
-						<p class="[ padding light ]"><i class="fa fa-facebook"></i> <i class="fa fa-twitter"></i> <i class="fa fa-instagram"></i></p>
+						<p class="[ padding light ]"><i class="[ fa fa-facebook ] [ icon-medium ] [ light ]"></i> <i class="[ fa fa-twitter ] [ icon-medium ] [ light ]"></i> <i class="[ fa fa-instagram ] [ icon-medium ] [ light ]"></i></p>
 					</div>
+					<div class="">
+				    	<div><i class="[ icon-icon-dance ] [ icon-large ] [ highlight ]"></i> <i class="[ icon-icon-music-47 ] [ icon-large ] [ highlight ]"></i> <i class="[ icon-icon-theater ] [ icon-large ] [ highlight ]"></i></div>
+				    </div>
+				</div>
+				<!--  -->
+				<hr class="[ margin-bottom--large ]" />
+				<!-- BOTONES -->
+				<div class="[ span xmall-12 ] [ margin-bottom--large ]">
+					<h3 class="[ sub-title dark ]">Botones</h3>
+					<button class="[ button--small button--highlight ]">Más información</button>
+					<button class="[ button--small button-ink ]">Ver más <i class="[ fa fa-chevron-right ]"></i></button>
 				</div>
 				<!--  -->
 				<hr class="[ margin-bottom--large ]" />
@@ -81,7 +124,6 @@
 								<p class="[ highlight message ]">Error</p>
 							</div>
 						</form>
-						<p class="[ padding light ]"><i class="fa fa-facebook"></i> <i class="fa fa-twitter"></i> <i class="fa fa-instagram"></i></p>
 					</div>
 				</div>
 				<!--  -->
@@ -89,5 +131,9 @@
 		</div><!-- container -->
 		<footer>
 		</footer>
+		<script src="js/jquery.min.js" type="text/javascript"></script>
+		<script src="js/functions.min.js" type="text/javascript"></script>
+		<script src="js/plugins.min.js" type="text/javascript"></script>
+		<script src="jquery.mmenu.min.js" type="text/javascript"></script>
 	</body>
 </html>

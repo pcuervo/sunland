@@ -17,6 +17,8 @@
     background: transparent;
 }
 
+.button-ink{ color: @highlight; background: none; border: none; -webkit-appearance: none; }
+
 
 .button__share{ padding: @unidad (@unidad/4); }
 .button__share i{ font-size: 16px; }
@@ -33,8 +35,8 @@
     #SIZES
 \*------------------------------------*/
 .button--small{
-    padding: 6px 6px 4px 6px; border-width: 2px;
-    .font( 0.9em, 1 );
+    padding: 15px; 
+    .font( 1em, 1 );
 }
 
 .button--large{
@@ -57,4 +59,12 @@
 .button--dark{
     background: @dark;
     color: @light;
+}
+
+.button--highlight{
+    background: @highlight;
+    color: @light;
+    border: none;
+    .transition;
+    &:hover{ background-color: darken(@highlight, 10%); }
 }

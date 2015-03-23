@@ -12,7 +12,10 @@
 		/*------------------------------------*\
 			#Triggered events
 		\*------------------------------------*/
-
+		/* MENU MOVIL */
+	$(document).ready(function() {
+	    $("#sunland-mmenu").mmenu();
+	});
 
 
 

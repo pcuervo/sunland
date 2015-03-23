@@ -1,12 +1,9 @@
 /*
-  jQuery.mmenu CSS
+	jQuery.mmenu CSS
 */
 /*
-  jQuery.mmenu oncanvas CSS
+	jQuery.mmenu oncanvas CSS
 */
-#sunland-mmenu{  
-  background-color: @highlight;
-  color: @light; }
 .mm-hidden {
   display: none !important; }
 
@@ -18,15 +15,14 @@
 .mm-menu > .mm-panel {
   margin: 0;
   position: absolute;
+  left: 0;
   right: 0;
   top: 0;
   bottom: 0;
   z-index: 0; }
 
 .mm-menu {
-  width: 280px;
-  background: @highlight;
-  color: @light;
+  background: inherit;
   display: block;
   overflow: hidden;
   padding: 0; }
@@ -49,16 +45,15 @@
     -o-transform: translate3d(0%, 0, 0);
     transform: translate3d(0%, 0, 0); }
   .mm-panel.mm-subopened {
-    -webkit-transform: translate3d(-100%, 0, 0);
-    -moz-transform: translate3d(-100%, 0, 0);
-    -ms-transform: translate3d(-100%, 0, 0);
-    -o-transform: translate3d(-100%, 0, 0);
-    transform: translate3d(-100%, 0, 0); }
+    -webkit-transform: translate3d(-30%, 0, 0);
+    -moz-transform: translate3d(-30%, 0, 0);
+    -ms-transform: translate3d(-30%, 0, 0);
+    -o-transform: translate3d(-30%, 0, 0);
+    transform: translate3d(-30%, 0, 0); }
   .mm-panel.mm-highest {
     z-index: 1; }
 
 .mm-menu > .mm-panel {
-  width: 100%;
   background: inherit;
   -webkit-overflow-scrolling: touch;
   overflow: scroll;
@@ -109,7 +104,6 @@ li.mm-vertical.mm-opened > .mm-panel {
   transform: rotate(45deg); }
 
 .mm-header {
-  color: @light !important;
   border-bottom: 1px solid transparent;
   text-align: center;
   line-height: 20px;
@@ -214,8 +208,7 @@ li.mm-vertical.mm-opened > .mm-panel {
   margin-left: -20px;
   margin-right: -20px; }
   .mm-menu > .mm-panel > .mm-listview.mm-last {
-    padding-bottom: 20px; 
-    margin-top: 20px; }
+    padding-bottom: 20px; }
 
 .mm-prev:before,
 .mm-next:after {
@@ -290,7 +283,7 @@ li.mm-vertical.mm-opened > .mm-panel {
     background: rgba(0, 0, 0, 0.05); }
 
 /*
-  jQuery.mmenu offcanvas addon CSS
+	jQuery.mmenu offcanvas addon CSS
 */
 .mm-page {
   box-sizing: border-box;
@@ -333,12 +326,28 @@ html.mm-blocking #mm-blocker {
   display: block; }
 
 .mm-menu {
+  width: 80%;
   min-width: 140px;
   max-width: 440px; }
 
 html.mm-opening .mm-slideout {
-  -webkit-transform: translate(-280px, 0);
-  -moz-transform: translate(-280px, 0);
-  -ms-transform: translate(-280px, 0);
-  -o-transform: translate(-280px, 0);
-  transform: translate(-280px, 0); }
+  -webkit-transform: translate(80%, 0);
+  -moz-transform: translate(80%, 0);
+  -ms-transform: translate(80%, 0);
+  -o-transform: translate(80%, 0);
+  transform: translate(80%, 0); }
+
+@media all and (max-width: 175px) {
+  html.mm-opening .mm-slideout {
+    -webkit-transform: translate(140px, 0);
+    -moz-transform: translate(140px, 0);
+    -ms-transform: translate(140px, 0);
+    -o-transform: translate(140px, 0);
+    transform: translate(140px, 0); } }
+@media all and (min-width: 550px) {
+  html.mm-opening .mm-slideout {
+    -webkit-transform: translate(440px, 0);
+    -moz-transform: translate(440px, 0);
+    -ms-transform: translate(440px, 0);
+    -o-transform: translate(440px, 0);
+    transform: translate(440px, 0); } }
