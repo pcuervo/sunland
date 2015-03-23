@@ -20,17 +20,33 @@
 /**
  * Backgrounds
 **/
-.bg-light{ background-color: @light; }
-.bg-highlight{ background-color: @highlight; }
-.bg-dark{ background-color: @dark; }
-.bg-lighter-dark{ background-color: @lighter-dark; }
+.bg-light{ background-color: @light;
+	h2,h3,h4,p,i{ color: @dark; }
+}
+.bg-highlight{ background-color: @highlight; 
+	h2,h3,h4,p,i{ color: @light; }
+}
+.bg-dark{ background-color: @dark;
+	h2,h3,h4,p,i{ color: @light; }
+}
+.bg-lighter-dark{ background-color: @lighter-dark;
+	h2,h3,h4,p,i{ color: @dark; }
+}
 
 
 
 /**
  * Background Shades
 **/
-.bg-light-shade{ background-color: darken(@light, 10%); }
-.bg-highlight-shade{ background-color: darken(@highlight, 10%); }
-.bg-dark-shade{ background-color: darken(@dark, 10%); }
-.bg-lighter-dark-shade{ background-color: darken(@lighter-dark, 10%); }
+.bg-light-shade{ background-color: darken(@light, 10%); 
+	h2,h3,h4,p,i{ color: @dark; }
+}
+.bg-highlight-shade{ background-color: darken(@highlight, 10%);
+	h2,h3,h4,p,i{ color: @light; }
+}
+.bg-dark-shade{ background-color: darken(@dark, 10%);
+	h2,h3,h4,p,i{ color: @light; }
+}
+.bg-lighter-dark-shade{ background-color: darken(@lighter-dark, 10%);
+	h2,h3,h4,p,i{ color: @dark; }
+}
