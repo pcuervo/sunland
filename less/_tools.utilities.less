@@ -33,6 +33,13 @@
 .padding--large{ padding: (@unidad*2); }
 .padding--top{ padding-top: 100%; }
 
+.padding-bottom--none{ padding-bottom: 0; }
+.padding-bottom--small{ padding-bottom: 10%; }
+.padding-bottom--medium{ padding-bottom: 30%; }
+.padding-bottom--large{ padding-bottom: 50%; }
+.padding-bottom--xlarge{ padding-bottom: 70%; }
+.padding-bottom--full{ padding-bottom: 100%; }
+
 
 /**
  * Floats
@@ -98,6 +105,85 @@
 .bg-image{
 	background-size: cover !important; background-position: center center;
 	position: relative;
+}
+
+
+/**
+ * Responsive background images for photographies
+**/
+
+.fit-padding{
+	padding-bottom: 100%;
+}
+
+.main-tile{  
+	padding-bottom: 100%;
+}
+
+.secondary-tile{  
+	padding-bottom: 100%;
+}
+
+
+/*------------------------------------*\
+    #MEDIUM
+\*------------------------------------*/
+@media (min-width: @medium) {
+
+	.fit-padding{
+		padding-bottom: 50%;
+	}
+
+	.main-tile{  
+		padding-bottom: 100%;
+	}
+
+	.secondary-tile{  
+		padding-bottom: 50%;
+	}
+
+}
+
+
+
+/*------------------------------------*\
+    #EXTRA-MEDIUM
+\*------------------------------------*/
+@media (min-width: @xmedium) {
+
+	.fit-padding{
+		padding-bottom: 50%;
+	}
+
+	.main-tile{  
+		padding-bottom: 50%;
+	}
+
+	.secondary-tile{  
+		padding-bottom: 30%;
+	}
+
+}
+
+
+
+/*------------------------------------*\
+    #LARGE
+\*------------------------------------*/
+@media (min-width: @large) {
+
+	.fit-padding{
+		padding-bottom: 50%;
+	}
+
+	.main-tile{  
+		padding-bottom: 40%;
+	}
+
+	.secondary-tile{  
+		padding-bottom: 30%;
+	}
+
 }
 
 
