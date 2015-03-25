@@ -119,6 +119,19 @@
 
 
 
+/*------------------------------------*\
+    #INSTRUCTOR IMAGE
+\*------------------------------------*/
+
+.instructor-image{ 
+	div{ opacity: 0; }
+	&:hover{
+		div{ opacity: 1; .transition }
+		img{ opacity: .6; }
+	}
+}
+
+
 
 /*------------------------------------*\
     #MEDIUM
@@ -147,11 +160,11 @@
 		padding-bottom: calc( ~'100vh - 80px' );
 	}
 	.rectangle{
-		padding-bottom: calc( ~'50vh - 80px' );
+		padding-bottom: calc( ~'50vh - 100px' );
 	}
 
 	.full-height{
-		width: auto; height: calc( ~'100vh - 80px' );
+		width: auto; height: calc( ~'100vh - 100px' );
 	}
 
 }
@@ -167,6 +180,21 @@
 	/*------------------------------------*\
 	#MEDIA
 	\*------------------------------------*/
+	
+	/**
+	 * Relative to screen size
+	**/
+	.square{
+		padding-bottom: calc( ~'100vh - 120px' );
+	}
+	.rectangle{
+		padding-bottom: calc( ~'50vh - 120px' );
+	}
+
+	.full-height{
+		width: auto; height: calc( ~'100vh - 120px' );
+	}
+
 
 	.result{
 
