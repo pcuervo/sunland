@@ -1,7 +1,9 @@
 /*------------------------------------*\
 	#HEADER
 \*------------------------------------*/
-header{  }
+header{ 
+	height:100px;
+}
 
 h1{ 
 	z-index: 10;
@@ -31,3 +33,15 @@ h1{
 .bg-logo-wrapper--logo-name{
 	.img-retina('images/logo.png'; 'images/logo@2x.png';)
 }
+
+
+
+/*------------------------------------*\
+    #LARGE
+\*------------------------------------*/
+@media (min-width: @large) {
+
+	header{ height: 80px; }
+
+}
+
