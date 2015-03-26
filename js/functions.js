@@ -11,12 +11,33 @@
 		    $("#sunland-mmenu").mmenu();
 		});
 
+		/*ACCORDEON*/
+		function abrirAccordion(elemento){
+			var accordionBox = elemento.parent('.js-accordion-item').find('.js-accordion-box');
+			var icon = elemento.closest('.js-accordion-item').find('.drop');
+			if( accordionBox.hasClass('hide') ){
+				$('.js-accordion-item').find('.js-accordion-box').addClass('hide');
+				$('.js-accordion-item').find('.js-accordion-box').slideUp('300');
+				accordionBox.slideDown('300');
+				accordionBox.removeClass('hide');
+				$('.js-accordion-item').find('.drop').removeClass('up');
+				icon.addClass('up');
+			} else {
+				$('.js-accordion-item').find('.js-accordion-box').addClass('hide');
+				icon.removeClass('up');
+				$('.js-accordion-item').find('.js-accordion-box').slideUp('300');
+			}
+		}
+
 
 
 		/*------------------------------------*\
 			#Triggered events
 		\*------------------------------------*/
-		
+		$('body').on('click', '.js-accordion-item > .js-accordion-button', function(e){
+			e.preventDefault();
+			abrirAccordion( $(this) );
+		});
 
 
 

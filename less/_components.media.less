@@ -6,7 +6,7 @@
 /**
  * Absolute size
 **/
-.square, .rectangle, .full-height{
+.square, .rectangle, .full-height, .banner-height{
 	.transition();
 }
 
@@ -16,6 +16,8 @@
 .rectangle{
 	padding-bottom: 50%;
 }
+
+.banner-height{ padding-bottom: calc(50vh); }
 
 
 /**
@@ -30,8 +32,8 @@
 // }
 
 .full-height{
-		width: auto; height: calc( ~'100vh - 30vh' );
-	}
+	width: auto; height: calc( ~'100vh - 30vh' );
+}
 
 .media-link{
 	width: 100%; height: 100%;
