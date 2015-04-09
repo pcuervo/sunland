@@ -28,7 +28,6 @@
 	endwhile; endif; wp_reset_query();
 ?>
 	
-
 	<!-- Sunland Studios y Express -->
 	<section class="[ bg-dark ]">
 		<div class="[ wrapper ]">
@@ -39,10 +38,6 @@
 			</div>
 		</div>
 	</section>
-	<!--  -->
-
-	<!-- MAPA -->
-	<div id="map-canvas" style='width:100%; height:400px;'></div>
 	<!--  -->
 
 <?php 

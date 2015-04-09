@@ -152,7 +152,14 @@
 				<div class="[ span xmall-12 medium-6 ] [ margin-bottom--large ]">
 					<i class="[ icon-airplane ] [ icon-xtra-large ] [ highlight ] [ text-center center block ]"></i>
 					<h2 class="[ title highlight ] [ text-center ]">Sunland Express</h2>
-					<p class="[ padding text-center ]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vel nisi nec orci molestie pulvinar. Etiam quis molestie arcu. Suspendisse mollis sem eget nisi mattis cursus.</p>
+					<?php
+						$sunland_express_query = new WP_Query( 'pagename=sunland-express' );
+						if ( $sunland_express_query->have_posts() ) : $sunland_express_query->the_post(); 
+							$descripcion_home_express = get_post_meta( $post->ID, '_descripcion_home_express_meta', TRUE );
+						endif;
+						wp_reset_query();
+					?>
+					<p class="[ padding text-center ]"><?php echo $descripcion_home_express ?></p>
 					<div class="[ text-center ]">
 						<a href="<?php echo site_url() . '/sunland-express' ?>" class="[ button button--small button--highlight ] [ inline-block ]">más información</a>
 					</div>

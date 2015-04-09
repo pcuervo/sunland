@@ -8,14 +8,19 @@
 	add_action('add_meta_boxes', function(){
 		global $post;
 
-		if( 'info-general' == $post->post_name ) {
-			add_meta_box( 'social', 'Redes sociales', 'metabox_social', 'page', 'advanced', 'high' );
-			add_meta_box( 'telefono', 'Teléfonos', 'metabox_telefono', 'page', 'advanced', 'high' );
-			add_meta_box( 'email', 'E-mail de contacto', 'metabox_email', 'page', 'advanced', 'high' );
-			add_meta_box( 'direccion', 'Dirección', 'metabox_direccion', 'page', 'advanced', 'high' );
-			add_meta_box( 'motivo_contacto', 'Motivo de contacto', 'metabox_motivo_contacto', 'page', 'advanced', 'high' );
-
-			
+		switch ( $post->post_name ) {
+			case 'info-general':
+				add_meta_box( 'social', 'Redes sociales', 'metabox_social', 'page', 'advanced', 'high' );
+				add_meta_box( 'telefono', 'Teléfonos', 'metabox_telefono', 'page', 'advanced', 'high' );
+				add_meta_box( 'email', 'E-mail de contacto', 'metabox_email', 'page', 'advanced', 'high' );
+				add_meta_box( 'direccion', 'Dirección', 'metabox_direccion', 'page', 'advanced', 'high' );
+				add_meta_box( 'motivo_contacto', 'Motivo de contacto', 'metabox_motivo_contacto', 'page', 'advanced', 'high' );		
+				break;
+			case 'sunland-express':
+				add_meta_box( 'descripcion_home', 'Descripción página de inicio', 'metabox_home_express', 'page', 'advanced', 'high' );
+				break;
+			default:
+				break;
 		}
 		
 	});
@@ -112,6 +117,16 @@ echo <<<END
 END;
 	}// metabox_motivo_contacto
 
+	function metabox_home_express($post){
+		$descripcion_home_express = get_post_meta($post->ID, '_descripcion_home_express_meta', true);
+
+		wp_nonce_field(__FILE__, '_descripcion_home_express_meta_nonce');
+
+echo <<<END
+	<textarea type="text" class="widefat" name="_descripcion_home_express_meta">$descripcion_home_express</textarea>
+END;
+	}// metabox_home_express
+
 
 
 // SAVE METABOXES DATA ///////////////////////////////////////////////////////////////
@@ -175,6 +190,11 @@ END;
 		// Motivo de contacto
 		if ( isset($_POST['_motivo_contacto_meta']) and check_admin_referer(__FILE__, '_motivo_contacto_meta_nonce') ){
 			update_post_meta($post_id, '_motivo_contacto_meta', $_POST['_motivo_contacto_meta']);
+		}
+
+		// Descripción para home sobre Sunland Express
+		if ( isset($_POST['_descripcion_home_express_meta']) and check_admin_referer(__FILE__, '_descripcion_home_express_meta_nonce') ){
+			update_post_meta($post_id, '_descripcion_home_express_meta', $_POST['_descripcion_home_express_meta']);
 		}
 
 	});
