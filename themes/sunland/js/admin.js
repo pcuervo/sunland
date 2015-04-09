@@ -2,7 +2,7 @@
 
 
 
-	$('input#geo-autocomplete').geocomplete({
+	$('#geo-autocomplete').geocomplete({
 		details: "#post",
 		detailsAttribute: "data-geo"
 	});

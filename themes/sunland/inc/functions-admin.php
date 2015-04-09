@@ -13,7 +13,8 @@
 
 		// scripts
 		wp_enqueue_script( 'admin-js', JSPATH.'admin.js', array('jquery'), '1.0', true );
-
+		wp_enqueue_script( 'gmaps', JSPATH.'gmaps.min.js', array('jquery'), '1.0' );
+		wp_enqueue_script( 'geo-autocomplete', JSPATH.'geocomplete.min.js', array('gmaps'), '1.0' );
 		// localize scripts
 		wp_localize_script( 'admin-js', 'ajax_url', admin_url('admin-ajax.php') );
 

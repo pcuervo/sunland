@@ -26,12 +26,14 @@
 	require_once('inc/pages.php');
 	require_once('inc/users.php');
 	require_once('inc/functions-admin.php');
+	require_once('inc/functions-js-footer.php');
 
 
 
 
 
 // GENERAL ACTIONS //////////////////////////////////////////////////////////
+
 
 
 	/**
@@ -45,17 +47,23 @@
 
 		// localize scripts
 		wp_localize_script( 'functions', 'ajax_url', admin_url('admin-ajax.php') );
+		wp_localize_script( 'functions', 'site_url', site_url() );
+		wp_localize_script( 'functions', 'theme_url', THEMEPATH );
+
 
 		// styles
 		wp_enqueue_style( 'styles', get_stylesheet_uri() );
 
 	});
 
+	/**
+	* Add javascript to the footer of pages.
+	**/
+	add_action( 'wp_footer', 'footer_scripts', 21 );
 
 
 
-
-// HELPER METHODS AND FUNCTIONS //////////////////////////////////////////////////////
+// HELPER FUNCTIONS //////////////////////////////////////////////////////
 
 
 
@@ -74,6 +82,14 @@
 			echo ' | ' . sprintf( __( 'Página %s' ), max( $paged, $page ) );
 		}
 	}// print_title
+
+	
+
+
+
+// FORMAT FUNCTIONS //////////////////////////////////////////////////////
+
+
 
 	/**
 	 * Print the title tag based on what is being viewed.
@@ -94,6 +110,59 @@
 		}
 		return $materias;
 	}// get_formatted_materias
+
+
+
+
+// SET/GET FUNCTIONS //////////////////////////////////////////////////////
+
+
+
+	/**
+	 * Extract latitude and longitude from page 'Información general contacto'
+	 * @return array $coordinates {
+	 * 		@type string lat - Latitude
+	 *  	@type string lon - Longitude
+	 * }
+	*/
+	function get_map_coordinates(){
+		global $post;
+		$contact_info_query = new WP_Query( 'pagename=info-general' );
+		if ( $contact_info_query->have_posts() ) {
+			$contact_info_query->the_post(); 
+			$lat = get_post_meta( $post->ID, '_lat_meta', TRUE );
+			$lon = get_post_meta( $post->ID, '_lon_meta', TRUE );
+		}
+		wp_reset_query();
+
+		$coordinates = array(
+			'lat' => $lat,
+			'lon' => $lon,
+			);
+		return $coordinates;
+	}// get_map_coordinates
+
+	/**
+	 * Extract a specified meta data from 'Información general contacto'
+	 * @return string $metafield - The metabox value to be retrieved
+	*/
+	function get_info_general( $field ){
+		global $post;
+		$contact_info_query = new WP_Query( 'pagename=info-general' );
+		if ( $contact_info_query->have_posts() ) {
+			$contact_info_query->the_post(); 
+
+			switch ($field) {
+				case 'direccion':
+					return get_post_meta( $post->ID, '_direccion_meta', TRUE );
+					break;
+				default:
+					break;
+			}
+		}
+	}// get_info_general
+
+
 
 
 

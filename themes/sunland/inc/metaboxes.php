@@ -13,6 +13,8 @@
 			add_meta_box( 'telefono', 'Teléfonos', 'metabox_telefono', 'page', 'advanced', 'high' );
 			add_meta_box( 'email', 'E-mail de contacto', 'metabox_email', 'page', 'advanced', 'high' );
 			add_meta_box( 'direccion', 'Dirección', 'metabox_direccion', 'page', 'advanced', 'high' );
+			add_meta_box( 'motivo_contacto', 'Motivo de contacto', 'metabox_motivo_contacto', 'page', 'advanced', 'high' );
+
 			
 		}
 		
@@ -91,11 +93,24 @@ END;
 echo <<<END
 
 	<textarea class="widefat" id="geo-autocomplete" name="_direccion_meta">$direccion</textarea>
-	<input type="text" class="widefat" id="lat" name="_lat_meta" value="$lat" data-geo="lat" /><br/><br/>
-	<input type="text" class="widefat" id="lon" name="_lon_meta" value="$lon" data-geo="lng" /><br/><br/>
+	<input type="hidden" class="widefat" id="lat" name="_lat_meta" value="$lat" data-geo="lat" />
+	<input type="hidden" class="widefat" id="lon" name="_lon_meta" value="$lon" data-geo="lng" />
 
 END;
 	}// metabox_direccion
+
+	function metabox_motivo_contacto($post){
+		$motivo_contacto 	= get_post_meta($post->ID, '_motivo_contacto_meta', true);
+
+		wp_nonce_field(__FILE__, '_motivo_contacto_meta_nonce');
+
+echo <<<END
+
+	<label>Ingresa los motivos de contacto separado por comas (ej. Informes, Ayuda, Pasar a saludar...):</label>
+	<input type="text" class="widefat" name="_motivo_contacto_meta" value="$motivo_contacto" />
+
+END;
+	}// metabox_motivo_contacto
 
 
 
@@ -155,6 +170,11 @@ END;
 		}
 		if ( isset($_POST['_lon_meta']) and check_admin_referer(__FILE__, '_lon_meta_nonce') ){
 			update_post_meta($post_id, '_lon_meta', $_POST['_lon_meta']);
+		}
+
+		// Motivo de contacto
+		if ( isset($_POST['_motivo_contacto_meta']) and check_admin_referer(__FILE__, '_motivo_contacto_meta_nonce') ){
+			update_post_meta($post_id, '_motivo_contacto_meta', $_POST['_motivo_contacto_meta']);
 		}
 
 	});

@@ -14,7 +14,7 @@
 			<div class="row">
 				<div class="[ span xmall-12 ] [ center block ] [ margin-bottom--large ]">
 					<h2 class="[ title ] [ text-center ] [ margin-bottom ]">¿Por qué estudiar en Sunland?</h2>
-					<p class=" [ columna xmall-12 small-8 large-6 ] [ center block ] [ margin-bottom ] [ text-center ]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vel nisi nec orci molestie pulvinar. Etiam quis molestie arcu. Suspendisse mollis sem eget nisi mattis cursus. </p>
+					<p class=" [ columna xmall-12 small-8 large-6 ] [ center block ] [ margin-bottom ] [ text-center ]">Sunland School of the Arts es un espacio en el cual se puede aprender, crear y compartir la visión única que nos ofrecen las artes escénicas, a través de una amplia oferta académica de danza, música y teatro.</p>
 					<div class="[ text-center ]">
 						<a href="#" class="[ button button--small button--highlight ] [ inline-block ]">más información</a>
 					</div>
@@ -33,8 +33,8 @@
 			<div class="[ span xmall-12 medium-6 xmedium-4 large-3 ][ secondary-tile ] [ relative ]">
 				<div class="[ center-full ]">
 					<i class="[ icon-quote icon-large ][ text-center ] [ block ]"></i>
-					<p>La música es para el alma, lo que la gimnasia para el cuerpo.</p>
-					<p class="[ text-right ]">Platón</p>
+					<p>Como artistas, nuestra meta es cambiar al mundo</p>
+					<p class="[ text-right ]">Pussy Riot</p>
 				</div>
 			</div>
 		</div>
@@ -70,36 +70,36 @@
 				<div class="[ span xmall-10 ] [ center block ] [ margin-bottom ]">
 					<h2 class="[ title ] [ text-center ] [ padding ]">Nuestros instructores</h2>
 				</div>
-				<div class="[ span xmall-12 medium-4 ] [ padding ]">
-					<div class="[ bg-light ] [ relative ] [ instructor-image ]">
-						<div class="[ text-center ] [ center-full ] [ z-index-10 ]">
-							<a href="" class="[ button button--large button--highlight ]">ver perfil</a>
+				<?php 
+				$instructores_args = array(
+					'post_type' 		=> 'instructores',
+					'posts_per_page' 	=> -1,
+					'tax_query' => array(
+						array(
+							'taxonomy' => 'tipo-de-staff',
+							'field'    => 'slug',
+							'terms'    => array('talleres', 'diplomados'),
+						),
+					),
+				);
+				$query_instructores = new WP_Query( $instructores_args );
+				if ( $query_instructores->have_posts() ) : while ( $query_instructores->have_posts() ) : $query_instructores->the_post();
+
+					$instructor_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
+					$term_materias = wp_get_post_terms( $post->ID, 'materia', array('fields' => 'names') );
+					$materias = get_formatted_materias( $term_materias );
+				?>
+					<div class="[ span xmall-12 medium-4 ] [ padding ]">
+						<div class="[ bg-light ] [ relative ] [ instructor-image ]">
+							<div class="[ text-center ] [ center-full ] [ z-index-10 ]">
+								<a href="<?php the_permalink() ?>" class="[ button button--large button--highlight ]">ver perfil</a>
+							</div>
+							<img src="<?php echo $instructor_img_url[0] ?>" class="[ image-responsive ] [ margin-bottom ]">
 						</div>
-						<img src="<?php echo THEMEPATH ?>images/instructor-05.png" class="[ image-responsive ] [ margin-bottom ]">
+						<h2 class="[ sub-title ] [ ]"><?php the_title() ?></h2>
+						<p class="[  ]"><?php echo $materias; ?></p>
 					</div>
-					<h2 class="[ sub-title ] [ ]">Angélica Ibarra</h2>
-					<p class="[  ]">Coreografía</p>
-				</div>
-				<div class="[ span xmall-12 medium-4 ] [ padding ]">
-					<div class="[ bg-light ] [ relative ] [ instructor-image ]">
-						<div class="[ text-center ] [ center-full ] [ z-index-10 ]">
-							<a href="" class="[ button button--large button--highlight ]">ver perfil</a>
-						</div>
-						<img src="<?php echo THEMEPATH ?>images/instructor-04.png" class="[ image-responsive ] [ margin-bottom ]">
-					</div>
-					<h2 class="[ sub-title ] ">Carlos Lazo</h2>
-					<p class="">Teatro</p>
-				</div>
-				<div class="[ span xmall-12 medium-4 ] [ padding ]">
-					<div class="[ bg-light ] [ relative ] [ instructor-image ]">
-						<div class="[ text-center ] [ center-full ] [ z-index-10 ]">
-							<a href="" class="[ button button--large button--highlight ]">ver perfil</a>
-						</div>
-						<img src="<?php echo THEMEPATH ?>images/instructor-04.png" class="[ image-responsive ] [ margin-bottom ]">
-					</div>
-					<h2 class="[ sub-title ] ">Xchel Ruvalcabas</h2>
-					<p class="">Música</p>
-				</div>
+				<?php endwhile; endif; wp_reset_query(); ?>
 			</div>
 		</div>
 	</section><!-- INSTRUCTORES -->
@@ -151,16 +151,16 @@
 				</div>
 				<div class="[ span xmall-12 medium-6 ] [ margin-bottom--large ]">
 					<i class="[ icon-airplane ] [ icon-xtra-large ] [ highlight ] [ text-center center block ]"></i>
-					<h2 class="[ title highlight ] [ text-center ]">Sunland Studios</h2>
+					<h2 class="[ title highlight ] [ text-center ]">Sunland Express</h2>
 					<p class="[ padding text-center ]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vel nisi nec orci molestie pulvinar. Etiam quis molestie arcu. Suspendisse mollis sem eget nisi mattis cursus.</p>
 					<div class="[ text-center ]">
-						<a href="#" class="[ button button--small button--highlight ] [ inline-block ]">más información</a>
+						<a href="<?php echo site_url() . '/sunland-express' ?>" class="[ button button--small button--highlight ] [ inline-block ]">más información</a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section><!-- SUNLAND STUDIOS Y EXPRESS -->
 
-	<div id="map-canvas" style='width:100%; height:400px;'></div>
+	<div id="mapa" style="height:600px; width:100%"></div>
 	
 <?php get_footer(); ?>

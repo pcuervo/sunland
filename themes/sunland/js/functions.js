@@ -51,35 +51,36 @@
 /*------------------------------------*\
 	#FUNCTIONS
 \*------------------------------------*/
-function loadMap(){
+function loadMap(lat, lon, direccion){
 	var map;
 	function initialize() {
 		var mapOptions = {
 			zoom: 			14,
-			center: 		new google.maps.LatLng(19.470724, -99.171000),
+			center: 		new google.maps.LatLng(lat, lon),
 			draggable: 		false,
 			scrollwheel: 	false 
 		};
-	  	map = new google.maps.Map(document.getElementById('map-canvas'),
+	  	map = new google.maps.Map(document.getElementById('mapa'),
 	      mapOptions);
 
 	  	// Agregar marcador con imagen
-	  	var image = 'images/marker.png';
+	  	var image = theme_url+'images/marker.png';
 		var marker = new google.maps.Marker({
-			position: new google.maps.LatLng(19.419929, -99.171208),
+			position: new google.maps.LatLng(lat, lon),
 			map: map,
 			icon: image,
 			title: 'Sundland',
-			anchorPoint: new google.maps.Point(0, -50)
+			anchorPoint: new google.maps.Point(0, -60)
 		});
 
 		// Agregar InfoWindow
-		var contentString = '<div><h2 class="[ title ]">Sunland</h2><h3 class="[ sub-title dark ]">School of the Arts</h3></div><div><p>Cozumel #31, Col. Roma, Cuahtemoc, México D.F. CP: 06700</p></div>';
+		var contentString = '<div><h2 class="[ title ]">Sunland</h2><h3 class="[ sub-title dark ]">School of the Arts</h3></div><div><p>'+direccion+'</p></div>';
 		var infowindow = new google.maps.InfoWindow({
-			content: contentString
+			content: contentString,
+			maxWidth: 200
 		});
 
-		infowindow.open(map,marker);
+		infowindow.open(map, marker);
 
 	}
 
