@@ -1,0 +1,147 @@
+/*------------------------------------*\
+    #CALENDAR
+\*------------------------------------*/
+
+.calendario{
+	i{ margin: @unidad; color: @highlight; }
+}
+
+.fecha{
+	p{ color: @highlight; }
+}
+
+// Calendar elements
+
+.fc-calendar-container { width: 400px; height: 400px; position: relative;
+	.fc-calendar { width: 100%; height: 100%;
+		.fc-head { height: 30px; line-height: 30px; background: @highlight; color: #fff;}
+		.fc-body { width: 100%; height: 100%; height: -moz-calc(100% - 10px); height: -webkit-calc(100% - 10px); height: calc(100% - 10px); border: 1px solid #ddd; position: relative;  }
+		.fc-body, .fc-body:before, .fc-body:after{
+			-moz-box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+		.fc-row { width: 100%; border-bottom: 1px solid #ddd; }
+		.fc-row, .fc-row:before, .fc-row:after{
+			-moz-box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+	}
+
+	.fc-four-rows .fc-row { height: 25%; }
+	.fc-five-rows .fc-row { height: 20%; }
+	.fc-six-rows .fc-row {
+		height: 16.66%;
+		height: -moz-calc(100%/6);
+		height: -webkit-calc(100%/6);
+		height: calc(100%/6);
+	}
+	.fc-row {
+		> div, > div:before, > div:after{
+			-moz-box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+		> div { border-right: 1px solid #ddd; padding: 4px; overflow-y: scroll; position: relative;
+			> span.fc-date { font-weight: 700; color: #ddd; }
+			&.fc-today { background: @highlight; }
+			p{ margin: 0; font-size: 0.7em; line-height: 18px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; }
+		}
+		> div.fc-out { opacity: 0.6; }
+		&:last-child { border-bottom: none; }
+	}
+	.fc-row > div, .fc-head > div { height: 100%; position: relative; float: left;
+		width:  14.28%; /* 100% / 7 */
+		width: -moz-calc(100%/7);
+		width: -webkit-calc(100%/7);
+		width: calc(100%/7);
+		&:last-child { border-right: none; }
+	}
+	.fc-head > div { text-align: center; }
+}
+
+/* IE 9 is rounding up the calc it seems */
+.ie9 .fc-calendar .fc-row > div, .ie9 .fc-calendar .fc-head > div { width:  14.2%; }
+
+
+// Custom calendar elements
+
+.calendarioContainer{ margin: 50px auto 0 auto;
+	.custom-calendar-wrap { margin: 0; position: relative; overflow: hidden; }
+	.custom-inner { background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+		&:before, &:after { content: ''; width: 99%; height: 50%; background: #f6f6f6; box-shadow: 0 1px 3px rgba(0,0,0,0.2); position: absolute; bottom: -4px; left: 0.5%; z-index: -1; }
+		&:after{ content: ''; width: 98%; bottom: -7px; left: 1%; z-index: -2; }
+	}
+}
+
+.custom-header { padding: (@unidad/2); position: relative; background: darken(#fff, 5%);
+	h2, h3{ margin: 0; text-align: center; text-transform: uppercase; }
+	h2{ color: @highlight; font-weight: 300; font-size: 18px; }
+	h3 { font-size: 1em; font-weight: 700; color: @highlight; }
+	nav{ height: auto; }
+	nav span { width: 150px; height: 30px; margin: 0 1px; color: @highlight; cursor: pointer; font-size: 20px; line-height: 30px; position: absolute; top: 17px;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+
+		&:first-child { left: @unidad; }
+		&:last-child { right: @unidad; text-align: right; }
+		&:hover:before { color: @highlight; }
+		.texto{ display: inline-block; vertical-align: middle; font-size: 0.7em; }
+		.fa{ vertical-align: middle; }
+	}
+}
+
+
+.custom-content-reveal { width: 100%; height: 100%; padding: 20px; border: 1px solid #ddd; background: #fff; position: absolute; top: 100%; left: 0px; z-index: 100; .transition( all 0.6s ease-in-out );
+	.custom-content-close { width: 20px; height: 20px; padding: 0; position: absolute; top: 15px; right: 10px; text-align: center; background: @highlight; box-shadow: 0 1px 1px rgba(0,0,0,0.1); cursor: pointer; line-height: 13px;
+		&:after { content: 'x'; font-size: 18px; color: #fff; }
+	}
+	a, span { font-size: 22px; padding: 10px 30px; display: block; }
+	h4 { margin: 0 0 30px 0; padding: 20px; text-transform: uppercase; font-size: 1em; font-weight: 300; letter-spacing: 3px; color: #fff; background: @highlight; box-shadow: 0 1px rgba(255,255,255,0.9); }
+	span { color: #888; }
+	a { color: #ef4f69;
+		&:hover { color: #333;}
+	}
+	.evento{ width: 31%; height: 160px; margin: 0 1% 1% 1%; padding: 1em; border: 1px solid @highlight; overflow: hidden; float: left;
+		a{ display: inline; padding: 1em; font-size: 0.7em; color: @light; }
+	}
+	.evento-full{ width: 100%; height: 100%; padding: 1em; background: @light; position: absolute; top: 100%; left: 0px; z-index: 101; .transition( all 0.6s ease-in-out );
+		a{ padding: 0; font-size: 1em; color: @highlight; }
+	}
+}
+
+/* Modifications */
+
+.fc-calendar-container { width: 100%; height: 500px; font-family: 'Open Sans'; }
+.fc-calendar{
+	.fc-head { background: transparent; color: #ef4f69; font-weight: bold; text-transform: uppercase; font-size: 12px; }
+	.fc-row {
+		> div{ background: #fff; cursor: pointer;
+			&.fc-today { background: @highlight; box-shadow: inset 0 -1px 1px rgba(0,0,0,0.1);
+				> .fc-date { color: #fff; text-shadow: 0 1px 1px rgba(0,0,0,0.1); }
+			}
+			&.fc-content{
+				.evento{
+					.contenido{ display: none; }
+					.ubicacion{ display: none; }
+					.hora{ display: none; }
+					.boton{ display: none; }
+				}
+				.evento-header{
+					.titulo{ display: none; }
+				}
+				.evento-full{ display: none; }
+			}
+		}
+		&:empty{ background: transparent; }
+		.fc-date { color: #686a6e; font-weight: 400; pointer-events: none; }
+		> .fc-content{
+			//
+		}
+	}
+}
