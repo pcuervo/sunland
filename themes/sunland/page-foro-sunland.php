@@ -11,30 +11,40 @@
 		</div>
 	</div>
 
-	<!-- SUNLAND STUDIOS -->
+	<!-- FORO SUNLAND -->
 	<section class="[ wrapper ]">
 		<div class="[ row ]">
-			<div class="[ columna xmall-12 medium-9 large-7 ] [ margin-bottom ]">
-				<h2 class="[ title ]">Xchel Ruvalcabas</h2>
+			<div class="[ columna xmall-12 ] [ margin-bottom ]">
+				<h2 class="[ title ]"><?php the_title(); ?></h2>
 			</div>
-			<div class="[ columna xmall-12 medium-9 large-7 ]">
-				<p>Músico, baterista mexicano de 29 años con más de 11 años de experiencia en escenarios acompañando a artistas como  Von Smith, Pambo, Christian Chávez (RBD), Belinda, Liana, Marco Durán, Lila Downs, entre otros y perteneciendo a diferentes bandas de distintos estilos.</p>
-				<p>Ha tocado en diferentes conciertos, festivales y ferias a lo largo de toda la república mexicana. Ahora se estrena como líder de su propia banda en su primer disco como solista.</p>
-			</div>
-			<div class="[ xmall-12 margin-bottom--large ] [ clearfix ]">
-				<h2 class="title">Demos</h2>
-				<i class="[ icon-youtube-play ] [ icon-large ] [ highlight ]"></i> <i class="[ icon-youtube-play ] [ icon-large ] [ highlight ]"></i>
+			<div class="[ columna xmall-12 ]">
+				<p><?php the_content(); ?></p>
 			</div>
 		</div>
-	</section>
-	<!--  -->
+	</section><!-- SFORO UNLAND -->
+	
+	<!-- GALERÍA ESTÁTICA -->
+	<section class="[ wrapper ]">
+		<div class="[ row ]">
+			<div class="[ span xmall-12 margin-bottom--large ] [ clearfix ]">
+				<?php foreach ( $images as $image ) : ?>
+					<div class="[ columna xmall-12 medium-4 ]">
+						<?php 
+							$image_url = wp_get_attachment_url( $image->ID );
+						?>
+						<img src="<?php echo $image_url ?>" class="[ image-responsive ] [ margin-bottom ]">
+					</div>
+				<?php endforeach ?>
+			</div>
+		</div>
+	</section><!-- GALERÍA ESTÁTICA -->
 
 	<!-- CALL TO ACTION -->
 	<section class="[ bg-dark ]">
 		<div class="[ wrapper ]">
 			<div class="[ row ]">
 				<div class="[ span xmall-12 ] [ padding ] [ text-center ][ center block ]">
-					<h3 class="[ sub-title ] [ text-center ] [ inline-block align-middle ] [ padding ]">Conoce más acerca de Sunland Express</h2><div class="[ inline-block block align middle ] [ text-center ][ padding ]"><a href="#" class="[ button button--medium button--highlight ] [ padding ]">más información</a></div>
+					<h3 class="[ sub-title ] [ text-center ] [ inline-block align-middle ] [ padding ]">Conoce más acerca del Foro Sunland</h2><div class="[ inline-block block align middle ] [ text-center ][ padding ]"><a href="#" class="[ button button--medium button--highlight ] [ padding ]">más información</a></div>
 				</div>
 			</div>
 		</div>
