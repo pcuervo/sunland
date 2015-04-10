@@ -402,7 +402,19 @@
 	// }
 } )( jQuery, window );
 
-
+var evento = '<div class="[ evento ] [ clearfix ]"> \
+				<p class="titulo">- "+e.titulo+"</p> \
+				<p class="hora"><i class="fa fa-clock-o"></i> "+ hora +"</p> \
+				<a href="#" class="[ boton ] [ abrir-info ]">más info</a> \
+				<div class="[ evento-full ]"> \
+					<span class="custom-content-close"></span> \
+					<h4 class="titulo">"+e.titulo+"</h4> \
+					<p class="hora"><i class="fa fa-clock-o"></i> "+e.hora.to_s+"</p> \
+					<p class="contenido"><i class="fa fa-newspaper-o"></i> "+e.contenido+"</p> \
+					<p class="url"><i class="fa fa-link"></i> <a href=""+ url +"" target="_blank">"+ url +"</a></p> \
+					<p class="ubicacion"><i class="fa fa-map-marker"></i> "+e.ubicacion+"</p> \
+				</div> \
+			</div>';
 var calendarioEvents = {
-	'04-09-2015' : '<a href="http://tympanus.net/codrops/2012/11/23/three-script-updates/">Three Script Updates</a>',
+	'04-09-2015' : evento
 };
