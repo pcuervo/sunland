@@ -68,6 +68,37 @@
 		);
 		register_post_type( 'talleres', $args );
 
+		// EVENTOS
+		$labels = array(
+			'name'          => 'Eventos',
+			'singular_name' => 'Evento',
+			'add_new'       => 'Nuevo evento',
+			'add_new_item'  => 'Nuevo evento',
+			'edit_item'     => 'Editar evento',
+			'new_item'      => 'Nuevo evento',
+			'all_items'     => 'Todas',
+			'view_item'     => 'Ver evento',
+			'search_items'  => 'Buscar eventos',
+			'not_found'     => 'No se encontró',
+			'menu_name'     => 'Eventos'
+		);
+		$args = array(
+			'labels'             => $labels,
+			'public'             => true,
+			'publicly_queryable' => true,
+			'show_ui'            => true,
+			'show_in_menu'       => true,
+			'query_var'          => true,
+			'rewrite'            => array( 'slug' => 'eventos' ),
+			'capability_type'    => 'post',
+			'has_archive'        => true,
+			'hierarchical'       => false,
+			'menu_position'      => 6,
+			'taxonomies'         => array( 'category' ),
+			'supports'           => array( 'title', 'editor', 'thumbnail' )
+		);
+		register_post_type( 'eventos', $args );
+
 		// INSTRUCTORES
 		$labels = array(
 			'name'          => 'Instructores',

@@ -8,6 +8,7 @@
 	add_action('add_meta_boxes', function(){
 		global $post;
 
+		add_meta_box( 'fecha_evento', 'Fecha del evento', 'metabox_fecha_evento', 'eventos', 'advanced', 'high' );
 		switch ( $post->post_name ) {
 			case 'info-general':
 				add_meta_box( 'social', 'Redes sociales', 'metabox_social', 'page', 'advanced', 'high' );
@@ -45,13 +46,13 @@
 echo <<<END
 
 	<label>Facebook:</label>
-	<input type="text" class="widefat" id="lugar" name="_facebook_meta" value="$facebook" />
+	<input type="text" class="[ widefat ]" name="_facebook_meta" value="$facebook" />
 	<label>Twitter:</label>
-	<input type="text" class="widefat" id="lugar" name="_twitter_meta" value="$twitter" />
+	<input type="text" class="[ widefat ]" name="_twitter_meta" value="$twitter" />
 	<label>Instagram:</label>
-	<input type="text" class="widefat" id="lugar" name="_instagram_meta" value="$instagram" />
+	<input type="text" class="[ widefat ]" name="_instagram_meta" value="$instagram" />
 	<label>Youtube:</label>
-	<input type="text" class="widefat" id="lugar" name="_youtube_meta" value="$youtube" />
+	<input type="text" class="[ widefat ]" name="_youtube_meta" value="$youtube" />
 
 END;
 	}// metabox_social
@@ -66,9 +67,9 @@ END;
 echo <<<END
 
 	<label>Teléfono 1:</label>
-	<input type="text" class="widefat" id="lugar" name="_telefono1_meta" value="$telefono1" />
+	<input type="text" class="[ widefat ]" name="_telefono1_meta" value="$telefono1" />
 	<label>Teléfono 2:</label>
-	<input type="text" class="widefat" id="lugar" name="_telefono2_meta" value="$telefono2" />
+	<input type="text" class="[ widefat ]" name="_telefono2_meta" value="$telefono2" />
 
 END;
 	}// metabox_telefono
@@ -81,7 +82,7 @@ END;
 echo <<<END
 
 	<label>Email:</label>
-	<input type="text" class="widefat" id="lugar" name="_email_meta" value="$email" />
+	<input type="text" class="[ widefat ]" name="_email_meta" value="$email" />
 
 END;
 	}// metabox_email
@@ -97,9 +98,9 @@ END;
 
 echo <<<END
 
-	<textarea class="widefat" id="geo-autocomplete" name="_direccion_meta">$direccion</textarea>
-	<input type="hidden" class="widefat" id="lat" name="_lat_meta" value="$lat" data-geo="lat" />
-	<input type="hidden" class="widefat" id="lon" name="_lon_meta" value="$lon" data-geo="lng" />
+	<textarea class="[ widefat ]" id="geo-autocomplete" name="_direccion_meta">$direccion</textarea>
+	<input type="hidden" class="[ widefat ]" id="lat" name="_lat_meta" value="$lat" data-geo="lat" />
+	<input type="hidden" class="[ widefat ]" id="lon" name="_lon_meta" value="$lon" data-geo="lng" />
 
 END;
 	}// metabox_direccion
@@ -112,7 +113,7 @@ END;
 echo <<<END
 
 	<label>Ingresa los motivos de contacto separado por comas (ej. Informes, Ayuda, Pasar a saludar...):</label>
-	<input type="text" class="widefat" name="_motivo_contacto_meta" value="$motivo_contacto" />
+	<input type="text" class="[ widefat ]" name="_motivo_contacto_meta" value="$motivo_contacto" />
 
 END;
 	}// metabox_motivo_contacto
@@ -123,9 +124,26 @@ END;
 		wp_nonce_field(__FILE__, '_descripcion_home_express_meta_nonce');
 
 echo <<<END
-	<textarea type="text" class="widefat" name="_descripcion_home_express_meta">$descripcion_home_express</textarea>
+	<textarea type="text" class="[ widefat ]" name="_descripcion_home_express_meta">$descripcion_home_express</textarea>
 END;
 	}// metabox_home_express
+
+	function metabox_fecha_evento($post){
+		$dia = get_post_meta($post->ID, '_dia_meta', true);
+		$hora = get_post_meta($post->ID, '_hora_meta', true);
+
+		wp_nonce_field(__FILE__, '_dia_meta_nonce');
+		wp_nonce_field(__FILE__, '_hora_meta_nonce');
+
+echo <<<END
+
+	<label>Teléfono 1:</label>
+	<input type="text" class="[ widefat ][ js-datepicker ]" name="_dia_meta" value="$dia" />
+	<label>Teléfono 2:</label>
+	<input type="text" class="[ widefat ]" name="_hora_meta" value="$hora" />
+
+END;
+	}// metabox_fecha_evento
 
 
 
@@ -195,6 +213,11 @@ END;
 		// Descripción para home sobre Sunland Express
 		if ( isset($_POST['_descripcion_home_express_meta']) and check_admin_referer(__FILE__, '_descripcion_home_express_meta_nonce') ){
 			update_post_meta($post_id, '_descripcion_home_express_meta', $_POST['_descripcion_home_express_meta']);
+		}
+
+		// Fecha del evento en Foro Sunland
+		if ( isset($_POST['_fecha_evento_express_meta']) and check_admin_referer(__FILE__, '_fecha_evento_express_meta_nonce') ){
+			update_post_meta($post_id, '_fecha_evento_express_meta', $_POST['_fecha_evento_express_meta']);
 		}
 
 	});
