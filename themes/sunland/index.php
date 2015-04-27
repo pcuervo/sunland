@@ -1,4 +1,8 @@
+
+<?php require_once('functions.php'); ?>
+
 <?php get_header(); ?>
+
 	<!-- BANNER -->
 	<div class="[ bg-image ] [ margin-bottom--large ]" style="background-image: url(<?php echo THEMEPATH ?>images/danza-01.jpg)">
 		<div class="[ opacity-gradient square ]">
@@ -9,20 +13,31 @@
 	</div>
 	<!--  -->
 	<!-- ¿POR QUÉ SUNLAND? -->
-	<div class="[ row ] [ margin-bottom--large ]">
-		<div class="wrapper">
-			<div class="row">
-				<div class="[ span xmall-12 ] [ center block ] [ margin-bottom--large ]">
-					<h2 class="[ title ] [ text-center ] [ margin-bottom ]">¿Por qué estudiar en Sunland?</h2>
-					<p class=" [ columna xmall-12 small-8 large-6 ] [ center block ] [ margin-bottom ] [ text-center ]">Sunland School of the Arts es un espacio en el cual se puede aprender, crear y compartir la visión única que nos ofrecen las artes escénicas, a través de una amplia oferta académica de danza, música y teatro.</p>
-					<div class="[ text-center ]">
-						<a href="#" class="[ button button--small button--highlight ] [ inline-block ]">más información</a>
+
+	<?php 
+		$home_info_query = new WP_Query( 'pagename=info-home' );
+		if ( $home_info_query->have_posts() ) : $home_info_query->the_post(); 
+	?>
+   
+		   <div class="[ row ] [ margin-bottom--large ]">
+				<div class="wrapper">
+					<div class="row">
+						<div class="[ span xmall-12 ] [ center block ] [ margin-bottom--large ]">
+							<h2 class="[ title ] [ text-center ] [ margin-bottom ]"><?php the_title()?></h2>
+							<p class=" [ columna xmall-12 small-8 large-6 ] [ center block ] [ margin-bottom ] [ text-center ]"><?php the_content()?></p>
+							<div class="[ text-center ]">
+								<a href="#" class="[ button button--small button--highlight ] [ inline-block ]">más información</a>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</div><!-- ¿POR QUÉ SUNLAND? -->
-
+			</div><!-- ¿POR QUÉ SUNLAND? -->
+		     
+    <?php
+		endif;
+		wp_reset_query();
+	?>
+	
 	<!-- QUOTE -->
 	<section class="[ margin-bottom--large ] [ bg-highlight ]">
 		<div class="[ row ]">
@@ -171,3 +186,16 @@
 	<div id="mapa" style="height:600px; width:100%"></div>
 	
 <?php get_footer(); ?>
+
+
+
+
+
+
+
+
+
+
+
+
+

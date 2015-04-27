@@ -9,6 +9,7 @@
 		global $post;
 
 		add_meta_box( 'fecha_evento', 'Fecha del evento', 'metabox_fecha_evento', 'eventos', 'advanced', 'high' );
+		// echo $post->post_name;
 		switch ( $post->post_name ) {
 			case 'info-general':
 				add_meta_box( 'social', 'Redes sociales', 'metabox_social', 'page', 'advanced', 'high' );

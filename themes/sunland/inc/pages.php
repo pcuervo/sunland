@@ -66,4 +66,16 @@
 			wp_insert_post( $page, true );
 		}
 
+	    //  INFO HOME
+		if( ! get_page_by_path('info-home') ){
+			$page = array(
+				'post_author' => 1,
+				'post_status' => 'publish',
+				'post_title'  => '¿Por qué estudiar en Sunland?',
+				'post_name'   => 'info-home',
+				'post_type'   => 'page'
+			);
+			wp_insert_post( $page, true );
+		}
+
 	});
