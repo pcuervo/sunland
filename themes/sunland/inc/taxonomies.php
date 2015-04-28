@@ -87,7 +87,6 @@
 			);
 
 			register_taxonomy( 'tipo-de-staff', 'instructores', $args );
-			register_taxonomy( 'tipo-de-staff', 'testimonials', $args );
 		}
 
 		// MATERIA
@@ -115,7 +114,6 @@
 			);
 
 			register_taxonomy( 'materia', 'instructores', $args );
-			register_taxonomy( 'materia', 'testimonials', $args );
 
 		}
 		

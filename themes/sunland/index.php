@@ -11,14 +11,12 @@
 			</div>
 		</div>
 	</div>
-	<!--  -->
-	<!-- ¿POR QUÉ SUNLAND? -->
 
+	<!-- ¿POR QUÉ SUNLAND? -->
 	<?php 
 		$home_info_query = new WP_Query( 'pagename=info-home' );
 		if ( $home_info_query->have_posts() ) : $home_info_query->the_post(); 
 	?>
-   
 		   <div class="[ row ] [ margin-bottom--large ]">
 				<div class="wrapper">
 					<div class="row">
@@ -31,45 +29,38 @@
 						</div>
 					</div>
 				</div>
-			</div><!-- ¿POR QUÉ SUNLAND? -->
-		     
+			</div><!-- ¿POR QUÉ SUNLAND? -->     
     <?php
 		endif;
 		wp_reset_query();
 	?>
 	
 	<!-- QUOTE -->
-	<section class="[ margin-bottom--large ] [ bg-highlight ]">
-		<div class="[ row ]">
-			<div class="[ bg-image ][ span xmall-12 medium-6 xmedium-8 large-9 ]" style="background-image: url(<?php echo THEMEPATH ?>images/danza-01.jpg)">
-				<div class="[ opacity-gradient ] [ main-tile ]">
+	<?php 
+		$quote_args = array(
+			'post_type' 		=> 'testimonials',
+			'posts_per_page' 	=> 1,
+		);
+		$query_quotes = new WP_Query( $quote_args );
+		if ( $query_quotes->have_posts() ) : $query_quotes->the_post();
+			$quote_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
+	?>
+		<section class="[ margin-bottom--large ] [ bg-highlight ]">
+			<div class="[ row ]">
+				<div class="[ bg-image ][ span xmall-12 medium-6 xmedium-8 large-9 ]" style="background-image: url(<?php echo $quote_img_url[0]; ?>)">
+					<div class="[ opacity-gradient ] [ main-tile ]">
+					</div>
 				</div>
 				<div class="[ span xmall-12 medium-6 xmedium-4 large-3 ][ secondary-tile ] [ relative ]">
-					<?php 
-						$testimonials_args = array(
-							'post_type' 		=> 'testimonials',
-							'posts_per_page' 	=> -1,
-						);
-						$query_testimonials = new WP_Query( $testimonials_args );
-						if ( $query_testimonials->have_posts() ) : while ( $query_testimonials->have_posts() ) :$query_testimonials->the_post();
-
-							$testimonial_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
-							$term_materias = wp_get_post_terms( $post->ID, 'materia', array('fields' => 'names') );
-							$materias = get_formatted_materias( $term_materias );
-					?>
-							<div class="[ center-full ]">
-								<i class="[ icon-quote icon-large ][ text-center ] [ block ]"></i>
-								<!-- </div>
-									<img src="<?php echo $testimonial_img_url[0] ?>" class="[ image-responsive ] [ margin-bottom ]">
-								</div> -->									
-								<p><?php the_content() ?></p>
-								<p class="[ text-right ]"><p><?php the_title() ?></p>
-							</div>
-					   <?php endwhile;endif; wp_reset_query(); ?>
-			    </div>
-			 </div>
-		</div>
-	</section><!-- QUOTE —>
+					<div class="[ center-full ]">
+						<i class="[ icon-quote icon-large ][ text-center ] [ block ]"></i>
+						<p><?php the_content(); ?></p>
+						<p class="[ text-right ]"><?php the_title(); ?></p>
+					</div>
+				</div>
+			</div>
+		</section><!-- QUOTE -->
+	<?php endif; wp_reset_query(); ?>
 	
 	<!-- TALLERES -->
 	<section class="[ margin-bottom--large ]">
