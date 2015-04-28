@@ -141,29 +141,40 @@
 	<section class="[ bg-dark ]">
 		<div class="[ wrapper ]">
 			<div class="[ row ]">
-				<div class="[ span xmall-12 medium-6 ] [ margin-bottom--large ]">
-					<i class="[ icon-mic ] [ icon-xtra-large ] [ highlight ] [ text-center center block ]"></i>
-					<h2 class="[ title highlight ] [ text-center ]">Sunland Studios</h2>
-					<p class="[ padding text-center ]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vel nisi nec orci molestie pulvinar. Etiam quis molestie arcu. Suspendisse mollis sem eget nisi mattis cursus.</p>
-					<div class="[ text-center ]">
-						<a href="#" class="[ button button--small button--highlight ] [ inline-block ]">más información</a>
+				<?php
+					$sunland_studios_query = new WP_Query( 'pagename=sunland-studios' );
+					if ( $sunland_studios_query->have_posts() ) : $sunland_studios_query->the_post(); 
+						$descripcion_home_studios = get_post_meta( $post->ID, '_descripcion_home_studios_meta', TRUE );
+				?>
+					<div class="[ span xmall-12 medium-6 ] [ margin-bottom--large ]">
+						<i class="[ icon-mic ] [ icon-xtra-large ] [ highlight ] [ text-center center block ]"></i>
+						<h2 class="[ title highlight ] [ text-center ]"><?php the_title() ?></h2>
+							<p class="[ padding text-center ]"><?php echo $descripcion_home_studios ?></p>
+						<div class="[ text-center ]">
+							<a href="<?php echo site_url() . '/sunland-studios' ?>" class="[ button button--small button--highlight ] [ inline-block ]">más información</a>
+						</div>
 					</div>
-				</div>
-				<div class="[ span xmall-12 medium-6 ] [ margin-bottom--large ]">
-					<i class="[ icon-airplane ] [ icon-xtra-large ] [ highlight ] [ text-center center block ]"></i>
-					<h2 class="[ title highlight ] [ text-center ]">Sunland Express</h2>
-					<?php
-						$sunland_express_query = new WP_Query( 'pagename=sunland-express' );
-						if ( $sunland_express_query->have_posts() ) : $sunland_express_query->the_post(); 
-							$descripcion_home_express = get_post_meta( $post->ID, '_descripcion_home_express_meta', TRUE );
-						endif;
-						wp_reset_query();
-					?>
-					<p class="[ padding text-center ]"><?php echo $descripcion_home_express ?></p>
-					<div class="[ text-center ]">
-						<a href="<?php echo site_url() . '/sunland-express' ?>" class="[ button button--small button--highlight ] [ inline-block ]">más información</a>
-					</div>
-				</div>
+				<?php
+					endif;
+					wp_reset_query();
+
+					$sunland_express_query = new WP_Query( 'pagename=sunland-express' );
+					if ( $sunland_express_query->have_posts() ) : $sunland_express_query->the_post(); 
+						$descripcion_home_express = get_post_meta( $post->ID, '_descripcion_home_express_meta', TRUE );
+				?>
+						<div class="[ span xmall-12 medium-6 ] [ margin-bottom--large ]">
+							<i class="[ icon-airplane ] [ icon-xtra-large ] [ highlight ] [ text-center center block ]"></i>
+							
+							<h2 class="[ title highlight ] [ text-center ]"><?php the_title() ?></h2>
+							<p class="[ padding text-center ]"><?php echo $descripcion_home_express ?></p>
+							<div class="[ text-center ]">
+								<a href="<?php echo site_url() . '/sunland-express' ?>" class="[ button button--small button--highlight ] [ inline-block ]">más información</a>
+							</div>
+						</div>
+				<?php 
+					endif;
+					wp_reset_query();
+				?>
 			</div>
 		</div>
 	</section><!-- SUNLAND STUDIOS Y EXPRESS -->

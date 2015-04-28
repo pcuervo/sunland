@@ -20,7 +20,9 @@
 			case 'sunland-express':
 				add_meta_box( 'descripcion_home', 'Descripción página de inicio', 'metabox_home_express', 'page', 'advanced', 'high' );
 				break;
-			default:
+			case 'sunland-studios':
+				add_meta_box( 'descripcion_home_studios', 'Descripción página de inicio', 'metabox_home_studios', 'page', 'advanced', 'high' );
+				add_meta_box( 'horario_studios', 'Horarios', 'metabox_horario_studios', 'page', 'advanced', 'high' );
 				break;
 		}
 		
@@ -128,6 +130,86 @@ echo <<<END
 END;
 	}// metabox_home_express
 
+	function metabox_home_studios($post){
+		$descripcion_home_studios = get_post_meta($post->ID, '_descripcion_home_studios_meta', true);
+
+		wp_nonce_field(__FILE__, '_descripcion_home_studios_meta_nonce');
+
+echo <<<END
+	<textarea type="text" class="[ widefat ]" name="_descripcion_home_studios_meta">$descripcion_home_studios</textarea>
+END;
+	}// metabox_home_studios
+
+	function metabox_horario_studios($post){
+		$lunes_hi = get_post_meta($post->ID, '_lunes_hi_meta', true);
+		$lunes_hf = get_post_meta($post->ID, '_lunes_hf_meta', true);
+		$martes_hi = get_post_meta($post->ID, '_martes_hi_meta', true);
+		$martes_hf = get_post_meta($post->ID, '_martes_hf_meta', true);
+		$miercoles_hi = get_post_meta($post->ID, '_miercoles_hi_meta', true);
+		$miercoles_hf = get_post_meta($post->ID, '_miercoles_hf_meta', true);
+		$jueves_hi = get_post_meta($post->ID, '_jueves_hi_meta', true);
+		$jueves_hf = get_post_meta($post->ID, '_jueves_hf_meta', true);
+		$viernes_hi = get_post_meta($post->ID, '_viernes_hi_meta', true);
+		$viernes_hf = get_post_meta($post->ID, '_viernes_hf_meta', true);
+		$sabado_hi = get_post_meta($post->ID, '_sabado_hi_meta', true);
+		$sabado_hf = get_post_meta($post->ID, '_sabado_hf_meta', true);
+		$domingo_hi = get_post_meta($post->ID, '_domingo_hi_meta', true);
+		$domingo_hf = get_post_meta($post->ID, '_domingo_hf_meta', true);
+
+		wp_nonce_field(__FILE__, '_lunes_hi_meta_nonce');
+		wp_nonce_field(__FILE__, '_lunes_hf_meta_nonce');
+		wp_nonce_field(__FILE__, '_martes_hi_meta_nonce');
+		wp_nonce_field(__FILE__, '_martes_hf_meta_nonce');
+		wp_nonce_field(__FILE__, '_miercoles_hi_meta_nonce');
+		wp_nonce_field(__FILE__, '_miercoles_hf_meta_nonce');
+		wp_nonce_field(__FILE__, '_jueves_hi_meta_nonce');
+		wp_nonce_field(__FILE__, '_jueves_hf_meta_nonce');
+		wp_nonce_field(__FILE__, '_viernes_hi_meta_nonce');
+		wp_nonce_field(__FILE__, '_viernes_hf_meta_nonce');
+		wp_nonce_field(__FILE__, '_sabado_hi_meta_nonce');
+		wp_nonce_field(__FILE__, '_sabado_hf_meta_nonce');
+		wp_nonce_field(__FILE__, '_domingo_hi_meta_nonce');
+		wp_nonce_field(__FILE__, '_domingo_hf_meta_nonce');
+
+echo <<<END
+	<label>Lunes</label><br />
+	<label>Hora inicial:</label>
+	<input type="text" class="" name="_lunes_hi_meta" value="$lunes_hi">
+	<label>Hora final:</label>
+	<input type="text" class="" name="_lunes_hf_meta" value="$lunes_hf"><br /><br />
+	<label>Martes</label><br />
+	<label>Hora inicial:</label>
+	<input type="text" class="" name="_martes_hi_meta" value="$martes_hi">
+	<label>Hora final:</label>
+	<input type="text" class="" name="_martes_hf_meta" value="$martes_hf"><br /><br />
+	<label>Miécoles</label><br />
+	<label>Hora inicial:</label>
+	<input type="text" class="" name="_miercoles_hi_meta" value="$miercoles_hi">
+	<label>Hora final:</label>
+	<input type="text" class="" name="_miercoles_hf_meta" value="$miercoles_hf"><br /><br />
+	<label>Jueves</label><br />
+	<label>Hora inicial:</label>
+	<input type="text" class="" name="_jueves_hi_meta" value="$jueves_hi">
+	<label>Hora final:</label>
+	<input type="text" class="" name="_jueves_hf_meta" value="$jueves_hf"><br /><br />
+	<label>Viernes</label><br />
+	<label>Hora inicial:</label>
+	<input type="text" class="" name="_viernes_hi_meta" value="$viernes_hi">
+	<label>Hora final:</label>
+	<input type="text" class="" name="_viernes_hf_meta" value="$viernes_hf"><br /><br />
+	<label>Sábado</label><br />
+	<label>Hora inicial:</label>
+	<input type="text" class="" name="_sabado_hi_meta" value="$sabado_hi">
+	<label>Hora final:</label>
+	<input type="text" class="" name="_sabado_hf_meta" value="$sabado_hf"><br /><br />
+	<label>Domingo</label><br />
+	<label>Hora inicial:</label>
+	<input type="text" class="" name="_domingo_hi_meta" value="$domingo_hi">
+	<label>Hora final:</label>
+	<input type="text" class="" name="_domingo_hf_meta" value="$domingo_hf"><br /><br />
+END;
+	}// metabox_horario_studios
+
 	function metabox_fecha_evento($post){
 		$dia = get_post_meta($post->ID, '_dia_meta', true);
 		$hora = get_post_meta($post->ID, '_hora_meta', true);
@@ -137,9 +219,9 @@ END;
 
 echo <<<END
 
-	<label>Teléfono 1:</label>
+	<label>Día:</label>
 	<input type="text" class="[ widefat ][ js-datepicker ]" name="_dia_meta" value="$dia" />
-	<label>Teléfono 2:</label>
+	<label>Hora:</label>
 	<input type="text" class="[ widefat ]" name="_hora_meta" value="$hora" />
 
 END;
@@ -215,10 +297,66 @@ END;
 			update_post_meta($post_id, '_descripcion_home_express_meta', $_POST['_descripcion_home_express_meta']);
 		}
 
-		// Fecha del evento en Foro Sunland
-		if ( isset($_POST['_fecha_evento_express_meta']) and check_admin_referer(__FILE__, '_fecha_evento_express_meta_nonce') ){
-			update_post_meta($post_id, '_fecha_evento_express_meta', $_POST['_fecha_evento_express_meta']);
+		// Descripción para home sobre Sunland Express
+		if ( isset($_POST['_descripcion_home_studios_meta']) and check_admin_referer(__FILE__, '_descripcion_home_studios_meta_nonce') ){
+			update_post_meta($post_id, '_descripcion_home_studios_meta', $_POST['_descripcion_home_studios_meta']);
 		}
+
+		// Fecha del evento en Foro Sunland
+		if ( isset($_POST['_dia_meta']) and check_admin_referer(__FILE__, '_dia_meta_nonce') ){
+			update_post_meta($post_id, '_dia_meta', $_POST['_dia_meta']);
+		}
+		if ( isset($_POST['_hora_meta']) and check_admin_referer(__FILE__, '_hora_meta_nonce') ){
+			update_post_meta($post_id, '_hora_meta', $_POST['_hora_meta']);
+		}
+
+		// Horario de Foro Sunland
+		if ( isset($_POST['_lunes_hi_meta']) and check_admin_referer(__FILE__, '_lunes_hi_meta_nonce') ){
+			update_post_meta($post_id, '_lunes_hi_meta', $_POST['_lunes_hi_meta']);
+		}
+		if ( isset($_POST['_lunes_hf_meta']) and check_admin_referer(__FILE__, '_lunes_hf_meta_nonce') ){
+			update_post_meta($post_id, '_lunes_hf_meta', $_POST['_lunes_hf_meta']);
+		}
+		if ( isset($_POST['_martes_hi_meta']) and check_admin_referer(__FILE__, '_martes_hi_meta_nonce') ){
+			update_post_meta($post_id, '_martes_hi_meta', $_POST['_martes_hi_meta']);
+		}
+		if ( isset($_POST['_martes_hf_meta']) and check_admin_referer(__FILE__, '_martes_hf_meta_nonce') ){
+			update_post_meta($post_id, '_martes_hf_meta', $_POST['_martes_hf_meta']);
+		}
+		if ( isset($_POST['_miercoles_hi_meta']) and check_admin_referer(__FILE__, '_miercoles_hi_meta_nonce') ){
+			update_post_meta($post_id, '_miercoles_hi_meta', $_POST['_miercoles_hi_meta']);
+		}
+		if ( isset($_POST['_miercoles_hf_meta']) and check_admin_referer(__FILE__, '_miercoles_hf_meta_nonce') ){
+			update_post_meta($post_id, '_miercoles_hf_meta', $_POST['_miercoles_hf_meta']);
+		}
+		if ( isset($_POST['_jueves_hi_meta']) and check_admin_referer(__FILE__, '_jueves_hi_meta_nonce') ){
+			update_post_meta($post_id, '_jueves_hi_meta', $_POST['_jueves_hi_meta']);
+		}
+		if ( isset($_POST['_jueves_hf_meta']) and check_admin_referer(__FILE__, '_jueves_hf_meta_nonce') ){
+			update_post_meta($post_id, '_jueves_hf_meta', $_POST['_jueves_hf_meta']);
+		}
+		if ( isset($_POST['_viernes_hi_meta']) and check_admin_referer(__FILE__, '_viernes_hi_meta_nonce') ){
+			update_post_meta($post_id, '_viernes_hi_meta', $_POST['_viernes_hi_meta']);
+		}
+		if ( isset($_POST['_viernes_hf_meta']) and check_admin_referer(__FILE__, '_viernes_hf_meta_nonce') ){
+			update_post_meta($post_id, '_viernes_hf_meta', $_POST['_viernes_hf_meta']);
+		}
+		if ( isset($_POST['_sabado_hi_meta']) and check_admin_referer(__FILE__, '_sabado_hi_meta_nonce') ){
+			update_post_meta($post_id, '_sabado_hi_meta', $_POST['_sabado_hi_meta']);
+		}
+		if ( isset($_POST['_sabado_hf_meta']) and check_admin_referer(__FILE__, '_sabado_hf_meta_nonce') ){
+			update_post_meta($post_id, '_sabado_hf_meta', $_POST['_sabado_hf_meta']);
+		}
+		if ( isset($_POST['_domingo_hi_meta']) and check_admin_referer(__FILE__, '_domingo_hi_meta_nonce') ){
+			update_post_meta($post_id, '_domingo_hi_meta', $_POST['_domingo_hi_meta']);
+		}
+		if ( isset($_POST['_domingo_hf_meta']) and check_admin_referer(__FILE__, '_domingo_hf_meta_nonce') ){
+			update_post_meta($post_id, '_domingo_hf_meta', $_POST['_domingo_hf_meta']);
+		}
+		
+		
+		
+	
 
 	});
 

@@ -1,58 +1,19 @@
-(function($){
-	"use strict";
-	$(function(){
-
-		/*------------------------------------*\
-			#ON LOAD
-		\*------------------------------------*/
-		
-		/* MENU MOVIL */
-		$(document).ready(function() {
-		    $("#sunland-mmenu").mmenu();
-		});
-
-		/*ACCORDEON*/
-		function abrirAccordion(elemento){
-			var accordionBox = elemento.parent('.js-accordion-item').find('.js-accordion-box');
-			var icon = elemento.closest('.js-accordion-item').find('.drop');
-			if( accordionBox.hasClass('hide') ){
-				$('.js-accordion-item').find('.js-accordion-box').addClass('hide');
-				$('.js-accordion-item').find('.js-accordion-box').slideUp('300');
-				accordionBox.slideDown('300');
-				accordionBox.removeClass('hide');
-				$('.js-accordion-item').find('.drop').removeClass('up');
-				icon.addClass('up');
-			} else {
-				$('.js-accordion-item').find('.js-accordion-box').addClass('hide');
-				icon.removeClass('up');
-				$('.js-accordion-item').find('.js-accordion-box').slideUp('300');
-			}
-		}
-
-
-
-		/*------------------------------------*\
-			#Triggered events
-		\*------------------------------------*/
-		$('body').on('click', '.js-accordion-item > .js-accordion-button', function(e){
-			e.preventDefault();
-			abrirAccordion( $(this) );
-		});
-
-
-
-		/*------------------------------------*\
-			#RESPONSIVE
-		\*------------------------------------*/
-
-	});
-})(jQuery);
+var $=jQuery.noConflict();
 
 /*------------------------------------*\
 	#FUNCTIONS
 \*------------------------------------*/
-function loadMap(lat, lon, direccion){
+
+/**
+ * Load Google Map
+ * @param {String} lat
+ * @param {String} lon
+ * @param {String} address
+ */
+function loadMap(lat, lon, address){
 	var map;
+
+	// Initialize map with given data.
 	function initialize() {
 		var mapOptions = {
 			zoom: 			14,
@@ -74,7 +35,7 @@ function loadMap(lat, lon, direccion){
 		});
 
 		// Agregar InfoWindow
-		var contentString = '<div><h2 class="[ title ]">Sunland</h2><h3 class="[ sub-title dark ]">School of the Arts</h3></div><div><p>'+direccion+'</p></div>';
+		var contentString = '<div><h2 class="[ title ]">Sunland</h2><h3 class="[ sub-title dark ]">School of the Arts</h3></div><div><p>'+address+'</p></div>';
 		var infowindow = new google.maps.InfoWindow({
 			content: contentString,
 			maxWidth: 200
@@ -88,3 +49,84 @@ function loadMap(lat, lon, direccion){
 	google.maps.event.addDomListener(window, 'load', initialize);
 	
 }// loadMap
+
+/**
+ * Initializes calendar 
+ * @param {JSON} calendarioEvents
+ */
+function initializeCalendar( calendarioEvents ){
+
+	console.log( calendarioEvents );
+	//Calendario Foro
+	var transEndEventNames = {
+			'WebkitTransition' 	: 'webkitTransitionEnd',
+			'MozTransition' 	: 'transitionend',
+			'OTransition' 		: 'oTransitionEnd',
+			'msTransition' 		: 'MSTransitionEnd',
+			'transition' 		: 'transitionend'
+		},
+		transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ],
+		$wrapper = $( '#custom-inner' ),
+		$calendar = $( '#calendar' ),
+		cal = $calendar.calendario( {
+			onDayClick : function( $el, $contentEl, dateProperties ) {
+				if( $contentEl.length > 0 ) {
+					showEvents( $contentEl, dateProperties );
+				}
+			},
+			caldata : calendarioEvents,
+			displayWeekAbbr : true
+		}),
+		$month = $( '#custom-month' ).html( cal.getMonthName() ),
+		$year = $( '#custom-year' ).html( cal.getYear() );
+	$( '#custom-next' ).on( 'click', function() {
+		cal.gotoNextMonth( updateMonthYear );
+	} );
+	$( '#custom-prev' ).on( 'click', function() {
+		cal.gotoPreviousMonth( updateMonthYear );
+	} );
+
+	function updateMonthYear() {
+		$month.html( cal.getMonthName() );
+		$year.html( cal.getYear() );
+	}
+
+	function showEvents( $contentEl, dateProperties ) {
+		hideEvents();
+		var $events = $( '<div id="custom-content-reveal" class="custom-content-reveal"><h4>' + dateProperties.monthname + ' ' + dateProperties.day + ', ' + dateProperties.year + '</h4></div>' ),
+			$close = $( '<span class="custom-content-close"></span>' ).on( 'click', hideEvents );
+		$events.append( $contentEl.html() , $close ).insertAfter( $wrapper );
+		setTimeout( function() {
+			$events.css( 'top', '0%' );
+		}, 25 );
+	}
+
+	function hideEvents() {
+		var $events = $( '#custom-content-reveal' );
+		if( $events.length > 0 ) {
+			$events.css( 'top', '100%' );
+			Modernizr.csstransitions ? $events.on( transEndEventName, function() { $( this ).remove(); } ) : $events.remove();
+		}
+	}
+}// initializeCalendar
+
+/**
+ * Open accordion for a given element.
+ * @param {HTML Element} elemento
+ */
+function openAccordion(elemento){
+	var accordionBox = elemento.parent('.js-accordion-item').find('.js-accordion-box');
+	var icon = elemento.closest('.js-accordion-item').find('.drop');
+	if( accordionBox.hasClass('hide') ){
+		$('.js-accordion-item').find('.js-accordion-box').addClass('hide');
+		$('.js-accordion-item').find('.js-accordion-box').slideUp('300');
+		accordionBox.slideDown('300');
+		accordionBox.removeClass('hide');
+		$('.js-accordion-item').find('.drop').removeClass('up');
+		icon.addClass('up');
+	} else {
+		$('.js-accordion-item').find('.js-accordion-box').addClass('hide');
+		icon.removeClass('up');
+		$('.js-accordion-item').find('.js-accordion-box').slideUp('300');
+	}
+}// openAccordion
