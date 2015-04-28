@@ -14,6 +14,28 @@
 					"use strict";
 					$(function(){
 
+						/*------------------------------------*\
+							#ALL PAGES
+						\*------------------------------------*/
+
+						/**
+						 * On load
+						**/
+
+						// Toggle mobile menu
+						$("#sunland-mmenu").mmenu();
+
+						/**
+						 * Triggered events
+						**/
+
+						$('body').on('click', '.js-accordion-item > .js-accordion-button', function(e){
+							e.preventDefault();
+							openAccordion( $(this) );
+						});
+
+
+
 						<?php
 						if( 'contacto' == $post->post_name || is_home() ) {
 							$coord = get_map_coordinates();
@@ -26,8 +48,6 @@
 
 
 
-
-
 						<?php if ( is_page('foro-sunland') ) { ?>
 							/*------------------------------------*\
 								#PAGE FORO SUNLAND
@@ -36,57 +56,27 @@
 							/**
 							 * On load
 							**/
+						<?php
+							$eventos = get_events();
+						?>
+							var evento_php = <?php echo $eventos ?>;
+							var evento = '"<div class="[ evento ] [ clearfix ]"> \
+							<p class="titulo">- Jazz Alternativo</p> \
+							<p class="hora"><i class="fa fa-clock-o"></i> </p> \
+							<a href="#" class="[ boton ] [ abrir-info ]">más info</a> \
+							<div class="[ evento-full ]"> \
+							<span class="custom-content-close"></span> \
+							<h4 class="titulo">Jazz Alternativo</h4> \
+							<p class="hora"><i class="fa fa-clock-o"></i> 9am</p> \
+							<p class="contenido"><i class="fa fa-newspaper-o"></i> Si mire le puedo mostrar lo que es el jazz alternativo.</p> \
+							<p class="url"><i class="fa fa-link"></i> <a href="http://localhost:8888/sunland/eventos/jazz-alternativo/" target="_blank"></a></p>  \
+								</div> \
+							</div>"';
+							var calendarioEvents = {
+								'04-09-2015' : evento
+							};
 
-							//Calendario Foro
-							console.log('//');
-
-							var transEndEventNames = {
-									'WebkitTransition' 	: 'webkitTransitionEnd',
-									'MozTransition' 	: 'transitionend',
-									'OTransition' 		: 'oTransitionEnd',
-									'msTransition' 		: 'MSTransitionEnd',
-									'transition' 		: 'transitionend'
-								},
-								transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ],
-								$wrapper = $( '#custom-inner' ),
-								$calendar = $( '#calendar' ),
-								cal = $calendar.calendario( {
-									onDayClick : function( $el, $contentEl, dateProperties ) {
-										if( $contentEl.length > 0 ) {
-											showEvents( $contentEl, dateProperties );
-										}
-									},
-									caldata : calendarioEvents,
-									displayWeekAbbr : true
-								}),
-								$month = $( '#custom-month' ).html( cal.getMonthName() ),
-								$year = $( '#custom-year' ).html( cal.getYear() );
-							$( '#custom-next' ).on( 'click', function() {
-								cal.gotoNextMonth( updateMonthYear );
-							} );
-							$( '#custom-prev' ).on( 'click', function() {
-								cal.gotoPreviousMonth( updateMonthYear );
-							} );
-							function updateMonthYear() {
-								$month.html( cal.getMonthName() );
-								$year.html( cal.getYear() );
-							}
-							function showEvents( $contentEl, dateProperties ) {
-								hideEvents();
-								var $events = $( '<div id="custom-content-reveal" class="custom-content-reveal"><h4>' + dateProperties.monthname + ' ' + dateProperties.day + ', ' + dateProperties.year + '</h4></div>' ),
-									$close = $( '<span class="custom-content-close"></span>' ).on( 'click', hideEvents );
-								$events.append( $contentEl.html() , $close ).insertAfter( $wrapper );
-								setTimeout( function() {
-									$events.css( 'top', '0%' );
-								}, 25 );
-							}
-							function hideEvents() {
-								var $events = $( '#custom-content-reveal' );
-								if( $events.length > 0 ) {
-									$events.css( 'top', '100%' );
-									Modernizr.csstransitions ? $events.on( transEndEventName, function() { $( this ).remove(); } ) : $events.remove();
-								}
-							}
+							initializeCalendar( evento_php );
 
 							/**
 							 * Triggered events

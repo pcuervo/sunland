@@ -83,6 +83,42 @@
 		}
 	}// print_title
 
+	/**
+	 * Return the name of a month in Spanish
+	 * @param string $month - Number of month
+	 * @return string $month_name - The name of a month in Spanish
+	 */
+	function get_month_name( $month ){
+
+		switch ( $month ) {
+			case 1:
+				return 'enero';
+			case 2:
+				return 'febrero';
+			case 3:
+				return 'marzo';
+			case 4:
+				return 'abril';
+			case 5:
+				return 'mayo';
+			case 6:
+				return 'junio';
+			case 7:
+				return 'julio';
+			case 8:
+				return 'agosto';
+			case 9:
+				return 'septiembre';
+			case 10:
+				return 'octubre';
+			case 11:
+				return 'noviembre';
+			default:
+				return 'diciembre';
+		}// switch
+
+	}// get_month_name	
+
 	
 
 
@@ -92,11 +128,12 @@
 
 
 	/**
-	 * Print the title tag based on what is being viewed.
+	 * Separates a group of "subjects" with AND (y) and commas (,).
 	 * @param array $materias_arr - Materias belonging to an instructor
 	 * @return string $materias - Materias separated by commas and 'y'
 	 */
 	function get_formatted_materias( $materias_arr ){
+
 		$materias = '';
 		foreach ($materias_arr as $key => $materia) {
 			if( count( $materias_arr ) > 1 && $key + 1 == count( $materias_arr ) ){
@@ -109,7 +146,53 @@
 			}			
 		}
 		return $materias;
+
 	}// get_formatted_materias
+
+	/**
+	 * Converts date from YYYY-MM-DD format to readable date (with months in Spanish)
+	 * @param string $date - A date in YYYY-MM-DD format
+	 * @return string $formatted_date - Date in Spanish
+	 */
+	function get_formatted_event_date( $date ){
+
+		$date_arr = explode('-', $date);
+		$day = $date_arr[2];
+		$month = get_month_name( $date_arr[1] );
+		$year = $date_arr[0];
+
+		return $day . ' de ' . $month . ', ' . $year;
+
+	}// get_formatted_event_date
+
+	/**
+	 * Create a HTML event for a calendar.
+	 * @param string $date - Date of the event
+	 * @param string $time - Time of the event
+	 * @param string $title - Title of the event
+	 * @param string $content - Content of the event
+	 * @param string $permalink - Permalink of the event
+	 * @return string $html_event - HTML event to display in calendar
+	 */
+	function get_event_html_format( $date, $time, $title, $content, $permalink ){
+
+		$html_event = 
+			'<div class="[ evento ] [ clearfix ]">
+				<p class="titulo">- ' . $title . '</p>
+				<p class="hora"><i class="fa fa-clock-o"></i> ' . $hora . '</p> 
+				<a href="#" class="[ boton ] [ abrir-info ]">más info</a> 
+				<div class="[ evento-full ]"> 
+					<span class="custom-content-close"></span> 
+					<h4 class="titulo">' . $title . '</h4> 
+					<p class="hora"><i class="fa fa-clock-o"></i> ' . $time . '</p> 
+					<p class="contenido"><i class="fa fa-newspaper-o"></i> ' . $content . '</p> 
+					<p class="url"><i class="fa fa-link"></i> <a href="' . $permalink . '" target="_blank">"+ url +"</a></p>  
+				</div> 
+			</div>';
+
+		return $html_event;
+
+	}// get_event_html_format
 
 
 
@@ -162,6 +245,35 @@
 		}
 	}// get_info_general
 
+	/**
+	 * Get events for Foro Sunland
+	 * @return JSON $events - The events in JSON format
+	*/
+	function get_events(){
+		global $post;
+		$json_events = array();
+
+		$args = array(
+			'post_type' 		=> 'eventos',
+			'posts_per_page' 	=> -1
+		);
+		$query_eventos = new WP_Query( $args );
+		if ( $query_eventos->have_posts() ) : while ( $query_eventos->have_posts() ) : $query_eventos->the_post();
+
+			$date = get_post_meta( $post->ID, '_dia_meta', TRUE );
+			$time = get_post_meta( $post->ID, '_hora_meta', TRUE );
+			$date_arr = explode('-', $date);
+			$new_date_format = $date_arr[1] . '-' . $date_arr[2] . '-' . $date_arr[0];
+
+			$html_evento = get_event_html_format( $new_date_format, $time, get_the_title(), get_the_content(), get_permalink( ) ); 
+			$json_events[$new_date_format] = $html_evento;
+
+		endwhile; endif;
+		wp_reset_query();
+
+		return wp_json_encode( $json_events );
+
+	}// get_upcoming_events
 
 
 

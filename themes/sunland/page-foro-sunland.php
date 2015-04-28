@@ -25,9 +25,6 @@
 		</div><!-- wrapper -->
 	</section> <!-- INFO -->
 
-
-
-
 	<!-- GALERÍA ESTÁTICA -->
 	<section class="[ wrapper ]">
 		<div class="[ row ]">
@@ -43,9 +40,6 @@
 			</div>
 		</div>
 	</section><!-- GALERÍA ESTÁTICA -->
-
-
-
 
 	<!-- CALENDAR -->
 	<section class="[ calendar ][ margin-bottom--large ]">
@@ -68,9 +62,33 @@
 		</div><!-- wrapper -->
 	</section> <!-- CALENDAR -->
 
+	<!-- EVENTOS -->
+	<section class="[ wrapper ]">
+		<div class="[ row ]">
+			<div class="[ span xmall-12 margin-bottom--large ] [ clearfix ]">
+				<h2 class="[ dark ][ margin-bottom ]">Eventos próximos</h2>
+				<?php 
+					$args = array(
+						'post_type' 		=> 'eventos',
+						'posts_per_page' 	=> -1
+					);
+					$query_eventos = new WP_Query( $args );
+					if ( $query_eventos->have_posts() ) : while ( $query_eventos->have_posts() ) : $query_eventos->the_post();
 
+						$dia = get_post_meta( $post->ID, '_dia_meta', TRUE );
+						$date = ( ! empty( $dia ) ) ? get_formatted_event_date( $dia ) : '';
 
-
+				?>
+						<h2><?php echo the_title(); ?></h2>
+						<h3 class="[ dark ]"><?php echo $date; ?></h3>
+						<p><?php the_content(); ?></p>
+						<a href="<?php the_permalink() ?>" class="[ button button--small button-ink ] [ inline-block ]">Ver más <i class="[ fa fa-chevron-right ]"></i></a>
+				<?php
+					endwhile; endif; wp_reset_query();
+				?>
+			</div>
+		</div>
+	</section><!-- EVENTOS -->
 
 	<!-- CALL TO ACTION -->
 	<section class="[ bg-dark ]">
