@@ -16,7 +16,7 @@
 				add_meta_box( 'telefono', 'Teléfonos', 'metabox_telefono', 'page', 'advanced', 'high' );
 				add_meta_box( 'email', 'E-mail de contacto', 'metabox_email', 'page', 'advanced', 'high' );
 				add_meta_box( 'direccion', 'Dirección', 'metabox_direccion', 'page', 'advanced', 'high' );
-				add_meta_box( 'motivo_contacto', 'Motivo de contacto', 'metabox_motivo_contacto', 'page', 'advanced', 'high' );		
+				// add_meta_box( 'motivo_contacto', 'Motivo de contacto', 'metabox_motivo_contacto', 'page', 'advanced', 'high' );		
 				break;
 			case 'sunland-express':
 				add_meta_box( 'descripcion_home', 'Descripción página de inicio', 'metabox_home_express', 'page', 'advanced', 'high' );
@@ -106,18 +106,18 @@ echo <<<END
 END;
 	}// metabox_direccion
 
-	function metabox_motivo_contacto($post){
-		$motivo_contacto 	= get_post_meta($post->ID, '_motivo_contacto_meta', true);
+// 	function metabox_motivo_contacto($post){
+// 		$motivo_contacto 	= get_post_meta($post->ID, '_motivo_contacto_meta', true);
 
-		wp_nonce_field(__FILE__, '_motivo_contacto_meta_nonce');
+// 		wp_nonce_field(__FILE__, '_motivo_contacto_meta_nonce');
 
-echo <<<END
+// echo <<<END
 
-	<label>Ingresa los motivos de contacto separado por comas (ej. Informes, Ayuda, Pasar a saludar...):</label>
-	<input type="text" class="[ widefat ]" name="_motivo_contacto_meta" value="$motivo_contacto" />
+// 	<label>Ingresa los motivos de contacto separado por comas (ej. Informes, Ayuda, Pasar a saludar...):</label>
+// 	<input type="text" class="[ widefat ]" name="_motivo_contacto_meta" value="$motivo_contacto" />
 
-END;
-	}// metabox_motivo_contacto
+// END;
+	// }// metabox_motivo_contacto
 
 	function metabox_home_express($post){
 		$descripcion_home_express = get_post_meta($post->ID, '_descripcion_home_express_meta', true);

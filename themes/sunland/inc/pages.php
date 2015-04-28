@@ -77,5 +77,5 @@
 			);
 			wp_insert_post( $page, true );
 		}
-
+		
 	});
