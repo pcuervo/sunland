@@ -90,18 +90,18 @@
 		}
 
 		// EQUIPOTAXONOMY
-		if( ! taxonomy_exists('equipo_taxonomy')){
+		if( ! taxonomy_exists('tipo-de-equipo')){
 
 			$labels = array(
-				'name'              => 'Equipo Taxonomy',
-				'singular_name'     => 'Equipo Taxonomy',
+				'name'              => 'Tipo de equipo',
+				'singular_name'     => 'Tipo de equipo',
 				'search_items'      => 'Buscar',
 				'all_items'         => 'Todos',
-				'edit_item'         => 'Editar equipo taxonomy',
-				'update_item'       => 'Actualizar equipo taxonomy',
-				'add_new_item'      => 'Nuevo equipo taxonomy',
-				'new_item_name'     => 'Nombre nuevo equipo taxonomy',
-				'menu_name'         => 'Tipo de staff'
+				'edit_item'         => 'Editar tipo de equipo',
+				'update_item'       => 'Actualizar tipo de equipo',
+				'add_new_item'      => 'Nuevo tipo de equipo',
+				'new_item_name'     => 'Nombre nuevo tipo de equipo',
+				'menu_name'         => 'Tipo de equipo'
 			);
 			$args = array(
 				'hierarchical'      => true,
@@ -110,10 +110,10 @@
 				'show_admin_column' => true,
 				'show_in_nav_menus' => true,
 				'query_var'         => true,
-				'rewrite'           => array( 'slug' => 'equipo_taxonomy' ),
+				'rewrite'           => array( 'slug' => 'tipo-de-equipo' ),
 			);
 
-			register_taxonomy( 'equipo_taxonomy', 'equipos', $args );
+			register_taxonomy( 'tipo-de-equipo', 'equipos', $args );
 		}
 
 
