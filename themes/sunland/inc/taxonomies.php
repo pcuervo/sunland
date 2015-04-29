@@ -9,7 +9,7 @@
 	function custom_taxonomies_callback(){
 
 		// TIPO DE ARTE
-		if( ! taxonomy_exists('tipo-de-arte')){
+		if( ! taxonomy_exists('arte')){
 
 			$labels = array(
 				'name'              => 'Tipo de arte',
@@ -29,10 +29,10 @@
 				'show_admin_column' => true,
 				'show_in_nav_menus' => true,
 				'query_var'         => true,
-				'rewrite'           => array( 'slug' => 'tipo-de-arte' ),
+				'rewrite'           => array( 'slug' => 'arte' ),
 			);
 
-			register_taxonomy( 'tipo-de-arte', 'talleres', $args );
+			register_taxonomy( 'arte', 'talleres', $args );
 		}
 
 		// TIPO DE CONTENIDO
@@ -60,6 +60,33 @@
 			);
 
 			register_taxonomy( 'tipo-de-contenido', 'talleres', $args );
+		}
+
+		// INSTRUCTORES TALLER
+		if( ! taxonomy_exists('instructores')){
+
+			$labels = array(
+				'name'              => 'Instructores',
+				'singular_name'     => 'Instructor',
+				'search_items'      => 'Buscar',
+				'all_items'         => 'Todos',
+				'edit_item'         => 'Editar Instructor',
+				'update_item'       => 'Actualizar Instructor',
+				'add_new_item'      => 'Nuevo Instructor',
+				'new_item_name'     => 'Nombre nuevo instructores',
+				'menu_name'         => 'Instructores'
+			);
+			$args = array(
+				'hierarchical'      => true,
+				'labels'            => $labels,
+				'show_ui'           => true,
+				'show_admin_column' => true,
+				'show_in_nav_menus' => true,
+				'query_var'         => true,
+				'rewrite'           => array( 'slug' => 'instructores' ),
+			);
+
+			register_taxonomy( 'instructores', 'talleres', $args );
 		}
 
 		// TIPO DE STAFF
@@ -155,20 +182,44 @@
 
 	}// custom_taxonomies_callback
 
+	/*
+	 * Insert dynamic taxonomy terms after a post has been created/saved.
+	 */
+	function update_taxonomies(){
 
+		insert_instructor_taxonomy_term();
+		
+	}// update_taxonomies
+	add_action('save_post', 'update_taxonomies');
+
+	/*
+	 * Insert instructor as taxonomy term.
+	 */
+	function insert_instructor_taxonomy_term(){
+		global $wpdb;
+
+		$results = $wpdb->get_results( 'SELECT trim(post_title) as post_title from wp_posts where post_type = "instructores" AND post_title not in ( SELECT name FROM wp_terms T INNER JOIN wp_term_taxonomy TT ON T.term_id = TT.term_id WHERE TT.taxonomy = "instructores") AND post_status = "publish"', OBJECT );
+
+		foreach ($results as $photographer) {
+			$term = term_exists($photographer->post_title, 'instructores');
+			if ($term !== 0 && $term !== null) continue;
+
+			wp_insert_term($photographer->post_title, 'instructores');
+		}// foreach
+	}// insert_instructor_taxonomy_term
 
 	/**
 	* Insert terms for "Tipo de arte"
 	**/
 	function insert_term_tipo_de_arte(){
-		if ( ! term_exists( 'Danza', 'tipo-de-arte' ) ){
-			wp_insert_term( 'Danza', 'tipo-de-arte' );
+		if ( ! term_exists( 'Danza', 'arte' ) ){
+			wp_insert_term( 'Danza', 'arte' );
 		}
-		if ( ! term_exists( 'Música', 'tipo-de-arte' ) ){
-			wp_insert_term( 'Música', 'tipo-de-arte' );
+		if ( ! term_exists( 'Música', 'arte' ) ){
+			wp_insert_term( 'Música', 'arte' );
 		}
-		if ( ! term_exists( 'Teatro', 'tipo-de-arte' ) ){
-			wp_insert_term( 'Teatro', 'tipo-de-arte' );
+		if ( ! term_exists( 'Teatro', 'arte' ) ){
+			wp_insert_term( 'Teatro', 'arte' );
 		}
 	}// insert_term_tipo_de_arte
 

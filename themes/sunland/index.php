@@ -147,7 +147,6 @@
 					$instructores_args = array(
 						'post_type' 		=> 'eventos',
 						'posts_per_page' 	=> 3,
-
 					);
 					$query_events = new WP_Query( $instructores_args );
 					if ( $query_events->have_posts() ) : while ( $query_events->have_posts() ) : $query_events->the_post();
@@ -161,7 +160,7 @@
 							<p class="[ text-center ]"><?php echo $formatted_date ?></p>
 						</div>
 				<?php endwhile; endif; wp_reset_query(); ?>
-
+				<div class="[ clear ]"></div>
 				<div class="[ text-center ]">
 					<a href="#" class="[ button button--small button--highlight ] [ inline-block ]">ver más eventos</a>
 				</div>
