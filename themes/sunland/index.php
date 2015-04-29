@@ -137,21 +137,27 @@
 						Cozumel #31, Col. Roma, Cuahtemoc, México D.F. CP: 06700
 					</p>
 				</div>
-				<div class="[ columna xmall-12 medium-4 ] [  ]">
-					<img src="<?php echo THEMEPATH ?>images/evento-danza.png" class="[ image-responsive ] [ margin-bottom ]">
-					<h2 class="[ sub-title dark ] [ text-center ]">Evento 1</h2>
-					<p class="[ text-center ]">Fecha</p>
-				</div>
-				<div class="[ columna xmall-12 medium-4 ] [  ]">
-					<img src="<?php echo THEMEPATH ?>images/evento-danza-02.png" class="[ image-responsive ] [ margin-bottom ]">
-					<h2 class="[ sub-title dark ] [ text-center ]">Evento 2</h2>
-					<p class="[ text-center ]">Fecha</p>
-				</div>
-				<div class="[ columna xmall-12 medium-4 ] [  ]">
-					<img src="<?php echo THEMEPATH ?>images/evento-danza.png" class="[ image-responsive ] [ margin-bottom ]">
-					<h2 class="[ sub-title dark ] [ text-center ]">Evento 3</h2>
-					<p class="[ text-center dark ]">Fecha</p>
-				</div>
+
+				<?php 
+				    $count=0;
+					$instructores_args = array(
+						'post_type' 		=> 'events',
+						'posts_per_page' 	=> -1,
+						
+					);
+					$query_events = new WP_Query( $instructores_args );
+					if ( $query_events->have_posts() ) : while ( $query_events->have_posts() ) : $query_events->the_post();
+						$event_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
+				      	$count++;
+				     	if($count>3) break;
+				?>
+						<div class="[ columna xmall-12 medium-4 ] [  ]">
+							<img src="<?php echo $event_img_url[0] ?>" class="[ image-responsive ] [ margin-bottom ]">
+							<h2 class="[ sub-title dark ] [ text-center ]"><?php the_title() ?></h2>
+							<p class="[ text-center ]">Fecha</p>
+						</div>
+				<?php endwhile; endif; wp_reset_query(); ?>
+				
 				<div class="[ text-center ]">
 					<a href="#" class="[ button button--small button--highlight ] [ inline-block ]">ver más eventos</a>
 				</div>

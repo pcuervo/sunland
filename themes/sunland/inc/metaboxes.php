@@ -16,7 +16,6 @@
 				add_meta_box( 'telefono', 'Teléfonos', 'metabox_telefono', 'page', 'advanced', 'high' );
 				add_meta_box( 'email', 'E-mail de contacto', 'metabox_email', 'page', 'advanced', 'high' );
 				add_meta_box( 'direccion', 'Dirección', 'metabox_direccion', 'page', 'advanced', 'high' );
-				// add_meta_box( 'motivo_contacto', 'Motivo de contacto', 'metabox_motivo_contacto', 'page', 'advanced', 'high' );		
 				break;
 			case 'sunland-express':
 				add_meta_box( 'descripcion_home', 'Descripción página de inicio', 'metabox_home_express', 'page', 'advanced', 'high' );

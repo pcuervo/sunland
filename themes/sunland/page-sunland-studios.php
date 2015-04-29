@@ -5,6 +5,8 @@
 
 	$cover_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
 	$images = get_attached_media( 'image' );
+
+	
 ?>
 
 	<div class="[ bg-image ] [ margin-bottom--large ]" style="background-image: url(<?php echo $cover_url[0] ?>)">
@@ -49,8 +51,8 @@
 				'post_type' 		=> 'equipos',
 				'posts_per_page' 	=> -1,
 			);
-			$query_instructores = new WP_Query( $instructores_args );
-			if ( $query_instructores->have_posts() ) : while ( $query_instructores->have_posts() ) : $query_instructores->the_post();			
+			$query_equipo = new WP_Query( $instructores_args );
+			if ( $query_equipo->have_posts() ) : while ( $query_equipo->have_posts() ) : $query_equipo->the_post();			
 			?>
 			   <div class="[ row ] [ margin-bottom--large ]">
 					<div class="wrapper">
