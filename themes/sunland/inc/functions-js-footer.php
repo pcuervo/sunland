@@ -1,6 +1,5 @@
 <?php
 
-
 	/**
 	* Here we add all the javascript that needs to be run on the footer.
 	**/
@@ -36,29 +35,49 @@
 
 
 
-						<?php
-						if( 'contacto' == $post->post_name || is_home() ) {
-							$coord = get_map_coordinates();
-							$lat = $coord['lat'];
-							$lon = $coord['lon'];
-							$direccion = get_info_general( 'direccion' );
-						?>
-							loadMap('<?php echo $lat ?>', '<?php echo $lon ?>', '<?php echo $direccion ?>');
-						<?php } ?>
-
-
-
-						<?php if ( is_page('foro-sunland') ) { ?>
-							/*------------------------------------*\
-								#PAGE FORO SUNLAND
-							\*------------------------------------*/
+						/*------------------------------------*\
+							#PAGE HOME/CONTACTO
+						\*------------------------------------*/
+						
+						<?php if( 'contacto' == $post->post_name || is_home() ) { ?>
 
 							/**
 							 * On load
 							**/
-						<?php
-							$eventos = get_events();
-						?>
+							
+							<?php
+								$coord = get_map_coordinates();
+								$lat = $coord['lat'];
+								$lon = $coord['lon'];
+								$direccion = get_info_general( 'direccion' );
+							?>
+							loadMap('<?php echo $lat ?>', '<?php echo $lon ?>', '<?php echo $direccion ?>');
+
+							/**
+							 * Triggered events
+							**/
+
+							$('.js-contact-form input[type="submit"]').on('click', function(e){
+								e.preventDefault();
+								saveContactPost();
+							})
+
+						<?php } ?>
+
+
+
+						/*------------------------------------*\
+							#PAGE FORO SUNLAND
+						\*------------------------------------*/
+						<?php if ( is_page('foro-sunland') ) { ?>
+							
+							/**
+							 * On load
+							**/
+
+							<?php
+								$eventos = get_events();
+							?>
 							var evento_php = <?php echo $eventos ?>;
 							var evento = '"<div class="[ evento ] [ clearfix ]"> \
 							<p class="titulo">- Jazz Alternativo</p> \
@@ -82,11 +101,10 @@
 							 * Triggered events
 							**/
 
-
 						<?php } ?>
+						
 					});
 				}(jQuery));
 			</script>
-
 	<?php }
 	}// footer_scripts

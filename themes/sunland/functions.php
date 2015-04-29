@@ -1,7 +1,9 @@
 <?php
 
+/*------------------------------------*\
+	CONSTANTS
+\*------------------------------------*/
 
-// CONSTANTS  ///////////////////////////
 
 
 	/**
@@ -16,7 +18,9 @@
 
 
 
-// POST TYPES, METABOXES, TAXONOMIES, CUSTOM PAGES AND FUNCTIONS ////////////////////////////////
+/*------------------------------------*\
+	INCLUDES
+\*------------------------------------*/
 
 
 
@@ -32,7 +36,9 @@
 
 
 
-// GENERAL ACTIONS //////////////////////////////////////////////////////////
+/*------------------------------------*\
+	GENERAL ACTIONS
+\*------------------------------------*/
 
 
 
@@ -63,7 +69,11 @@
 
 
 
-// HELPER FUNCTIONS //////////////////////////////////////////////////////
+
+
+/*------------------------------------*\
+	HELPER FUNCTIONS
+\*------------------------------------*/
 
 
 
@@ -123,7 +133,9 @@
 
 
 
-// FORMAT FUNCTIONS //////////////////////////////////////////////////////
+/*------------------------------------*\
+	FORMAT FUNCTIONS
+\*------------------------------------*/
 
 
 
@@ -196,7 +208,10 @@
 
 
 
-// SET/GET FUNCTIONS //////////////////////////////////////////////////////
+
+/*------------------------------------*\
+	SET/GET FUNCTIONS
+\*------------------------------------*/
 
 
 
@@ -274,6 +289,52 @@
 
 	}// get_upcoming_events
 
+
+
+
+
+/*------------------------------------*\
+	AJAX FUNCTIONS
+\*------------------------------------*/
+
+
+	/**
+	 * Save the data from the contact form as a post. 
+	 * @return JSON $message - A success/error message about the status of the post.
+	*/
+	function save_contact_post(){
+
+		$nombre = $_POST['nombre'];
+		$email = $_POST['email'];
+		$tel = $_POST['tel'];
+		$msg = $_POST['msg'];
+
+		$contact_post = array(
+		  'post_title' 		=> $nombre,
+		  'post_content' 	=> 'Nombre: '.$nombre."\r\n".'Email: '.$email."\r\n".'Teléfono: '.$tel."\r\n".'Mensaje: '.$msg,
+		  'post_status'   	=> 'draft',
+		  'post_type'   	=> 'contacto-recibido',
+		);
+
+		// Insert the post into the database
+		if ( wp_insert_post( $contact_post ) ){
+			$message = array(
+				'error'		=> 0,
+				'message'	=> 'Gracias por tu mensaje ' . $nombre . ', muy pronto nos pondremos en contacto contigo.',
+				);
+			echo json_encode($message , JSON_FORCE_OBJECT);
+			exit();
+		}
+
+		$message = array(
+			'error'		=> 1,
+			'message'	=> 'Ha ocurrido un error al enviar el mensaje.',
+			);
+		echo json_encode($message , JSON_FORCE_OBJECT);
+		exit();
+	}// save_contact_post
+	add_action("wp_ajax_save_contact_post", "save_contact_post");
+	add_action("wp_ajax_nopriv_save_contact_post", "save_contact_post");
 
 
 

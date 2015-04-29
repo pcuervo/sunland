@@ -21,13 +21,14 @@
 	<!-- SUNLAND STUDIOS -->
 	<section class="[ wrapper ]">
 		<div class="[ row ]">
-			<div class="[ columna xmall-12 medium-5 ] [ margin-bottom ]">
+			<div class="[ columna xmall-12 medium-5 ] [ margin-bottom ] [ js-form-container ]">
 				<h3>Teléfonos</h3>
 				<p><?php echo $telefono1 ?></p>
 				<p><?php echo $telefono2 ?></p>
 				<h3>E-mail</h3>
 				<p><?php echo $email ?></p>
-				<form class="[ form form-contacto ]" action="">
+
+				<form class="[ form form-contacto ] [ js-contact-form ]" action="">
 					<fieldset class="[ margin-bottom ]">
 						<label class="[ block ]" for="nombre">Nombre completo</label>
 						<input class="[ block ][ xmall-12 medium-10 ]" type="text" name="nombre">
@@ -45,7 +46,7 @@
 						<textarea class="[ block ][ xmall-12 medium-10 ]" name="mensaje" id="" cols="30" rows="10"></textarea>
 					</fieldset>
 					<fieldset class="[ margin-bottom ]">
-						<input type="hidden" name="action" value="send_contact">
+						<input type="hidden" name="action" value="save_contact_post">
 						<input type="hidden" name="email_to" value="<?php echo $email ?>">
 						<button class="[ button button--large button--highlight ]">enviar</button>
 					</fieldset>

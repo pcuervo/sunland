@@ -192,5 +192,27 @@
 		);
 		register_post_type( 'equipos', $args );
 
+		// CONTACTO RECIBIDO
+		$labels = array(
+			'name'          => 'Contacto recibido',
+			'menu_name'     => 'Contacto recibido'
+		);
+		$args = array(
+			'labels'             => $labels,
+			'public'             => true,
+			'publicly_queryable' => true,
+			'show_ui'            => true,
+			'show_in_menu'       => true,
+			'query_var'          => true,
+			'rewrite'            => array( 'slug' => 'contacto-recibido' ),
+			'capability_type'    => 'post',
+			'has_archive'        => true,
+			'hierarchical'       => false,
+			'menu_position'      => 6,
+			'taxonomies'         => array( 'category' ),
+			'supports'           => array( 'title', 'editor', 'thumbnail' )
+		);
+		register_post_type( 'contacto-recibido', $args );
+
 
 	});
