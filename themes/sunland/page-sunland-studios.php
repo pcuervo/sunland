@@ -1,9 +1,12 @@
+
 <?php
 	get_header();
 	the_post();
 
 	$cover_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
 	$images = get_attached_media( 'image' );
+
+	
 ?>
 
 	<div class="[ bg-image ] [ margin-bottom--large ]" style="background-image: url(<?php echo $cover_url[0] ?>)">
@@ -42,54 +45,26 @@
 	</section>
 	<!-- GALERÍA ESTÁTICA -->
 
-	<!-- CALENDAR -->
-	<section class="[ calendar ][ margin-bottom--large ]">
-		<div class="[ wrapper ]">
-			<div class="main_body_events_calendar calendarioContainer" >
-				<div class="custom-calendar-wrap">
-					<div id="custom-inner" class="custom-inner">
-						<div class="custom-header clearfix">
-							<nav>
-								<span id="custom-prev" class="custom-prev"><i class="[ icon-angle-left ]"></i></span>
-								<span id="custom-next" class="custom-next"><i class="[ icon-angle-right ]"></i></span>
-							</nav>
-							<h2 id="custom-month" class="[ custom-month ][ dark-shade ]"></h2>
-							<h3 id="custom-year" class="[ custom-year ][ dark-shade ]"></h3>
+	<!-- EQUIPO POST -->
+	<?php 
+			$instructores_args = array(
+				'post_type' 		=> 'equipos',
+				'posts_per_page' 	=> -1,
+			);
+			$query_equipo = new WP_Query( $instructores_args );
+			if ( $query_equipo->have_posts() ) : while ( $query_equipo->have_posts() ) : $query_equipo->the_post();			
+			?>
+			   <div class="[ row ] [ margin-bottom--large ]">
+					<div class="wrapper">
+						<div class="row">
+							<div class="[ span xmall-12 ] [ center block ] [ margin-bottom--large ]">
+								<h2 class="[ title ] [ text-center ] [ margin-bottom ]"><?php the_title()?></h2>
+								<p class=" [ columna xmall-12 small-8 large-6 ] [ center block ] [ margin-bottom ] [ text-center ]"><?php the_content()?></p>
+							</div>
 						</div>
-						<div id="calendar" class="fc-calendar-container"></div>
 					</div>
-				</div>
-			</div>
-		</div><!-- wrapper -->
-	</section> <!-- CALENDAR -->
-
-	<!-- EVENTOS -->
-	<section class="[ wrapper ]">
-		<div class="[ row ]">
-			<div class="[ span xmall-12 margin-bottom--large ] [ clearfix ]">
-				<h2 class="[ dark ][ margin-bottom ]">Eventos próximos</h2>
-				<?php 
-					$args = array(
-						'post_type' 		=> 'eventos',
-						'posts_per_page' 	=> -1
-					);
-					$query_eventos = new WP_Query( $args );
-					if ( $query_eventos->have_posts() ) : while ( $query_eventos->have_posts() ) : $query_eventos->the_post();
-
-						$dia = get_post_meta( $post->ID, '_dia_meta', TRUE );
-						$date = ( ! empty( $dia ) ) ? get_formatted_event_date( $dia ) : '';
-
-				?>
-						<h2><?php echo the_title(); ?></h2>
-						<h3 class="[ dark ]"><?php echo $date; ?></h3>
-						<p><?php the_content(); ?></p>
-						<a href="<?php the_permalink() ?>" class="[ button button--small button-ink ] [ inline-block ]">Ver más <i class="[ fa fa-chevron-right ]"></i></a>
-				<?php
-					endwhile; endif; wp_reset_query();
-				?>
-			</div>
-		</div>
-	</section><!-- EVENTOS -->
+    <?php endwhile; endif; wp_reset_query(); ?>
+	<!-- EQUIPO POST -->
 
 	<!-- CALL TO ACTION -->
 	<section class="[ bg-dark ]">
@@ -101,5 +76,7 @@
 			</div>
 		</div>
 	</section>
+
+		<div id="mapa" style="height:600px; width:100%"></div>
 
 <?php get_footer(); ?>
