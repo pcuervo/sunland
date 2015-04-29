@@ -127,9 +127,9 @@
 				return 'diciembre';
 		}// switch
 
-	}// get_month_name	
+	}// get_month_name
 
-	
+
 
 
 
@@ -155,7 +155,7 @@
 			$materias .= $materia;
 			if( count( $materias_arr ) > 1 && $key + 1 != count( $materias_arr ) - 1 ){
 				$materias .= ', ';
-			}			
+			}
 		}
 		return $materias;
 
@@ -188,18 +188,17 @@
 	 */
 	function get_event_html_format( $date, $time, $title, $content, $permalink ){
 
-		$html_event = 
+		$html_event =
 			'<div class="[ evento ] [ clearfix ]">
 				<p class="titulo">- ' . $title . '</p>
-				<p class="hora"><i class="fa fa-clock-o"></i> ' . $hora . '</p> 
-				<a href="#" class="[ boton ] [ abrir-info ]">más info</a> 
-				<div class="[ evento-full ]"> 
-					<span class="custom-content-close"></span> 
-					<h4 class="titulo">' . $title . '</h4> 
-					<p class="hora"><i class="fa fa-clock-o"></i> ' . $time . '</p> 
-					<p class="contenido"><i class="fa fa-newspaper-o"></i> ' . $content . '</p> 
-					<p class="url"><i class="fa fa-link"></i> <a href="' . $permalink . '" target="_blank">"+ url +"</a></p>  
-				</div> 
+				<p class="hora"><i class="fa fa-clock-o"></i> ' . $time . '</p>
+				<a href="#" class="[ boton button--highlight ] [ abrir-info ]">más info</a>
+				<div class="[ evento-full ]">
+					<span class="custom-content-close"></span>
+					<h4 class="titulo">' . $title . '</h4>
+					<p class="hora"><i class="fa fa-clock-o"></i> ' . $time . '</p>
+					<p class="contenido"><i class="fa fa-newspaper-o"></i> ' . $content . '</p>
+				</div>
 			</div>';
 
 		return $html_event;
@@ -227,7 +226,7 @@
 		global $post;
 		$contact_info_query = new WP_Query( 'pagename=info-general' );
 		if ( $contact_info_query->have_posts() ) {
-			$contact_info_query->the_post(); 
+			$contact_info_query->the_post();
 			$lat = get_post_meta( $post->ID, '_lat_meta', TRUE );
 			$lon = get_post_meta( $post->ID, '_lon_meta', TRUE );
 		}
@@ -248,7 +247,7 @@
 		global $post;
 		$contact_info_query = new WP_Query( 'pagename=info-general' );
 		if ( $contact_info_query->have_posts() ) {
-			$contact_info_query->the_post(); 
+			$contact_info_query->the_post();
 
 			switch ($field) {
 				case 'direccion':
@@ -280,7 +279,7 @@
 			$date_arr = explode('-', $date);
 			$new_date_format = $date_arr[1] . '-' . $date_arr[2] . '-' . $date_arr[0];
 
-			$html_evento = get_event_html_format( $new_date_format, $time, get_the_title(), get_the_content(), get_permalink( ) ); 
+			$html_evento = get_event_html_format( $new_date_format, $time, get_the_title(), get_the_content(), get_permalink( ) );
 			$json_events[$new_date_format] = $html_evento;
 
 		endwhile; endif;

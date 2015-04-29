@@ -1,10 +1,10 @@
-<?php 
+<?php
 	get_header();
 	the_post();
-	
+
 	$cover_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
 	$contact_info_query = new WP_Query( 'pagename=info-general' );
-	if ( $contact_info_query->have_posts() ) : $contact_info_query->the_post(); 
+	if ( $contact_info_query->have_posts() ) : $contact_info_query->the_post();
 		$telefono1 = get_post_meta( $post->ID, '_telefono1_meta', TRUE );
 		$telefono2 = get_post_meta( $post->ID, '_telefono2_meta', TRUE );
 		$email = get_post_meta( $post->ID, '_email_meta', TRUE );
@@ -27,31 +27,32 @@
 				<p><?php echo $telefono2 ?></p>
 				<h3>E-mail</h3>
 				<p><?php echo $email ?></p>
-				<form class="[ js-contact-form ]">
-					<fieldset>
-						<label for="nombre">Nombre completo</label>
-						<input type="text" name="nombre">
+
+				<form class="[ form form-contacto ] [ js-contact-form ]" action="">
+					<fieldset class="[ margin-bottom ]">
+						<label class="[ block ]" for="nombre">Nombre completo</label>
+						<input class="[ block ][ xmall-12 medium-10 ]" type="text" name="nombre">
 					</fieldset>
-					<fieldset>
-						<label for="email">Correo electrónico</label>
-						<input type="text" name="email">
+					<fieldset class="[ margin-bottom ]">
+						<label class="[ block ]"  for="email">Correo electrónico</label>
+						<input class="[ block ][ xmall-12 medium-10 ]" type="text" name="email">
 					</fieldset>
-					<fieldset>
-						<label for="tel">Teléfono</label>
-						<input type="text" name="tel">
+					<fieldset class="[ margin-bottom ]">
+						<label class="[ block ]"  for="tel">Teléfono</label>
+						<input class="[ block ][ xmall-12 medium-10 ]" type="text" name="tel">
 					</fieldset>
-					<fieldset>
-						<label for="mensaje">Tu mensaje</label>
-						<textarea name="mensaje" id="" cols="30" rows="10"></textarea>
+					<fieldset class="[ margin-bottom ]">
+						<label class="[ block ]"  for="mensaje">Tu mensaje</label>
+						<textarea class="[ block ][ xmall-12 medium-10 ]" name="mensaje" id="" cols="30" rows="10"></textarea>
 					</fieldset>
-					<fieldset>
+					<fieldset class="[ margin-bottom ]">
 						<input type="hidden" name="action" value="save_contact_post">
 						<input type="hidden" name="email_to" value="<?php echo $email ?>">
-						<input type="submit" value="enviar">
+						<button class="[ button button--large button--highlight ]">enviar</button>
 					</fieldset>
 				</form>
 			</div>
-			<div class="[ columna xmall-12 medium-7 ]" id="mapa" style="height:600px"></div>
+			<div class="[ columna xmall-12 medium-7 ][ margin-bottom ][ contact-map ]" id="mapa"></div>
 		</div>
 	</section>
 	<!--  -->

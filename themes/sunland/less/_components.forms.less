@@ -15,9 +15,9 @@ input, button[type='submit']{
 	height: 30px;
 	padding: 4px;
 }
-input{
-	border: 1px solid @light-dark;
-	&:focus, &:active{ outline-style: none; }
+input, textarea{
+	border: 2px solid @light-dark;
+	&:focus, &:active{ outline-color: @highlight; }
 }
 
 .error{ border-color: @highlight; }
@@ -29,3 +29,14 @@ button[type='submit']{
 	color: @light;
 }
 
+/*------------------------------------*\
+    #MAP
+\*------------------------------------*/
+.contact-map{
+	height: 300px;
+	.transition();
+
+	@media (min-width: @medium){
+		height: 600px;
+	}
+}
