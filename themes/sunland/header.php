@@ -59,7 +59,7 @@
 							<a class="<?php echo ( 'Sunland Express' == get_the_title() ) ? '[ active ]' : '' ?>[ shown--medium--inline align-middle ][ button button--menu ][ pull-right ]" href="<?php echo site_url() . '/sunland-express' ?>">
 								Sunland Express
 							</a>
-							<a class="[ shown--medium--inline align-middle ][ button button--menu ][ pull-right ]" href="<?php echo site_url() . '/sunland-studios' ?>">
+							<a class="<?php echo ( 'Sunland Studios' == get_the_title() ) ? '[ active ]' : '' ?>[ shown--medium--inline align-middle ][ button button--menu ][ pull-right ]" href="<?php echo site_url() . '/sunland-studios' ?>">
 								Sunland Studios
 							</a>
 							<a class="<?php echo ( 'Foro Sunland' == get_the_title() ) ? '[ active ]' : '' ?>[ shown--medium--inline align-middle ][ button button--menu ][ pull-right ]" href="<?php echo site_url() . '/foro-sunland' ?>">

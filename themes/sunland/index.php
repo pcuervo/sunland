@@ -157,7 +157,8 @@
 				</div>
 			</div>
 		</div>
-	</section><!-- EVENTOS FORO SUNLAND -->
+	</section>
+	<!-- EVENTOS FORO SUNLAND -->
 
 	<!-- SUNLAND STUDIOS Y EXPRESS -->
 	<section class="[ bg-dark ]">
@@ -204,12 +205,5 @@
 	<div id="mapa" style="height:600px; width:100%"></div>
 	
 <?php get_footer(); ?>
-
-
-
-
-
-
-
 
 

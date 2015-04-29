@@ -4,6 +4,9 @@
 
 	$cover_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
 	$images = get_attached_media( 'image' );
+	$i =count($images);
+	echo $i;
+
 ?>
 
 	<div class="[ bg-image ] [ margin-bottom--large ]" style="background-image: url(<?php echo $cover_url[0] ?>)">
@@ -39,7 +42,8 @@
 				<?php endforeach ?>
 			</div>
 		</div>
-	</section><!-- GALERÍA ESTÁTICA -->
+	</section>
+	<!-- GALERÍA ESTÁTICA -->
 
 	<!-- CALENDAR -->
 	<section class="[ calendar ][ margin-bottom--large ]">
