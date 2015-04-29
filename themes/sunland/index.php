@@ -4,18 +4,26 @@
 <?php get_header(); ?>
 
 	<!-- BANNER -->
-	<div class="[ bg-image ] [ margin-bottom--large ]" style="background-image: url(<?php echo THEMEPATH ?>images/danza-01.jpg)">
-		<div class="[ opacity-gradient square ]">
-			<div class="[ media-info ] [ xmall-10 medium-7 center-full ]">
-				<h2 class="[ text-center light ]">Sunland School of the Arts, Escuela multidisciplinaria de artes escénicas en la Ciudad de México.</h2>
+	<div class="relative">
+		<div class="[ bg-image ] [ margin-bottom--large ]">
+			<div class="[ opacity-gradient square ]">
+				<div class="[ media-info ] [ xmall-10 medium-7 center-full ]">
+					<h2 class="[ text-center light ]">Sunland School of the Arts, Escuela multidisciplinaria de artes escénicas en la Ciudad de México.</h2>
+				</div>
 			</div>
+			<video class="[ bg-video bg-video-home ]" autoplay loop poster="<?php echo THEMEPATH; ?>images/intro.png">
+				<source src="<?php echo THEMEPATH; ?>/videos/intro.webm" type="video/webm">
+				<source src="<?php echo THEMEPATH; ?>/videos/intro.mp4" type="video/mp4">
+				<source src="<?php echo THEMEPATH; ?>/videos/intro.ogv" type="video/ogg">
+			</video>
 		</div>
-	</div>
+	</div><!-- relative -->
+
 
 	<!-- ¿POR QUÉ SUNLAND? -->
-	<?php 
+	<?php
 		$home_info_query = new WP_Query( 'pagename=info-home' );
-		if ( $home_info_query->have_posts() ) : $home_info_query->the_post(); 
+		if ( $home_info_query->have_posts() ) : $home_info_query->the_post();
 	?>
 		   <div class="[ row ] [ margin-bottom--large ]">
 				<div class="wrapper">
@@ -29,14 +37,14 @@
 						</div>
 					</div>
 				</div>
-			</div><!-- ¿POR QUÉ SUNLAND? -->     
+			</div><!-- ¿POR QUÉ SUNLAND? -->
     <?php
 		endif;
 		wp_reset_query();
 	?>
-	
+
 	<!-- QUOTE -->
-	<?php 
+	<?php
 		$quote_args = array(
 			'post_type' 		=> 'testimonials',
 			'posts_per_page' 	=> 1,
@@ -61,7 +69,7 @@
 			</div>
 		</section><!-- QUOTE -->
 	<?php endif; wp_reset_query(); ?>
-	
+
 	<!-- TALLERES -->
 	<section class="[ margin-bottom--large ]">
 		<div class="[ wrapper ]">
@@ -84,7 +92,7 @@
 			</div>
 		</div>
 	</section><!-- TALLERES -->
-	
+
 	<!-- INSTRUCTORES -->
 	<section class="[ hidden--xmall shown--medium ] [ bg-highlight ] [ margin-bottom--large ]">
 		<div class="wrapper">
@@ -92,7 +100,7 @@
 				<div class="[ span xmall-10 ] [ center block ] [ margin-bottom ]">
 					<h2 class="[ title ] [ text-center ] [ padding ]">Nuestros instructores</h2>
 				</div>
-				<?php 
+				<?php
 				$instructores_args = array(
 					'post_type' 		=> 'instructores',
 					'posts_per_page' 	=> -1,
@@ -135,11 +143,11 @@
 					<i class="[ icon-marker ] [ icon-medium ] [ highlight ] [ text-center center block ]"></i>
 				</div>
 
-				<?php 
+				<?php
 					$instructores_args = array(
 						'post_type' 		=> 'eventos',
 						'posts_per_page' 	=> 3,
-						
+
 					);
 					$query_events = new WP_Query( $instructores_args );
 					if ( $query_events->have_posts() ) : while ( $query_events->have_posts() ) : $query_events->the_post();
@@ -152,7 +160,7 @@
 							<p class="[ text-center ]"><?php echo $meta_date ?></p>
 						</div>
 				<?php endwhile; endif; wp_reset_query(); ?>
-				
+
 				<div class="[ text-center ]">
 					<a href="#" class="[ button button--small button--highlight ] [ inline-block ]">ver más eventos</a>
 				</div>
@@ -167,7 +175,7 @@
 			<div class="[ row ]">
 				<?php
 					$sunland_studios_query = new WP_Query( 'pagename=sunland-studios' );
-					if ( $sunland_studios_query->have_posts() ) : $sunland_studios_query->the_post(); 
+					if ( $sunland_studios_query->have_posts() ) : $sunland_studios_query->the_post();
 						$descripcion_home_studios = get_post_meta( $post->ID, '_descripcion_home_studios_meta', TRUE );
 				?>
 					<div class="[ span xmall-12 medium-6 ] [ margin-bottom--large ]">
@@ -183,19 +191,19 @@
 					wp_reset_query();
 
 					$sunland_express_query = new WP_Query( 'pagename=sunland-express' );
-					if ( $sunland_express_query->have_posts() ) : $sunland_express_query->the_post(); 
+					if ( $sunland_express_query->have_posts() ) : $sunland_express_query->the_post();
 						$descripcion_home_express = get_post_meta( $post->ID, '_descripcion_home_express_meta', TRUE );
 				?>
 						<div class="[ span xmall-12 medium-6 ] [ margin-bottom--large ]">
 							<i class="[ icon-airplane ] [ icon-xtra-large ] [ highlight ] [ text-center center block ]"></i>
-							
+
 							<h2 class="[ title highlight ] [ text-center ]"><?php the_title() ?></h2>
 							<p class="[ padding text-center ]"><?php echo $descripcion_home_express ?></p>
 							<div class="[ text-center ]">
 								<a href="<?php echo site_url() . '/sunland-express' ?>" class="[ button button--small button--highlight ] [ inline-block ]">más información</a>
 							</div>
 						</div>
-				<?php 
+				<?php
 					endif;
 					wp_reset_query();
 				?>
@@ -204,7 +212,7 @@
 	</section><!-- SUNLAND STUDIOS Y EXPRESS -->
 
 	<div id="mapa" style="height:600px; width:100%"></div>
-	
+
 <?php get_footer(); ?>
 
 
