@@ -77,7 +77,7 @@
 		</div>
 	</section>
 
-		<!-- INSTRUCTORES -->
+	<!-- INSTRUCTORES -->
 	<section class="[ hidden--xmall shown--medium ] [ bg-highlight ] [ margin-bottom--large ]">
 		<div class="wrapper">
 			<div class="[ row ]">
