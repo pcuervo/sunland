@@ -39,7 +39,8 @@
 				<?php endforeach ?>
 			</div>
 		</div>
-	</section><!-- GALERÍA ESTÁTICA -->
+	</section>
+	<!-- GALERÍA ESTÁTICA -->
 
 	<!-- CALENDAR -->
 	<section class="[ calendar ][ margin-bottom--large ]">

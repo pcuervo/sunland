@@ -42,7 +42,7 @@
 			wp_insert_post( $page, true );
 		}
 
-		// SUNLAND EXPRESS
+		// SUNLAND STUDIOS
 		if( ! get_page_by_path('sunland-studios') ){
 			$page = array(
 				'post_author' => 1,

@@ -161,4 +161,36 @@
 		);
 		register_post_type( 'testimonials', $args );
 
+		//EQUIPOS
+		$labels = array(
+			'name'          => 'Equipos',
+			'singular_name' => 'Equipo',
+			'add_new'       => 'Nuevo equipo',
+			'add_new_item'  => 'Nuevo equipo',
+			'edit_item'     => 'Editar equipo',
+			'new_item'      => 'Nuevo equipo',
+			'all_items'     => 'Todas',
+			'view_item'     => 'Ver equipos',
+			'search_items'  => 'Buscar equipos',
+			'not_found'     => 'No se encontró',
+			'menu_name'     => 'Equipos'
+		);
+		$args = array(
+			'labels'             => $labels,
+			'public'             => true,
+			'publicly_queryable' => true,
+			'show_ui'            => true,
+			'show_in_menu'       => true,
+			'query_var'          => true,
+			'rewrite'            => array( 'slug' => 'equipos' ),
+			'capability_type'    => 'post',
+			'has_archive'        => true,
+			'hierarchical'       => false,
+			'menu_position'      => 6,
+			'taxonomies'         => array( 'category' ),
+			'supports'           => array( 'title', 'editor', 'thumbnail' )
+		);
+		register_post_type( 'equipos', $args );
+
+
 	});
