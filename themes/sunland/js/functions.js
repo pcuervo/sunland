@@ -4,6 +4,8 @@ var $=jQuery.noConflict();
 	#FUNCTIONS
 \*------------------------------------*/
 
+
+
 /**
  * Load Google Map
  * @param {String} lat
@@ -130,3 +132,36 @@ function openAccordion(elemento){
 		$('.js-accordion-item').find('.js-accordion-box').slideUp('300');
 	}
 }// openAccordion
+
+
+
+
+/*------------------------------------*\
+	#FUNCTIONS
+\*------------------------------------*/
+
+
+
+/**
+ * Save contact form data as WP post.
+ */
+function saveContactPost(){
+	data = $('.js-contact-form').serialize();
+
+	console.log( data );
+	$.post(
+		ajax_url,
+		data,
+		function( response ){
+			var message_json = $.parseJSON( response );
+
+			if( message_json.error ){
+				alert( message_json.message );
+				return;
+			}
+
+			$('.js-form-container').empty();
+			$('.js-form-container').html( '<h3>' + message_json.message + '</h3>' );
+		}
+	);
+}// saveContactPost
