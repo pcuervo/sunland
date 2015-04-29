@@ -89,6 +89,34 @@
 			register_taxonomy( 'tipo-de-staff', 'instructores', $args );
 		}
 
+		// EQUIPOTAXONOMY
+		if( ! taxonomy_exists('equipo_taxonomy')){
+
+			$labels = array(
+				'name'              => 'Equipo Taxonomy',
+				'singular_name'     => 'Equipo Taxonomy',
+				'search_items'      => 'Buscar',
+				'all_items'         => 'Todos',
+				'edit_item'         => 'Editar equipo taxonomy',
+				'update_item'       => 'Actualizar equipo taxonomy',
+				'add_new_item'      => 'Nuevo equipo taxonomy',
+				'new_item_name'     => 'Nombre nuevo equipo taxonomy',
+				'menu_name'         => 'Tipo de staff'
+			);
+			$args = array(
+				'hierarchical'      => true,
+				'labels'            => $labels,
+				'show_ui'           => true,
+				'show_admin_column' => true,
+				'show_in_nav_menus' => true,
+				'query_var'         => true,
+				'rewrite'           => array( 'slug' => 'equipo_taxonomy' ),
+			);
+
+			register_taxonomy( 'equipo_taxonomy', 'equipos', $args );
+		}
+
+
 		// MATERIA
 		if( ! taxonomy_exists('materia')){
 
@@ -123,6 +151,7 @@
 		insert_term_tipo_de_arte();
 		insert_term_tipo_de_contenido();
 		insert_term_tipo_de_staff();
+		insert_term_equipo_taxonomy();
 
 	}// custom_taxonomies_callback
 
@@ -167,5 +196,20 @@
 		}
 		if ( ! term_exists( 'Diplomados', 'tipo-de-staff' ) ){
 			wp_insert_term( 'Diplomados', 'tipo-de-staff' );
+		}
+	}// insert_term_tipo_de_staff
+
+	/**
+	* Insert terms for "Equipo Taxonomy"
+	**/
+	function insert_term_equipo_taxonomy(){
+		if ( ! term_exists( 'General', 'equipo_taxonomy' ) ){
+			wp_insert_term( 'General', 'equipo_taxonomy' );
+		}
+		if ( ! term_exists( 'DAW', 'equipo_taxonomy' ) ){
+			wp_insert_term( 'DAW', 'equipo_taxonomy' );
+		}
+		if ( ! term_exists( 'Microfonía', 'equipo_taxonomy' ) ){
+			wp_insert_term( 'Microfonía', 'equipo_taxonomy' );
 		}
 	}// insert_term_tipo_de_staff

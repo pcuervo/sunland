@@ -77,6 +77,5 @@
 		</div>
 	</section>
 
-		<div id="mapa" style="height:600px; width:100%"></div>
 
 <?php get_footer(); ?>
