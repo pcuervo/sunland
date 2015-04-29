@@ -193,35 +193,4 @@
 		register_post_type( 'equipos', $args );
 
 
-		//EVENTS
-		$labels = array(
-			'name'          => 'Events',
-			'singular_name' => 'Event',
-			'add_new'       => 'Nuevo event',
-			'add_new_item'  => 'Nuevo event',
-			'edit_item'     => 'Editar event',
-			'new_item'      => 'Nuevo event',
-			'all_items'     => 'Todas',
-			'view_item'     => 'Ver equipos',
-			'search_items'  => 'Buscar equipos',
-			'not_found'     => 'No se encontró',
-			'menu_name'     => 'Events'
-		);
-		$args = array(
-			'labels'             => $labels,
-			'public'             => true,
-			'publicly_queryable' => true,
-			'show_ui'            => true,
-			'show_in_menu'       => true,
-			'query_var'          => true,
-			'rewrite'            => array( 'slug' => 'events' ),
-			'capability_type'    => 'post',
-			'has_archive'        => true,
-			'hierarchical'       => false,
-			'menu_position'      => 6,
-			'taxonomies'         => array( 'category' ),
-			'supports'           => array( 'title', 'editor', 'thumbnail' )
-		);
-		register_post_type( 'events', $args );
-
 	});
