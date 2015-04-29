@@ -24,6 +24,11 @@
 						// Toggle mobile menu
 						$("#sunland-mmenu").mmenu();
 
+						//Natural language form
+						var nlform = new NLForm( document.getElementById( 'nl-form' ) );
+						$('#nl-form').validate();
+
+
 						/**
 						 * Triggered events
 						**/
@@ -33,18 +38,28 @@
 							openAccordion( $(this) );
 						});
 
+						$('.js-modal-opener').on('click', function(e){
+							e.preventDefault();
+							var modal = $(this).data('modal');
+							toggleModal(modal);
+						});
+
+						$('.close-modal').on('click', function(event) {
+							$('.modal-wrapper').toggleClass('hidden');
+						});
+
 
 
 						/*------------------------------------*\
 							#PAGE HOME/CONTACTO
 						\*------------------------------------*/
-						
+
 						<?php if( 'contacto' == $post->post_name || is_home() ) { ?>
 
 							/**
 							 * On load
 							**/
-							
+
 							<?php
 								$coord = get_map_coordinates();
 								$lat = $coord['lat'];
@@ -56,11 +71,12 @@
 							/**
 							 * Triggered events
 							**/
-
 							$('.js-contact-form input[type="submit"]').on('click', function(e){
 								e.preventDefault();
 								saveContactPost();
-							})
+							});
+
+							$('.form-contacto').validate();
 
 						<?php } ?>
 
@@ -70,7 +86,7 @@
 							#PAGE FORO SUNLAND
 						\*------------------------------------*/
 						<?php if ( is_page('foro-sunland') ) { ?>
-							
+
 							/**
 							 * On load
 							**/
@@ -102,7 +118,7 @@
 							**/
 
 						<?php } ?>
-						
+
 					});
 				}(jQuery));
 			</script>

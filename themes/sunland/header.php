@@ -23,7 +23,7 @@
 				<nav id="sunland-mmenu" class="[ hide ][ bg-highlight ] [ light ]">
 					<ul class="[ no-margin ]">
 						<li><a href="<?php echo site_url() ?>">Inicio</a></li>
-						<li><a href="#about">Nosotros</a></li>
+						<li><a href="<?php echo site_url() . '/nosotros' ?>">Nosotros</a></li>
 						<li><a href="#artes">Artes escénicas</a>
 							<ul>
 								<li><a href="#artes/talleres">Talleres</a>
@@ -36,10 +36,10 @@
 								<li><a href="">Diplomados</a></li>
 							</ul>
 						</li>
-						<li><a href="#contact">Foro Sunland</a></li>
-						<li><a href="#contact">Sunland Studios</a></li>
-						<li><a href="#contact">Sunland Express</a></li>
-						<li><a href="#contact">Contacto</a></li>
+						<li><a href="<?php echo site_url() . '/foro-sunland' ?>">Foro Sunland</a></li>
+						<li><a href="<?php echo site_url() . '/sunland-studios' ?>">Sunland Studios</a></li>
+						<li><a href="<?php echo site_url() . '/sunland-express' ?>">Sunland Express</a></li>
+						<li><a href="<?php echo site_url() . '/contacto' ?>">Contacto</a></li>
 					</ul>
 				</nav>
 				<div class="[ wrapper ]">

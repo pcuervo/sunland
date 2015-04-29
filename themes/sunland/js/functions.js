@@ -21,7 +21,7 @@ function loadMap(lat, lon, address){
 			zoom: 			14,
 			center: 		new google.maps.LatLng(lat, lon),
 			draggable: 		false,
-			scrollwheel: 	false 
+			scrollwheel: 	false
 		};
 	  	map = new google.maps.Map(document.getElementById('mapa'),
 	      mapOptions);
@@ -49,11 +49,11 @@ function loadMap(lat, lon, address){
 
 	// Google Maps Events
 	google.maps.event.addDomListener(window, 'load', initialize);
-	
+
 }// loadMap
 
 /**
- * Initializes calendar 
+ * Initializes calendar
  * @param {JSON} calendarioEvents
  */
 function initializeCalendar( calendarioEvents ){
@@ -165,3 +165,11 @@ function saveContactPost(){
 		}
 	);
 }// saveContactPost
+
+/**
+ * Toggles Modal
+ * @param element
+**/
+function toggleModal(element){
+	$('.modal-'+element).toggleClass('hidden');
+}

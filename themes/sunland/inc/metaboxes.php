@@ -10,6 +10,8 @@
 		global $post;
 
 		add_meta_box( 'fecha_evento', 'Fecha del evento', 'metabox_fecha_evento', 'eventos', 'advanced', 'high' );
+		add_meta_box( 'demos_instructor', 'URL Soundcloud', 'metabox_demos_instructor', 'instructores', 'advanced', 'high' );
+
 		// echo $post->post_name;
 		switch ( $post->post_name ) {
 			case 'info-general':
@@ -25,7 +27,7 @@
 				add_meta_box( 'descripcion_home_studios', 'Descripción página de inicio', 'metabox_home_studios', 'page', 'advanced', 'high' );
 				break;
 		}
-		
+
 	});
 
 
@@ -144,6 +146,23 @@ echo <<<END
 END;
 	}// metabox_fecha_evento
 
+	function metabox_demos_instructor($post){
+		$soundcloud = get_post_meta($post->ID, '_soundcloud_meta', true);
+		$youtube = get_post_meta($post->ID, '_youtube_meta', true);
+
+		wp_nonce_field(__FILE__, '_soundcloud_meta_nonce');
+		wp_nonce_field(__FILE__, '_youtube_meta_nonce');
+
+echo <<<END
+
+	<label>Soundcloud:</label>
+	<input type="text" class="[ widefat ]" name="_soundcloud_meta" value="$soundcloud" />
+	<label>Youtube:</label>
+	<input type="text" class="[ widefat ]" name="_youtube_meta" value="$youtube" />
+
+END;
+	}// metabox_demos_instructor
+
 
 
 // SAVE METABOXES DATA ///////////////////////////////////////////////////////////////
@@ -153,13 +172,13 @@ END;
 	add_action('save_post', function($post_id){
 
 
-		if ( ! current_user_can('edit_page', $post_id)) 
+		if ( ! current_user_can('edit_page', $post_id))
 			return $post_id;
 
-		if ( defined('DOING_AUTOSAVE') and DOING_AUTOSAVE ) 
+		if ( defined('DOING_AUTOSAVE') and DOING_AUTOSAVE )
 			return $post_id;
-		
-		if ( wp_is_post_revision($post_id) OR wp_is_post_autosave($post_id) ) 
+
+		if ( wp_is_post_revision($post_id) OR wp_is_post_autosave($post_id) )
 			return $post_id;
 
 		if ( isset($_POST['_name_meta']) and check_admin_referer(__FILE__, '_name_meta_nonce') ){
@@ -225,6 +244,14 @@ END;
 		}
 		if ( isset($_POST['_hora_meta']) and check_admin_referer(__FILE__, '_hora_meta_nonce') ){
 			update_post_meta($post_id, '_hora_meta', $_POST['_hora_meta']);
+		}
+
+		// Demos instrcutores
+		if ( isset($_POST['_soundcloud_meta']) and check_admin_referer(__FILE__, '_soundcloud_meta_nonce') ){
+			update_post_meta($post_id, '_soundcloud_meta', $_POST['_soundcloud_meta']);
+		}
+		if ( isset($_POST['_youtube_meta']) and check_admin_referer(__FILE__, '_youtube_meta_nonce') ){
+			update_post_meta($post_id, '_youtube_meta', $_POST['_youtube_meta']);
 		}
 
 	});
