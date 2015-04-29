@@ -133,26 +133,20 @@
 				<div class="[ span xmall-10 ] [ center block ] [ margin-bottom ]">
 					<h2 class="[ title ] [ text-center ] [ margin-bottom ]">Próximos eventos en el foro Sunland</h2>
 					<i class="[ icon-marker ] [ icon-medium ] [ highlight ] [ text-center center block ]"></i>
-					<p class="[ text-center ]">
-						Cozumel #31, Col. Roma, Cuahtemoc, México D.F. CP: 06700
-					</p>
 				</div>
 
 				<?php 
-				    $count=0;
 					$instructores_args = array(
 						'post_type' 		=> 'eventos',
-						'posts_per_page' 	=> -1,
+						'posts_per_page' 	=> 3,
 						
 					);
 					$query_events = new WP_Query( $instructores_args );
 					if ( $query_events->have_posts() ) : while ( $query_events->have_posts() ) : $query_events->the_post();
 						$event_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
 						$meta_date = get_post_meta( $post->ID, '_dia_meta', true );
-				      	$count++;
-				     	if($count>3) break;
 				?>
-						<div class="[ columna xmall-12 medium-4 ] [  ]">
+						<div class="[ columna xmall-12 medium-4 ]">
 							<img src="<?php echo $event_img_url[0] ?>" class="[ image-responsive ] [ margin-bottom ]">
 							<h2 class="[ sub-title dark ] [ text-center ]"><?php the_title() ?></h2>
 							<p class="[ text-center ]"><?php echo $meta_date ?></p>
