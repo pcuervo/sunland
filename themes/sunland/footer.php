@@ -4,9 +4,9 @@
 				<section class="[ bg-highlight ]">
 					<div class="[ wrapper ] [ padding ]">
 						<div class="[ row ]">
-							<?php 
+							<?php
 								$contact_info_query = new WP_Query( 'pagename=info-general' );
-								if ( $contact_info_query->have_posts() ) : $contact_info_query->the_post(); 
+								if ( $contact_info_query->have_posts() ) : $contact_info_query->the_post();
 									$facebook = get_post_meta( $post->ID, '_facebook_meta', TRUE );
 									$twitter = get_post_meta( $post->ID, '_twitter_meta', TRUE );
 									$instagram = get_post_meta( $post->ID, '_instagram_meta', TRUE );
@@ -44,6 +44,31 @@
 						</div>
 					</div>
 				</section>
+
+				<div class="[ modal-wrapper modal-natural-form ][ hidden ]">
+					<div class="[ modal ]">
+						<div class="[ close-modal ]">
+							X Cerrar
+						</div>
+						<div class="[ modal-content ]">
+							<div class="[ modal-body ]">
+								<form id="nl-form" class="nl-form">
+									Hola, mi nombre es <input class="required" type="text" value="" placeholder="tu nombre" />, pueden enviarme información a <input class="required" type="text" value="" placeholder="tu correo" />, o comunicarse al <input class="required" type="text" value="" placeholder="tu número" />.
+									<div class="[ clear ][ margin-bottom ]"></div>
+									<div class="[ text-center ]">
+										<button class="[ button button--large button--highlight ]" type="submit">Enviar</button>
+									</div>
+									<div class="nl-overlay"></div>
+									<?php
+										$seccion = get_post_type( $post->ID );
+									?>
+									<input type="hidde" value="<?php echo $seccion; ?>">
+								</form>
+							</div><!-- modal-body -->
+						</div><!-- modal-content -->
+					</div><!-- modal -->
+				</div><!-- modal-wrapper -->
+
 			</footer>
 			<?php wp_footer(); ?>
 
@@ -51,6 +76,6 @@
 
 		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 	</body>
-</html>	
+</html>
 
 

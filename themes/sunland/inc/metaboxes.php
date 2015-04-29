@@ -30,8 +30,9 @@
 				add_meta_box( 'audiencia', 'Audiencia', 'metabox_audiencia', 'talleres', 'advanced', 'high' );
 				add_meta_box( 'horario_taller', 'Horario', 'metabox_horario_taller', 'talleres', 'advanced', 'high' );
 				add_meta_box( 'duracion_taller', 'Duración', 'metabox_duracion_taller', 'talleres', 'advanced', 'high' );
+				add_meta_box( 'demos_instructor', 'URL Soundcloud', 'metabox_demos_instructor', 'instructores', 'advanced', 'high' );
 		}
-		
+
 	});
 
 
@@ -174,6 +175,24 @@ END;
 		echo "<input type='text' class='[ widefat ]' name='_video_meta' value='$video'>";
 	}// metabox_video_artes
 
+	function metabox_demos_instructor($post){
+		$soundcloud = get_post_meta($post->ID, '_soundcloud_meta', true);
+		$youtube = get_post_meta($post->ID, '_youtube_meta', true);
+
+		wp_nonce_field(__FILE__, '_soundcloud_meta_nonce');
+		wp_nonce_field(__FILE__, '_youtube_meta_nonce');
+
+echo <<<END
+
+	<label>Soundcloud:</label>
+	<input type="text" class="[ widefat ]" name="_soundcloud_meta" value="$soundcloud" />
+	<label>Youtube:</label>
+	<input type="text" class="[ widefat ]" name="_youtube_meta" value="$youtube" />
+
+END;
+	}// metabox_demos_instructor
+
+
 
 // SAVE METABOXES DATA ///////////////////////////////////////////////////////////////
 
@@ -182,13 +201,13 @@ END;
 	add_action('save_post', function($post_id){
 
 
-		if ( ! current_user_can('edit_page', $post_id)) 
+		if ( ! current_user_can('edit_page', $post_id))
 			return $post_id;
 
-		if ( defined('DOING_AUTOSAVE') and DOING_AUTOSAVE ) 
+		if ( defined('DOING_AUTOSAVE') and DOING_AUTOSAVE )
 			return $post_id;
-		
-		if ( wp_is_post_revision($post_id) OR wp_is_post_autosave($post_id) ) 
+
+		if ( wp_is_post_revision($post_id) OR wp_is_post_autosave($post_id) )
 			return $post_id;
 
 		if ( isset($_POST['_name_meta']) and check_admin_referer(__FILE__, '_name_meta_nonce') ){
@@ -276,7 +295,13 @@ END;
 			update_post_meta($post_id, '_video_meta', $_POST['_video_meta']);
 		}
 
-
+		// Demos instrcutores
+		if ( isset($_POST['_soundcloud_meta']) and check_admin_referer(__FILE__, '_soundcloud_meta_nonce') ){
+			update_post_meta($post_id, '_soundcloud_meta', $_POST['_soundcloud_meta']);
+		}
+		if ( isset($_POST['_youtube_meta']) and check_admin_referer(__FILE__, '_youtube_meta_nonce') ){
+			update_post_meta($post_id, '_youtube_meta', $_POST['_youtube_meta']);
+		}
 
 	});
 

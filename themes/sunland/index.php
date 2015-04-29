@@ -32,7 +32,7 @@
 							<h2 class="[ title ] [ text-center ] [ margin-bottom ]"><?php the_title()?></h2>
 							<p class=" [ columna xmall-12 small-8 large-6 ] [ center block ] [ margin-bottom ] [ text-center ]"><?php the_content()?></p>
 							<div class="[ text-center ]">
-								<a href="#" class="[ button button--small button--highlight ] [ inline-block ]">más información</a>
+								<a href="<?php echo site_url('nosotros'); ?>" class="[ button button--small button--highlight ] [ inline-block ]">más información</a>
 							</div>
 						</div>
 					</div>

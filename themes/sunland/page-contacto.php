@@ -31,11 +31,11 @@
 				<form class="[ form form-contacto ] [ js-contact-form ]" action="">
 					<fieldset class="[ margin-bottom ]">
 						<label class="[ block ]" for="nombre">Nombre completo</label>
-						<input class="[ block ][ xmall-12 medium-10 ]" type="text" name="nombre">
+						<input class="[ block ][ xmall-12 medium-10 ][ required ]" type="text" name="nombre">
 					</fieldset>
 					<fieldset class="[ margin-bottom ]">
 						<label class="[ block ]"  for="email">Correo electrónico</label>
-						<input class="[ block ][ xmall-12 medium-10 ]" type="text" name="email">
+						<input class="[ block ][ xmall-12 medium-10 ][ required ]" type="text" name="email">
 					</fieldset>
 					<fieldset class="[ margin-bottom ]">
 						<label class="[ block ]"  for="tel">Teléfono</label>
@@ -43,7 +43,7 @@
 					</fieldset>
 					<fieldset class="[ margin-bottom ]">
 						<label class="[ block ]"  for="mensaje">Tu mensaje</label>
-						<textarea class="[ block ][ xmall-12 medium-10 ]" name="mensaje" id="" cols="30" rows="10"></textarea>
+						<textarea class="[ block ][ xmall-12 medium-10 ][ required ]" name="mensaje" id="" cols="30" rows="10"></textarea>
 					</fieldset>
 					<fieldset class="[ margin-bottom ]">
 						<input type="hidden" name="action" value="save_contact_post">
