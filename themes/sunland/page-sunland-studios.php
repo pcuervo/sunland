@@ -82,7 +82,7 @@
 		<div class="wrapper">
 			<div class="[ row ]">
 				<div class="[ span xmall-10 ] [ center block ] [ margin-bottom ]">
-					<h2 class="[ title ] [ text-center ] [ padding ]">Nuestros instructores</h2>
+					<h2 class="[ title ] [ text-center ] [ padding ]">Colaboradores</h2>
 				</div>
 				<?php 
 				$instructores_args = array(
