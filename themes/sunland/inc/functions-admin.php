@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 
 
@@ -56,4 +56,10 @@
 	});
 
 
-	
+// THE EXECRPT FORMAT AND LENGTH /////////////////////////////////////////////////////
+	add_filter('excerpt_length', function($length){
+		return 11;
+	});
+	add_filter('excerpt_more', function(){
+		return '…';
+	});

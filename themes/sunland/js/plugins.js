@@ -401,4 +401,3 @@
 	// 	var aAbrir = $(this).parent().find('.evento-full').slideUp(400).addClass('opened');
 	// }
 } )( jQuery, window );
-
