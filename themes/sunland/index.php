@@ -7,7 +7,7 @@
 	<div class="relative">
 		<div class="[ bg-image ] [ margin-bottom--large ]">
 			<div class="[ opacity-gradient square ]">
-				<div class="[ media-info ] [ xmall-10 medium-7 center-full ]">
+				<div class="[ media-info ] [ xmall-10 medium-7 center-bottom ]">
 					<h2 class="[ text-center light ]">Sunland School of the Arts, Escuela multidisciplinaria de artes escénicas en la Ciudad de México.</h2>
 				</div>
 			</div>
@@ -61,7 +61,7 @@
 				</div>
 				<div class="[ span xmall-12 medium-6 xmedium-4 large-3 ][ secondary-tile ] [ relative ]">
 					<div class="[ center-full ]">
-						<i class="[ icon-quote icon-large ][ text-center ] [ block ]"></i>
+						<i class="[ icon-icon-quote-01 icon-large ][ text-center ] [ block ]"></i>
 						<p><?php the_content(); ?></p>
 						<p class="[ text-right ]"><?php the_title(); ?></p>
 					</div>
@@ -179,7 +179,7 @@
 						$descripcion_home_studios = get_post_meta( $post->ID, '_descripcion_home_studios_meta', TRUE );
 				?>
 					<div class="[ span xmall-12 medium-6 ] [ margin-bottom--large ]">
-						<i class="[ icon-mic ] [ icon-xtra-large ] [ highlight ] [ text-center center block ]"></i>
+						<i class="[ icon-icon-airplane-01 ] [ icon-xtra-large ] [ highlight ] [ text-center center block ]"></i>
 						<h2 class="[ title highlight ] [ text-center ]"><?php the_title() ?></h2>
 							<p class="[ padding text-center ]"><?php echo $descripcion_home_studios ?></p>
 						<div class="[ text-center ]">
@@ -195,7 +195,7 @@
 						$descripcion_home_express = get_post_meta( $post->ID, '_descripcion_home_express_meta', TRUE );
 				?>
 						<div class="[ span xmall-12 medium-6 ] [ margin-bottom--large ]">
-							<i class="[ icon-airplane ] [ icon-xtra-large ] [ highlight ] [ text-center center block ]"></i>
+							<i class="[ icon-icon-airplane-48 ] [ icon-xtra-large ] [ highlight ] [ text-center center block ]"></i>
 
 							<h2 class="[ title highlight ] [ text-center ]"><?php the_title() ?></h2>
 							<p class="[ padding text-center ]"><?php echo $descripcion_home_express ?></p>
