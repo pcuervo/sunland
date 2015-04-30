@@ -15,11 +15,11 @@
 	<!-- SUNLAND EXPRESS -->
 	<section class="[ wrapper ]">
 		<div class="[ row ]">
-			<div class="[ columna xmall-12 medium-9 large-7 ] [ ] [ padding ] [ relative ]">
+			<div class="[ columna xmall-12 medium-9 ] [ ] [ padding ] [ relative ]">
 				<h2 class="[ title ]"><?php the_title(); ?></h2>
 				<?php the_content(); ?>
 			</div>
-			<div class="[ columna shown--large large-5 ]">
+			<div class="[ columna shown--medium medium-3 ]">
 				<img src="images/express-poster.png" class="[ image-responsive ] [ padding ] [ margin-bottom ]">
 			</div>
 			<div class="[ span xmall-12 margin-bottom--large ] [ clearfix ]">

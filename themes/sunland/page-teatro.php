@@ -19,7 +19,7 @@
 					<h2 class="[ title ]"><?php the_title(); ?></h2>
 				</div>
 				<?php 
-					$danza_args = array(
+					$teatro_args = array(
 						'post_type' 		=> 'talleres',
 						'posts_per_page' 	=> -1,
 						'tax_query' => array(
@@ -27,17 +27,17 @@
 							array(
 								'taxonomy' => 'arte',
 								'field'    => 'slug',
-								'terms'    => array('danza'),
+								'terms'    => array( 'teatro' ),
 							),
 							array(
 								'taxonomy' => 'tipo-de-contenido',
 								'field'    => 'slug',
-								'terms'    => array('texto'),
+								'terms'    => array( 'texto' ),
 							),
 						),
 					);
-					$query_danza = new WP_Query( $danza_args );
-					if ( $query_danza->have_posts() ) : while ( $query_danza->have_posts() ) : $query_danza->the_post();
+					$query_teatro = new WP_Query( $teatro_args );
+					if ( $query_teatro->have_posts() ) : while ( $query_teatro->have_posts() ) : $query_teatro->the_post();
 						$audiencia = get_post_meta( $post->ID, '_audiencia_meta', TRUE );
 						$horario_taller = get_post_meta( $post->ID, '_horario_taller_meta', TRUE );
 						$duracion_taller = get_post_meta( $post->ID, '_duracion_taller_meta', TRUE );
@@ -80,7 +80,7 @@
 		<div class="[ wrapper ]">
 			<div class="[ row ]">
 				<div class="[ span xmall-12 ] [ padding ] [ text-center ][ center block ]">
-					<h3 class="[ sub-title ] [ text-center ] [ inline-block align-middle ] [ padding ]">¿Tienes alguna duda sobre los talleres de danza?</h2><div class="[ inline-block align-middle ][ text-center ][ padding ]"><a href="#" class="[ button button--medium button--highlight ][ padding ][ js-modal-opener ]" data-modal="natural-form">contáctanos</a></div>
+					<h3 class="[ sub-title ] [ text-center ] [ inline-block align-middle ] [ padding ]">¿Tienes alguna duda sobre los talleres de teatro?</h2><div class="[ inline-block align-middle ][ text-center ][ padding ]"><a href="#" class="[ button button--medium button--highlight ][ padding ][ js-modal-opener ]" data-modal="natural-form">contáctanos</a></div>
 				</div>
 			</div>
 		</div>
@@ -101,7 +101,7 @@
 						array(
 								'taxonomy' => 'arte',
 								'field'    => 'slug',
-								'terms'    => array('danza'),
+								'terms'    => array( 'teatro' ),
 							),
 						array(
 							'taxonomy' => 'tipo-de-contenido',
@@ -129,7 +129,7 @@
 		<div class="wrapper">
 			<div class="[ row ]">
 				<div class="[ span xmall-10 ] [ center block ] [ margin-bottom ]">
-					<h2 class="[ title ] [ text-center ] [ padding ]">Instructores de danza</h2>
+					<h2 class="[ title ] [ text-center ] [ padding ]">Instructores de teatro</h2>
 				</div>
 				<?php 
 				$instructores_args = array(
@@ -145,7 +145,7 @@
 						array(
 							'taxonomy' => 'materia',
 							'field'    => 'slug',
-							'terms'    => array( 'danza' ),
+							'terms'    => array( 'teatro' ),
 						),
 					),
 				);

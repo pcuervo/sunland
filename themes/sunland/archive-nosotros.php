@@ -42,7 +42,7 @@
 						array(
 							'taxonomy' => 'tipo-de-staff',
 							'field'    => 'slug',
-							'terms'    => array('studios'),
+							'terms'    => array('talleres', 'diplomados'),
 						),
 					),
 				);
@@ -79,7 +79,6 @@
 		</div>
 	</section>
 	<!--  -->
-
 <?php
 	get_footer();
 ?>
