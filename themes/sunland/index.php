@@ -30,7 +30,9 @@
 					<div class="row">
 						<div class="[ span xmall-12 ] [ center block ] [ margin-bottom--large ]">
 							<h2 class="[ title ] [ text-center ] [ margin-bottom ]"><?php the_title()?></h2>
-							<p class=" [ columna xmall-12 small-8 large-6 ] [ center block ] [ margin-bottom ] [ text-center ]"><?php the_content()?></p>
+							<div class=" [ columna xmall-12 small-8 large-6 ] [ center block ] [ margin-bottom ] [ text-center ]">
+								<?php the_content()?>
+							</div>
 							<div class="[ text-center ]">
 								<a href="<?php echo site_url('nosotros'); ?>" class="[ button button--small button--highlight ] [ inline-block ]">más información</a>
 							</div>
@@ -119,7 +121,7 @@
 					$term_materias = wp_get_post_terms( $post->ID, 'materia', array('fields' => 'names') );
 					$materias = get_formatted_materias( $term_materias );
 				?>
-					<div class="[ span xmall-12 medium-4 ] [ padding ]">
+					<div class="[ span xmall-12 medium-4 large-3 ] [ padding ]">
 						<div class="[ bg-light ] [ relative ] [ instructor-image ]">
 							<div class="[ text-center ] [ center-full ] [ z-index-10 ]">
 								<a href="<?php the_permalink() ?>" class="[ button button--large button--highlight ]">ver perfil</a>
