@@ -48,22 +48,18 @@
 						<div class="">
 							<?php echo the_content(); ?>
 						</div>
-						<h4 class="[ dark ]">Dirigido a:</h4>
-						<div class="[ margin-bottom ]">
-							<?php echo $audiencia; ?>
-						</div>
+						<?php if ( $audiencia != '' ) : ?>
+							<h4 class="[ dark ]">Dirigido a:</h4>
+							<div class="[ margin-bottom ]">
+								<?php echo $audiencia; ?>
+							</div>
+						<?php endif ?>
 						<?php if ( $horario_taller != '' ) : ?>
 							<h4 class="[ dark ]">Horario:</h4>
 							<div class="[ margin-bottom ]">
 								<?php echo $horario_taller; ?>
 							</div>
 						<?php endif ?>
-						<h4 class="[ dark ]">Imparte:</h4>
-						<div class="[ margin-bottom ]">
-							<a href="<?php echo site_url() . '/instructores/' . $term_instructores[0]->slug ?>" class="[ highlight ]">
-								<?php echo $term_instructores[0]->name; ?>
-							</a>
-						</div>
 						<?php if ( $duracion_taller != '' ) : ?>
 							<h4 class="[ dark ]">Duración:</h4>
 							<div class="[ margin-bottom ]">
@@ -91,7 +87,7 @@
 	<section class="[ wrapper ]">
 		<div class="[ row ]">
 			<div class="[ columna xmall-12 ] [ margin-bottom ]">
-				<h2 class="[ title ]">Galerías de danza</h2>
+				<h2 class="[ title ]">Galerías de música</h2>
 			</div>
 			<?php 
 				$galeria_args = array(
