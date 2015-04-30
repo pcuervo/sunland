@@ -28,7 +28,7 @@
 	endwhile; endif; wp_reset_query();
 ?>
 	<!-- INSTRUCTORES -->
-	<section class="[ hidden--xmall shown--medium ] [ bg-highlight ] [ margin-bottom--large ]">
+	<section class="[ hidden--xmall shown--medium ] [ bg-dark ]">
 		<div class="wrapper">
 			<div class="[ row ]">
 				<div class="[ span xmall-10 ] [ center block ] [ margin-bottom ]">
@@ -42,7 +42,7 @@
 						array(
 							'taxonomy' => 'tipo-de-staff',
 							'field'    => 'slug',
-							'terms'    => array('studios'),
+							'terms'    => array('talleres', 'diplomados'),
 						),
 					),
 				);
@@ -67,18 +67,6 @@
 			</div>
 		</div>
 	</section><!-- INSTRUCTORES -->
-
-	<!-- Sunland Studios y Express -->
-	<section class="[ bg-dark ]">
-		<div class="[ wrapper ]">
-			<div class="[ row ]">
-				<div class="[ span xmall-12 ] [ padding--large ]">
-					<h3 class="[ sub-title ] [ text-center ] [ inline-block align-middle ] [ padding ]">Conoce más sobre nuestros talleres y cursos.</h2><a href="#" class="[ inline-block align middle ][ button button--medium button--highlight ] [ padding ]">más información</a>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!--  -->
 
 <?php 
 	get_footer();

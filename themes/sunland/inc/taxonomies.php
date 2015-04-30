@@ -254,13 +254,13 @@
 	* Insert terms for "Equipo Taxonomy"
 	**/
 	function insert_term_equipo_taxonomy(){
-		if ( ! term_exists( 'General', 'equipo_taxonomy' ) ){
-			wp_insert_term( 'General', 'equipo_taxonomy' );
+		if ( ! term_exists( 'General', 'tipo-de-equipo' ) ){
+			wp_insert_term( 'General', 'tipo-de-equipo' );
 		}
-		if ( ! term_exists( 'DAW', 'equipo_taxonomy' ) ){
-			wp_insert_term( 'DAW', 'equipo_taxonomy' );
+		if ( ! term_exists( 'DAW', 'tipo-de-equipo' ) ){
+			wp_insert_term( 'DAW', 'tipo-de-equipo' );
 		}
-		if ( ! term_exists( 'Microfonía', 'equipo_taxonomy' ) ){
-			wp_insert_term( 'Microfonía', 'equipo_taxonomy' );
+		if ( ! term_exists( 'Microfonía', 'tipo-de-equipo' ) ){
+			wp_insert_term( 'Microfonía', 'tipo-de-equipo' );
 		}
 	}// insert_term_tipo_de_staff

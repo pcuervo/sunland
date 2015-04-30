@@ -83,7 +83,7 @@
 						<h2><?php echo the_title(); ?></h2>
 						<h3 class="[ dark ]"><?php echo $date; ?></h3>
 						<p><?php the_excerpt(); ?></p>
-						<a href="<?php the_permalink() ?>" class="[ button button--small button-ink ] [ inline-block ]">Ver más <i class="[ fa fa-chevron-right ]"></i></a>
+						<a href="<?php the_permalink() ?>" class="[ button button--small button-ink ] [ inline-block ][ margin-bottom--large ]">Ver más <i class="[ fa fa-chevron-right ]"></i></a>
 				<?php
 					endwhile; endif; wp_reset_query();
 				?>

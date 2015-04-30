@@ -21,10 +21,10 @@
 							<div class="[ columna xmall-12 medium-4 ] [ text-center ] [ margin-bottom ]">
 								<p>Síguenos en:</p>
 								<p>
-									<a href="<?php echo $facebook ?>"><i class="[ icon-facebook ] [ icon-medium ]"></i></a>
-									<a href="<?php echo $twitter ?>"><i class="[ icon-twitter ] [ icon-medium ]"></i></a>
-									<a href="<?php echo $youtube ?>"><i class="[ icon-youtube-play ] [ icon-medium ]"></i></a>
-									<a href="<?php echo $instagram ?>"><i class="[ icon-instagram ] [ icon-medium ]"></i></a>
+									<a href="<?php echo $facebook ?>" target="_blank"><i class="[ icon-facebook ] [ icon-medium ]"></i></a>
+									<a href="<?php echo $twitter ?>" target="_blank"><i class="[ icon-twitter ] [ icon-medium ]"></i></a>
+									<a href="<?php echo $youtube ?>" target="_blank"><i class="[ icon-youtube-play ] [ icon-medium ]"></i></a>
+									<a href="<?php echo $instagram ?>" target="_blank"><i class="[ icon-instagram ] [ icon-medium ]"></i></a>
 								</p>
 							</div>
 							<div class="[ columna xmall-12 medium-4 ] [ text-center ] [ margin-bottom ]">
