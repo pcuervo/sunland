@@ -1,6 +1,6 @@
 <?php
 	get_header();
-	
+
 	$nosotros_args = array(
 		'post_type' 		=> 'nosotros',
 		'posts_per_page' 	=> -1,
@@ -28,13 +28,13 @@
 	endwhile; endif; wp_reset_query();
 ?>
 	<!-- INSTRUCTORES -->
-	<section class="[ hidden--xmall shown--medium ] [ bg-dark ]">
+	<section class="[ hidden--xmall shown--medium ] [ bg-highlight ]">
 		<div class="wrapper">
 			<div class="[ row ]">
 				<div class="[ span xmall-10 ] [ center block ] [ margin-bottom ]">
 					<h2 class="[ title ] [ text-center ] [ padding ]">Nuestros instructores</h2>
 				</div>
-				<?php 
+				<?php
 				$instructores_args = array(
 					'post_type' 		=> 'instructores',
 					'posts_per_page' 	=> -1,
@@ -68,6 +68,17 @@
 		</div>
 	</section><!-- INSTRUCTORES -->
 
-<?php 
+	<!-- Sunland Studios y Express -->
+	<section class="[ bg-dark ]">
+		<div class="[ wrapper ]">
+			<div class="[ row ]">
+				<div class="[ span xmall-12 ] [ padding--large ]">
+					<h3 class="[ sub-title ] [ text-center ] [ inline-block align-middle ] [ padding ]">Conoce más sobre nuestros talleres y cursos.</h2><a href="#" class="[ inline-block align middle ][ button button--medium button--highlight ] [ padding ]">más información</a>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--  -->
+<?php
 	get_footer();
 ?>

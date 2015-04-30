@@ -80,16 +80,33 @@
 					<h2 class="[ title ] [ text-center ]">Nuestros talleres</h2>
 				</div>
 				<div class="[ span xmall-12 medium-4 ] [ padding ] [ margin-bottom ]">
-					<i class="[ icon-icon-dance ] [ icon-xtra-large ] [ highlight ] [ text-center center block ]"></i>
-					<h2 class="[ title dark ] [ text-center ]">Danza</h2>
+					<a href="<?php echo site_url('danza') ?>">
+						<i class="[ icon-icon-dance ] [ icon-xtra-large ] [ highlight ] [ text-center center block ]"></i>
+					</a>
+					<h2 class="[ title ] [ text-center ]">
+						<a class="[ dark ]" href="<?php echo site_url('danza') ?>">
+							Danza
+						</a>
+					</h2>
 				</div>
 				<div class="[ span xmall-12 medium-4 ] [ padding ] [ margin-bottom ]">
-					<i class="[ icon-icon-music-47 ] [ icon-xtra-large ] [ highlight ] [ text-center center block ]"></i>
-					<h2 class="[ title dark ] [ text-center ]">Música</h2>
+					<a href="<?php echo site_url('musica') ?>">
+						<i class="[ icon-icon-music-47 ] [ icon-xtra-large ] [ highlight ] [ text-center center block ]"></i>
+					<h2 class="[ title ] [ text-center ]">
+						<a class="[ dark ]" href="<?php echo site_url('musica') ?>">
+							Música
+						</a>
+					</h2>
 				</div>
 				<div class="[ span xmall-12 medium-4 ] [ padding ] [ margin-bottom ]">
-					<i class="[ icon-icon-theater ] [ icon-xtra-large ] [ highlight ] [ text-center center block ]"></i>
-					<h2 class="[ title dark ] [ text-center ]">Teatro</h2>
+					<a href="<?php echo site_url('teatro') ?>">
+						<i class="[ icon-icon-theater ] [ icon-xtra-large ] [ highlight ] [ text-center center block ]"></i>
+					</a>
+					<h2 class="[ title ] [ text-center ]">
+						<a class="[ dark ]" href="<?php echo site_url('teatro') ?>">
+							Teatro
+						</a>
+					</h2>
 				</div>
 			</div>
 		</div>
@@ -152,19 +169,25 @@
 					);
 					$query_events = new WP_Query( $instructores_args );
 					if ( $query_events->have_posts() ) : while ( $query_events->have_posts() ) : $query_events->the_post();
-						$event_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
+						$event_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'thumbnail' );
 						$meta_date = get_post_meta( $post->ID, '_dia_meta', true );
 						$formatted_date = get_formatted_event_date( $meta_date );
 				?>
 						<div class="[ columna xmall-12 medium-4 ]">
-							<img src="<?php echo $event_img_url[0] ?>" class="[ image-responsive ] [ margin-bottom ]">
-							<h2 class="[ sub-title dark ] [ text-center ]"><?php the_title() ?></h2>
+							<a class="[ dark ]" href="<?php the_permalink(); ?>">
+								<img src="<?php echo $event_img_url[0] ?>" class="[ image-responsive ] [ margin-bottom ]">
+							</a>
+							<h2 class="[ sub-title ] [ text-center ]">
+								<a class="[ dark ]" href="<?php the_permalink(); ?>">
+									<?php the_title() ?>
+								</a>
+							</h2>
 							<p class="[ text-center ]"><?php echo $formatted_date ?></p>
 						</div>
 				<?php endwhile; endif; wp_reset_query(); ?>
 				<div class="[ clear ]"></div>
 				<div class="[ text-center ]">
-					<a href="#" class="[ button button--small button--highlight ] [ inline-block ]">ver más eventos</a>
+					<a href="<?php echo site_url('foro-sunland#calendar-section'); ?>" class="[ button button--small button--highlight ] [ inline-block ]">ver más eventos</a>
 				</div>
 			</div>
 		</div>
@@ -185,7 +208,7 @@
 						<h2 class="[ title highlight ] [ text-center ]"><?php the_title() ?></h2>
 							<p class="[ padding text-center ]"><?php echo $descripcion_home_studios ?></p>
 						<div class="[ text-center ]">
-							<a href="<?php echo site_url() . '/sunland-studios' ?>" class="[ button button--small button--highlight ] [ inline-block ]">más información</a>
+							<a href="<?php echo site_url() . '/sunland-studios' ?>" class="[ button button--small button--highlight ] [ inline-block ]">renta el estudio</a>
 						</div>
 					</div>
 				<?php
@@ -202,7 +225,7 @@
 							<h2 class="[ title highlight ] [ text-center ]"><?php the_title() ?></h2>
 							<p class="[ padding text-center ]"><?php echo $descripcion_home_express ?></p>
 							<div class="[ text-center ]">
-								<a href="<?php echo site_url() . '/sunland-express' ?>" class="[ button button--small button--highlight ] [ inline-block ]">más información</a>
+								<a href="<?php echo site_url() . '/sunland-express' ?>" class="[ button button--small button--highlight ] [ inline-block ]">conoce más</a>
 							</div>
 						</div>
 				<?php
@@ -213,7 +236,7 @@
 		</div>
 	</section><!-- SUNLAND STUDIOS Y EXPRESS -->
 
-	<div id="mapa" style="height:600px; width:100%"></div>
+	<div id="mapa" class="[ home-map ][ xmall-12 ]"></div>
 
 <?php get_footer(); ?>
 

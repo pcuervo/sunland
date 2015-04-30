@@ -32,9 +32,9 @@
 				<?php foreach ( $images as $image ) : ?>
 					<div class="[ columna xmall-12 medium-4 ]">
 						<?php
-							$image_url = wp_get_attachment_url( $image->ID );
+							$image_url = wp_get_attachment_image_src( $image->ID, 'thumbnail' );
 						?>
-						<img src="<?php echo $image_url ?>" class="[ image-responsive ] [ margin-bottom ]">
+						<img src="<?php echo $image_url[0] ?>" class="[ image-responsive ] [ margin-bottom ]">
 					</div>
 				<?php endforeach ?>
 			</div>
@@ -43,7 +43,7 @@
 	<!-- GALERÍA ESTÁTICA -->
 
 	<!-- CALENDAR -->
-	<section class="[ calendar ][ margin-bottom--large ]">
+	<section id="calendar-section" class="[ calendar ][ margin-bottom--large ]">
 		<div class="[ wrapper ]">
 			<div class="main_body_events_calendar calendarioContainer" >
 				<div class="custom-calendar-wrap">
