@@ -17,6 +17,7 @@
 			<div class="[ xmall-12 medium-8 ]">
 				<div class=" [ margin-bottom ]">
 					<h2 class="[ title ]"><?php the_title(); ?></h2>
+					<?php the_content(); ?>
 				</div>
 				<?php 
 					$danza_args = array(
@@ -43,6 +44,7 @@
 						$duracion_taller = get_post_meta( $post->ID, '_duracion_taller_meta', TRUE );
 						$term_instructores = wp_get_post_terms( $post->ID, 'instructores', array('fields' => 'all') );
 				?>
+					<div class="[ margin-bottom--large ]">
 						<h3 class="[ sub-title dark ]"><?php echo the_title(); ?></h3>
 						<div class="">
 							<?php echo the_content(); ?>
@@ -69,7 +71,8 @@
 								<?php echo $duracion_taller; ?>
 							</div>
 						<?php endif; ?>
-
+						<hr>
+					</div>
 				<?php endwhile; endif; wp_reset_query(); ?>
 			</div><!-- row -->
 		</div><!-- wrapper -->

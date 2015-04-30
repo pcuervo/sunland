@@ -336,6 +336,26 @@
 	add_action("wp_ajax_save_contact_post", "save_contact_post");
 	add_action("wp_ajax_nopriv_save_contact_post", "save_contact_post");
 
+	/**
+	 * Send email for "more information"
+	 * @return JSON $message - A success/error message about the status of the post.
+	*/
+	function send_email_more_information(){
+
+		$nombre = $_POST['nombre'];
+
+		$message = array(
+			'error'		=> 0,
+			'message'	=> '¡Gracias por contactarnos ' . $nombre .'!',
+			);
+		echo json_encode($message , JSON_FORCE_OBJECT);
+		exit();
+
+	}// send_email_more_information
+	add_action("wp_ajax_send_email_more_information", "send_email_more_information");
+	add_action("wp_ajax_nopriv_send_email_more_information", "send_email_more_information");
+
+
 
 
 

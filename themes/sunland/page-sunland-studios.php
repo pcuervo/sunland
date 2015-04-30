@@ -162,7 +162,7 @@
 					$term_materias = wp_get_post_terms( $post->ID, 'materia', array('fields' => 'names') );
 					$materias = get_formatted_materias( $term_materias );
 				?>
-					<div class="[ span xmall-12 medium-4 ] [ padding ]">
+					<div class="[ span xmall-12 medium-4 large-3 ] [ padding ]">
 						<div class="[ bg-light ] [ relative ] [ instructor-image ]">
 							<div class="[ text-center ] [ center-full ] [ z-index-10 ]">
 								<a href="<?php the_permalink() ?>" class="[ button button--large button--highlight ]">ver perfil</a>

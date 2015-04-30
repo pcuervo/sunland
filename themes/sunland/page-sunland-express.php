@@ -20,7 +20,7 @@
 				<?php the_content(); ?>
 			</div>
 			<div class="[ columna shown--medium medium-3 ]">
-				<img src="images/express-poster.png" class="[ image-responsive ] [ padding ] [ margin-bottom ]">
+				<img src="<?php echo THEMEPATH ?>/maqueta/images/express-poster.png" class="[ image-responsive ] [ padding ] [ margin-bottom ]">
 			</div>
 			<div class="[ span xmall-12 margin-bottom--large ] [ clearfix ]">
 				<div class="[ row ]">

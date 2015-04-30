@@ -39,7 +39,7 @@
 								<p><?php echo $direccion ?></p>
 							</div>
 							<div class="[ columna xmall-12 center block ] [ text-center ]">
-								<p>Términos y condiciones / Políticas de privacidad</p>
+								<a href="<?php echo THEMEPATH ?>doc/aviso_de_privacidad_sunland.pdf" target="_blank">Aviso de privacidad</a>
 							</div>
 						</div>
 					</div>
@@ -52,17 +52,22 @@
 						</div>
 						<div class="[ modal-content ]">
 							<div class="[ modal-body ]">
-								<form id="nl-form" class="nl-form">
-									Hola, mi nombre es <input class="required" type="text" value="" placeholder="tu nombre" />, pueden enviarme información a <input class="required" type="text" value="" placeholder="tu correo" />, o comunicarse al <input class="required" type="text" value="" placeholder="tu número" />.
+								<form id="nl-form" class="[ nl-form ][ js-mas-info-form ]">
+
+									Hola, mi nombre es <input class="required" type="text" name="nombre" value="" placeholder="tu nombre" />, pueden enviarme información a <input class="required" type="text" name="email" value="" placeholder="tu correo" />, o comunicarse al <input class="required" type="text" value="" name="tel" placeholder="tu número" />.
+									<input type="hidden" name="action" value="send_email_more_information">
+									<input type="hidden" name="email" value="miguel@pcuervo.com">
+									<?php
+										global $seccion;
+									?>
+									<input type="hidden" name="section" value="<?php echo $seccion; ?>">
+
 									<div class="[ clear ][ margin-bottom ]"></div>
+									<div class="nl-overlay"></div>	
 									<div class="[ text-center ]">
 										<button class="[ button button--large button--highlight ]" type="submit">Enviar</button>
 									</div>
-									<div class="nl-overlay"></div>
-									<?php
-										$seccion = get_post_type( $post->ID );
-									?>
-									<input type="hidde" value="<?php echo $seccion; ?>">
+									
 								</form>
 							</div><!-- modal-body -->
 						</div><!-- modal-content -->
