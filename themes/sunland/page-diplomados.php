@@ -17,7 +17,12 @@
 		<div class="[ xmall-12 medium-9 ]">
 			<div class="[ padding ] [ relative ]">
 				<h2 class="[ title ]"><?php the_title(); ?></h2>
-				<?php the_content(); ?>
+				<div class="[ margin-bottom ]">
+					<?php the_content(); ?>
+				</div>
+				<div class="[ text-right ]">
+					<a href="<?php echo THEMEPATH; ?>pdf/diplomados.pdf" class="button button--highlight">Descarga la información</a>
+				</div>
 			</div>
 			<div class="[ clearfix ]">
 				<div class="[ row ]">
@@ -41,7 +46,7 @@
 		<div class="[ wrapper ]">
 			<div class="[ row ]">
 				<div class="[ span xmall-12 ] [ padding ] [ text-center ][ center block ]">
-					<h3 class="[ sub-title ] [ text-center ] [ inline-block align-middle ] [ padding ]">Conoce más acerca de nuestro diplomado</h2><div class="[ inline-block block align middle ] [ text-center ][ padding ]"><a href="#" class="[ button button--medium button--dark ] [ padding ]">más información</a></div>
+					<h3 class="[ sub-title ] [ text-center ] [ inline-block align-middle ] [ padding ]">Conoce más acerca de nuestro diplomado</h2><div class="[ inline-block block align middle ] [ text-center ][ padding ]"><a href="#" class="[ button button--medium button--dark ] [ padding ][ js-modal-opener ]" data-modal="natural-form">más información</a></div>
 				</div>
 			</div>
 		</div>

@@ -28,15 +28,23 @@
 	<!-- GALERÍA ESTÁTICA -->
 	<section class="[ wrapper ]">
 		<div class="[ row ]">
-			<div class="[ span xmall-12 margin-bottom--large ] [ clearfix ]">
-				<?php foreach ( $images as $image ) : ?>
-					<div class="[ columna xmall-12 medium-4 ]">
-						<?php
-							$image_url = wp_get_attachment_image_src( $image->ID, 'thumbnail' );
-						?>
-						<img src="<?php echo $image_url[0] ?>" class="[ image-responsive ] [ margin-bottom ]">
-					</div>
-				<?php endforeach ?>
+			<div class="[ columna xmall-12 medium-4 ]">
+				<div class="[ video-wrapper ]">
+					<iframe src="https://www.youtube.com/embed/qaZxyJEfLCg" frameborder="0" allowfullscreen></iframe>
+				</div>
+				<h3>Teatro</h3>
+			</div>
+			<div class="[ columna xmall-12 medium-4 ]">
+				<div class="[ video-wrapper ]">
+					<iframe src="https://www.youtube.com/embed/pPpzw_1kZUM" frameborder="0" allowfullscreen></iframe>
+				</div>
+				<h3>Danza</h3>
+			</div>
+			<div class="[ columna xmall-12 medium-4 ]">
+				<div class="[ video-wrapper ]">
+					<iframe src="https://www.youtube.com/embed/jclFhixqvEs" frameborder="0" allowfullscreen></iframe>
+				</div>
+				<h3>Música</h3>
 			</div>
 		</div>
 	</section>

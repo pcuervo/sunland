@@ -98,6 +98,8 @@
 							 * On load
 							**/
 
+							$('.video-wrapper').fitVids();
+
 							<?php
 								$eventos = get_events();
 							?>
