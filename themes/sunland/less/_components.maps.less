@@ -1,29 +1,41 @@
 /*------------------------------------*\
-    #FOR RESPONSIVE MAPS
+	#FOR RESPONSIVE MAPS
 \*------------------------------------*/
  .google-maps {
-        position: relative;
-        padding-bottom: 75%; // This is the aspect ratio
-        height: 0;
-        overflow: hidden;
-    }
+	position: relative;
+	padding-bottom: 75%; // This is the aspect ratio
+	height: 0;
+	overflow: hidden;
+}
 .google-maps iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100% !important;
-    height: 100% !important;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100% !important;
+	height: 100% !important;
 }
 
 
 /*------------------------------------*\
-    #LARGE
+	#LARGE
 \*------------------------------------*/
 @media (min-width: @medium) {
-    .google-maps {
-        position: relative;
-        padding-bottom: 55%; // This is the aspect ratio
-        height: 0;
-        overflow: hidden;
-    }
+	.google-maps {
+		position: relative;
+		padding-bottom: 55%; // This is the aspect ratio
+		height: 0;
+		overflow: hidden;
+	}
+}
+
+
+
+
+.home-map, .contact-map{
+	height: 350px;
+	.transition();
+
+	@media (min-width: @medium){
+		height: 600px;
+	}
 }

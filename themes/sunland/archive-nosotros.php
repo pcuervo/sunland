@@ -1,6 +1,6 @@
 <?php
 	get_header();
-	
+
 	$nosotros_args = array(
 		'post_type' 		=> 'nosotros',
 		'posts_per_page' 	=> -1,
@@ -28,13 +28,13 @@
 	endwhile; endif; wp_reset_query();
 ?>
 	<!-- INSTRUCTORES -->
-	<section class="[ hidden--xmall shown--medium ] [ bg-highlight ] [ margin-bottom--large ]">
+	<section class="[ hidden--xmall shown--medium ] [ bg-highlight ]">
 		<div class="wrapper">
 			<div class="[ row ]">
 				<div class="[ span xmall-10 ] [ center block ] [ margin-bottom ]">
 					<h2 class="[ title ] [ text-center ] [ padding ]">Nuestros instructores</h2>
 				</div>
-				<?php 
+				<?php
 				$instructores_args = array(
 					'post_type' 		=> 'instructores',
 					'posts_per_page' 	=> -1,
@@ -80,6 +80,6 @@
 	</section>
 	<!--  -->
 
-<?php 
+<?php
 	get_footer();
 ?>
