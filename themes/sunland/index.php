@@ -48,7 +48,7 @@
 	<!-- QUOTE -->
 	<?php
 		$quote_args = array(
-			'post_type' 		=> 'testimonials',
+			'post_type' 		=> 'quotes',
 			'posts_per_page' 	=> 1,
 		);
 		$query_quotes = new WP_Query( $quote_args );
