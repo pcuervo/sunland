@@ -4,7 +4,10 @@
 	* Here we add all the javascript that needs to be run on the footer.
 	**/
 	function footer_scripts(){
-		global $post;
+		global $post, $section;
+
+		$section = get_the_title();
+		if( 'nosotros' == get_post_type() ) $section = 'Nosotros';
 
 		if( wp_script_is( 'functions', 'done' ) ) {
 ?>
@@ -48,6 +51,12 @@
 							$('.modal-wrapper').toggleClass('hidden');
 						});
 
+						$('.js-mas-info-form button[type="submit"]').on('click', function(e){
+							e.preventDefault();
+							sendMoreInfoEmail();
+						});
+
+
 
 
 						/*------------------------------------*\
@@ -71,7 +80,7 @@
 							/**
 							 * Triggered events
 							**/
-							$('.js-contact-form input[type="submit"]').on('click', function(e){
+							$('.js-contact-form button').on('click', function(e){
 								e.preventDefault();
 								saveContactPost();
 							});

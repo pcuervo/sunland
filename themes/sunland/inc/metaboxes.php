@@ -23,7 +23,7 @@
 				add_meta_box( 'descripcion_home_studios', 'Descripción página de inicio', 'metabox_home_studios', 'page', 'advanced', 'high' );
 				break;
 			case 'foro-sunland':
-				add_meta_box( 'url_video', 'Video YouTube', 'metabox_video_artes', 'page', 'advanced', 'high' );
+				add_meta_box( 'url_videos', 'Videos YouTube', 'metabox_videos_artes', 'page', 'advanced', 'high' );
 				break;
 			default:
 				add_meta_box( 'fecha_evento', 'Fecha del evento', 'metabox_fecha_evento', 'eventos', 'advanced', 'high' );
@@ -167,12 +167,21 @@ END;
 		echo "<input type='text' class='[ widefat ]' name='_duracion_taller_meta' value='$duracion_taller'>";
 	}// metabox_duracion_taller
 
-	function metabox_video_artes($post){
-		$video = get_post_meta($post->ID, '_video_meta', true);
+	function metabox_videos_artes($post){
+		$video_danza = get_post_meta($post->ID, '_video_danza_meta', true);
+		$video_musica = get_post_meta($post->ID, '_video_musica_meta', true);
+		$video_teatro = get_post_meta($post->ID, '_video_teatro_meta', true);
 
-		wp_nonce_field(__FILE__, '_video_meta_nonce');
+		wp_nonce_field(__FILE__, '_video_danza_meta_nonce');
+		wp_nonce_field(__FILE__, '_video_musica_meta_nonce');
+		wp_nonce_field(__FILE__, '_video_teatro_meta_nonce');
 
-		echo "<input type='text' class='[ widefat ]' name='_video_meta' value='$video'>";
+		echo '<label>Danza:</label>';
+		echo "<input type='text' class='[ widefat ]' name='_video_danza_meta' value='$video_danza'>";
+		echo '<label>Música:</label>';
+		echo "<input type='text' class='[ widefat ]' name='_video_musica_meta' value='$video_musica'>";
+		echo '<label>Teatro:</label>';
+		echo "<input type='text' class='[ widefat ]' name='_video_teatro_meta' value='$video_teatro'>";
 	}// metabox_video_artes
 
 	function metabox_demos_instructor($post){
@@ -291,8 +300,14 @@ END;
 		}
 
 		// Video talleres
-		if ( isset($_POST['_video_meta']) and check_admin_referer(__FILE__, '_video_meta_nonce') ){
-			update_post_meta($post_id, '_video_meta', $_POST['_video_meta']);
+		if ( isset($_POST['_video_danza_meta']) and check_admin_referer(__FILE__, '_video_danza_meta_nonce') ){
+			update_post_meta($post_id, '_video_danza_meta', $_POST['_video_danza_meta']);
+		}
+		if ( isset($_POST['_video_musica_meta']) and check_admin_referer(__FILE__, '_video_musica_meta_nonce') ){
+			update_post_meta($post_id, '_video_musica_meta', $_POST['_video_musica_meta']);
+		}
+		if ( isset($_POST['_video_teatro_meta']) and check_admin_referer(__FILE__, '_video_teatro_meta_nonce') ){
+			update_post_meta($post_id, '_video_teatro_meta', $_POST['_video_teatro_meta']);
 		}
 
 		// Demos instrcutores

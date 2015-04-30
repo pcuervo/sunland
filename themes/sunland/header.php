@@ -33,7 +33,7 @@
 										<li><a href="<?php echo site_url( 'teatro' ) ?>">Teatro</a></li>
 									</ul>
 								</li>
-								<li><a href="">Diplomados</a></li>
+								<li><a href="">Diplomado</a></li>
 							</ul>
 						</li>
 						<li><a href="<?php echo site_url() . '/foro-sunland' ?>">Foro Sunland</a></li>
@@ -70,7 +70,7 @@
 								}
 							?>
 							<div class="[ shown--medium--inline align-middle ][ button button--menu ][ pull-right ] <?php echo $active_artes ?>">
-								Artes escenicas
+								Artes escénicas
 								<ul class="[ dropdown ][ no-margin ]">
 									<li><a href="#artes/talleres">Talleres <i class="[ icon-angle-down ][ pull-right ]"></i></a>
 										<ul class="[ sub-dropdown ]">
@@ -79,7 +79,7 @@
 											<li><a href="<?php echo site_url( 'teatro' ) ?>">Teatro</a></li>
 										</ul>
 									</li>
-									<li><a href="<?php echo site_url( 'diplomados' );?>">Diplomados</a></li>
+									<li><a href="<?php echo site_url( 'diplomados' );?>">Diplomado</a></li>
 								</ul>
 							</div>
 							<a class="<?php echo ( 'nosotros' == get_post_type() ) ? '[ active ]' : '' ?>[ no-xmall medium large ][ inline-block middle ][ button button--menu ][ pull-right ]" href="<?php echo site_url() . '/nosotros' ?>">

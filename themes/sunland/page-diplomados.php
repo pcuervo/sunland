@@ -71,7 +71,7 @@
 
 					$instructor_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
 				?>
-					<div class="[ span xmall-12 medium-4 ] [ padding ]">
+					<div class="[ span xmall-12 medium-4 large-3 ] [ padding ]">
 						<div class="[ bg-light ] [ relative ] [ instructor-image ]">
 							<div class="[ text-center ] [ center-full ] [ z-index-10 ]">
 								<a href="<?php the_permalink() ?>" class="[ button button--large button--highlight ]">ver perfil</a>

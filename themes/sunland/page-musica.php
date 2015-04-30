@@ -17,6 +17,7 @@
 			<div class="[ xmall-12 medium-8 ]">
 				<div class=" [ margin-bottom ]">
 					<h2 class="[ title ]"><?php the_title(); ?></h2>
+					<?php the_content(); ?>
 				</div>
 				<?php 
 					$musica_args = array(

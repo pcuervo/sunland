@@ -133,11 +133,20 @@ function openAccordion(elemento){
 	}
 }// openAccordion
 
+/**
+ * Toggles Modal
+ * @param element
+**/
+function toggleModal(element){
+	$('.modal-'+element).toggleClass('hidden');
+}
+
+
 
 
 
 /*------------------------------------*\
-	#FUNCTIONS
+	AJAX FUNCTIONS
 \*------------------------------------*/
 
 
@@ -167,9 +176,23 @@ function saveContactPost(){
 }// saveContactPost
 
 /**
- * Toggles Modal
- * @param element
-**/
-function toggleModal(element){
-	$('.modal-'+element).toggleClass('hidden');
-}
+ * Send email requesting more information.
+ */
+function sendMoreInfoEmail(){
+	data = $('.js-mas-info-form').serialize();
+
+	$.post(
+		ajax_url,
+		data,
+		function( response ){
+			$('.close-modal').click();
+			
+			var message_json = $.parseJSON( response );
+			if( ! message_json.error ){
+				alert( message_json.message );
+				return;
+			}			
+		}
+	);
+}// sendMoreInfoEmail
+
