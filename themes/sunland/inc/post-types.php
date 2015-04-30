@@ -130,19 +130,19 @@
 		);
 		register_post_type( 'instructores', $args );
 
-		// TESTIMONIALS
+		// QUOTES
 		$labels = array(
-			'name'          => 'Testimonials',
-			'singular_name' => 'Testimonial',
-			'add_new'       => 'Nuevo testimonial',
-			'add_new_item'  => 'Nuevo testimonial',
-			'edit_item'     => 'Editar testimonial',
-			'new_item'      => 'Nuevo testimonial',
-			'all_items'     => 'Todas',
-			'view_item'     => 'Ver testimonial',
-			'search_items'  => 'Buscar testimonials',
+			'name'          => 'Quotes',
+			'singular_name' => 'Quote',
+			'add_new'       => 'Nuevo quote',
+			'add_new_item'  => 'Nuevo quote',
+			'edit_item'     => 'Editar quote',
+			'new_item'      => 'Nuevo quote',
+			'all_items'     => 'Todos',
+			'view_item'     => 'Ver quotes',
+			'search_items'  => 'Buscar quotes',
 			'not_found'     => 'No se encontró',
-			'menu_name'     => 'Testimonials'
+			'menu_name'     => 'Quotes'
 		);
 		$args = array(
 			'labels'             => $labels,
@@ -151,7 +151,7 @@
 			'show_ui'            => true,
 			'show_in_menu'       => true,
 			'query_var'          => true,
-			'rewrite'            => array( 'slug' => 'testimonials' ),
+			'rewrite'            => array( 'slug' => 'quotes' ),
 			'capability_type'    => 'post',
 			'has_archive'        => true,
 			'hierarchical'       => false,
@@ -159,7 +159,7 @@
 			'taxonomies'         => array( 'category' ),
 			'supports'           => array( 'title', 'editor', 'thumbnail' )
 		);
-		register_post_type( 'testimonials', $args );
+		register_post_type( 'quotes', $args );
 
 		//EQUIPOS
 		$labels = array(

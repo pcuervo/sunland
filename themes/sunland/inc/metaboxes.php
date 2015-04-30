@@ -9,10 +9,6 @@
 	add_action('add_meta_boxes', function(){
 		global $post;
 
-		add_meta_box( 'fecha_evento', 'Fecha del evento', 'metabox_fecha_evento', 'eventos', 'advanced', 'high' );
-		add_meta_box( 'demos_instructor', 'URL Soundcloud', 'metabox_demos_instructor', 'instructores', 'advanced', 'high' );
-
-		// echo $post->post_name;
 		switch ( $post->post_name ) {
 			case 'info-general':
 				add_meta_box( 'social', 'Redes sociales', 'metabox_social', 'page', 'advanced', 'high' );
@@ -26,6 +22,15 @@
 			case 'sunland-studios':
 				add_meta_box( 'descripcion_home_studios', 'Descripción página de inicio', 'metabox_home_studios', 'page', 'advanced', 'high' );
 				break;
+			case 'foro-sunland':
+				add_meta_box( 'url_video', 'Video YouTube', 'metabox_video_artes', 'page', 'advanced', 'high' );
+				break;
+			default:
+				add_meta_box( 'fecha_evento', 'Fecha del evento', 'metabox_fecha_evento', 'eventos', 'advanced', 'high' );
+				add_meta_box( 'audiencia', 'Audiencia', 'metabox_audiencia', 'talleres', 'advanced', 'high' );
+				add_meta_box( 'horario_taller', 'Horario', 'metabox_horario_taller', 'talleres', 'advanced', 'high' );
+				add_meta_box( 'duracion_taller', 'Duración', 'metabox_duracion_taller', 'talleres', 'advanced', 'high' );
+				add_meta_box( 'demos_instructor', 'URL Soundcloud', 'metabox_demos_instructor', 'instructores', 'advanced', 'high' );
 		}
 
 	});
@@ -83,12 +88,8 @@ END;
 
 		wp_nonce_field(__FILE__, '_email_meta_nonce');
 
-echo <<<END
-
-	<label>Email:</label>
-	<input type="text" class="[ widefat ]" name="_email_meta" value="$email" />
-
-END;
+		echo '<label>Email:</label>';
+		echo "<input type='text' class='[ widefat ]' name='_email_meta' value='$email' />";
 	}// metabox_email
 
 	function metabox_direccion($post){
@@ -114,9 +115,7 @@ END;
 
 		wp_nonce_field(__FILE__, '_descripcion_home_express_meta_nonce');
 
-echo <<<END
-	<textarea type="text" class="[ widefat ]" name="_descripcion_home_express_meta">$descripcion_home_express</textarea>
-END;
+		echo "<textarea type='text' class='[ widefat ]' name='_descripcion_home_express_meta'>$descripcion_home_express</textarea>";
 	}// metabox_home_express
 
 	function metabox_home_studios($post){
@@ -124,9 +123,7 @@ END;
 
 		wp_nonce_field(__FILE__, '_descripcion_home_studios_meta_nonce');
 
-echo <<<END
-	<textarea type="text" class="[ widefat ]" name="_descripcion_home_studios_meta">$descripcion_home_studios</textarea>
-END;
+		echo "<textarea type='text' class='[ widefat ]' name='_descripcion_home_studios_meta'>$descripcion_home_studios</textarea>";
 	}// metabox_home_studios
 
 	function metabox_fecha_evento($post){
@@ -145,6 +142,38 @@ echo <<<END
 
 END;
 	}// metabox_fecha_evento
+
+	function metabox_audiencia($post){
+		$audiencia = get_post_meta($post->ID, '_audiencia_meta', true);
+
+		wp_nonce_field(__FILE__, '_audiencia_meta_nonce');
+
+		echo "<textarea type='text' class='[ widefat ]' name='_audiencia_meta'>$audiencia</textarea>";
+	}// metabox_audiencia
+
+	function metabox_horario_taller($post){
+		$horario_taller = get_post_meta($post->ID, '_horario_taller_meta', true);
+
+		wp_nonce_field(__FILE__, '_horario_taller_meta_nonce');
+
+		echo "<input type='text' class='[ widefat ]' name='_horario_taller_meta' value='$horario_taller'>";
+	}// metabox_horario_taller
+
+	function metabox_duracion_taller($post){
+		$duracion_taller = get_post_meta($post->ID, '_duracion_taller_meta', true);
+
+		wp_nonce_field(__FILE__, '_duracion_taller_meta_nonce');
+
+		echo "<input type='text' class='[ widefat ]' name='_duracion_taller_meta' value='$duracion_taller'>";
+	}// metabox_duracion_taller
+
+	function metabox_video_artes($post){
+		$video = get_post_meta($post->ID, '_video_meta', true);
+
+		wp_nonce_field(__FILE__, '_video_meta_nonce');
+
+		echo "<input type='text' class='[ widefat ]' name='_video_meta' value='$video'>";
+	}// metabox_video_artes
 
 	function metabox_demos_instructor($post){
 		$soundcloud = get_post_meta($post->ID, '_soundcloud_meta', true);
@@ -244,6 +273,26 @@ END;
 		}
 		if ( isset($_POST['_hora_meta']) and check_admin_referer(__FILE__, '_hora_meta_nonce') ){
 			update_post_meta($post_id, '_hora_meta', $_POST['_hora_meta']);
+		}
+
+		// Audiencia talleres
+		if ( isset($_POST['_audiencia_meta']) and check_admin_referer(__FILE__, '_audiencia_meta_nonce') ){
+			update_post_meta($post_id, '_audiencia_meta', $_POST['_audiencia_meta']);
+		}
+
+		// Horario talleres
+		if ( isset($_POST['_horario_taller_meta']) and check_admin_referer(__FILE__, '_horario_taller_meta_nonce') ){
+			update_post_meta($post_id, '_horario_taller_meta', $_POST['_horario_taller_meta']);
+		}
+
+		// Duración talleres
+		if ( isset($_POST['_duracion_taller_meta']) and check_admin_referer(__FILE__, '_duracion_taller_meta_nonce') ){
+			update_post_meta($post_id, '_duracion_taller_meta', $_POST['_duracion_taller_meta']);
+		}
+
+		// Video talleres
+		if ( isset($_POST['_video_meta']) and check_admin_referer(__FILE__, '_video_meta_nonce') ){
+			update_post_meta($post_id, '_video_meta', $_POST['_video_meta']);
 		}
 
 		// Demos instrcutores

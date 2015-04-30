@@ -65,17 +65,23 @@
 							<a class="<?php echo ( 'Foro Sunland' == get_the_title() ) ? '[ active ]' : '' ?>[ shown--medium--inline align-middle ][ button button--menu ][ pull-right ]" href="<?php echo site_url() . '/foro-sunland' ?>">
 								Foro Sunland
 							</a>
-							<div class="[ shown--medium--inline align-middle ][ button button--menu ][ pull-right ]">
+							<?php
+								$active_artes = '[]';
+								if( 'Danza' == get_the_title() || 'Teatro' == get_the_title() || 'Música' == get_the_title() || 'Diplomados' == get_the_title()  ){
+									$active_artes = '[ active ]';
+								}
+							?>
+							<div class="[ shown--medium--inline align-middle ][ button button--menu ][ pull-right ] <?php echo $active_artes ?>">
 								Artes escenicas
 								<ul class="[ dropdown ][ no-margin ]">
 									<li><a href="#artes/talleres">Talleres <i class="[ icon-angle-down ][ pull-right ]"></i></a>
 										<ul class="[ sub-dropdown ]">
-											<li><a href="#artes/talleres/danza">Danza</a></li>
-											<li><a href="#about/team/sales">Música</a></li>
-											<li><a href="#about/team/development">Teatro</a></li>
+											<li><a href="<?php echo site_url( 'danza' ) ?>">Danza</a></li>
+											<li><a href="<?php echo site_url( 'musica' ) ?>">Música</a></li>
+											<li><a href="<?php echo site_url( 'teatro' ) ?>">Teatro</a></li>
 										</ul>
 									</li>
-									<li><a href="<?php echo site_url('diplomados' );?>">Diplomados</a></li>
+									<li><a href="<?php echo site_url( 'diplomados' );?>">Diplomados</a></li>
 								</ul>
 							</div>
 							<a class="<?php echo ( 'nosotros' == get_post_type() ) ? '[ active ]' : '' ?>[ no-xmall medium large ][ inline-block middle ][ button button--menu ][ pull-right ]" href="<?php echo site_url() . '/nosotros' ?>">
