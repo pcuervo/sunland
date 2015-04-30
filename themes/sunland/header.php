@@ -44,13 +44,15 @@
 				</nav>
 				<div class="[ wrapper ]">
 					<div class="[ row ]">
-						<h1 class="[ inline-block align-middle ]">
-							<a href="<?php echo site_url() ?>">
-								<img src="<?php echo THEMEPATH ?>images/logo-rojo.png" class="[ image-responsive ]">
-							</a>
-						</h1><div class="[ xmall-9 small-10 medium-10 xmedium-11 ][ hidden--large-inline ] [ light ] [ padding ] [ inline-block align-middle ]">
+						<div class="[ xmall-6 large-1 ][ inline-block align-middle ]">
+							<h1 class="">
+								<a href="<?php echo site_url() ?>">
+									<img src="<?php echo THEMEPATH ?>images/logo-rojo.png" class="[ image-responsive ]">
+								</a>
+							</h1>
+						</div><div class="[ xmall-6 ][ hidden--large-inline ][ light ][ padding ][ inline-block align-middle ]">
 						<a class="[ pull-right ]" href="#sunland-mmenu"><i class="fa fa-bars fa-2x"></i></a>
-						</div><nav class="[ shown--large--inline ] [ large-11 ] [ bg-dark-shade ] [ clearfix ] [ menu-container ] [ inline-block align-middle ]">
+						</div><nav class="[ shown--large--inline ] [ large-10 ] [ bg-dark-shade ] [ clearfix ] [ menu-container ] [ inline-block align-middle ]">
 							<a class="<?php echo ( 'Contacto' == get_the_title() ) ? '[ active ]' : '' ?>[ shown--medium--inline middle ][ inline-block align-middle ][ button button--menu ][ pull-right ]" href="<?php echo site_url() . '/contacto' ?>">
 								Contacto
 							</a>
