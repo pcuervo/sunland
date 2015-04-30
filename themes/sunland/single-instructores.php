@@ -27,12 +27,12 @@
 				<div class="[ margin-bottom--large ] [ clearfix ]">
 					<h2 class="title">Demos</h2>
 					<?php if ( $soundcloud ){ ?>
-						<a target="_blank"> href="<?php echo $soundcloud; ?>">
+						<a target="_blank" href="<?php echo $soundcloud; ?>">
 							<i class="[ icon-soundcloud ] [ icon-large ] [ highlight ]"></i>
 						</a>
 					<?php }
 					if ( $youtube ){ ?>
-						<a target="_blank"> href="<?php echo $youtube; ?>">
+						<a target="_blank" href="<?php echo $youtube; ?>">
 							<i class="[ icon-youtube-play ] [ icon-large ] [ highlight ]"></i>
 						</a>
 					<?php } ?>

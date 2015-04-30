@@ -122,7 +122,7 @@
 				<?php
 				$instructores_args = array(
 					'post_type' 		=> 'instructores',
-					'posts_per_page' 	=> 5,
+					'posts_per_page' 	=> 4,
 					'tax_query' => array(
 						array(
 							'taxonomy' => 'tipo-de-staff',
