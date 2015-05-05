@@ -39,7 +39,7 @@
 								<p><?php echo $direccion ?></p>
 							</div>
 							<div class="[ columna xmall-12 center block ] [ text-center ]">
-								<a href="<?php echo THEMEPATH ?>doc/aviso_de_privacidad_sunland.pdf" target="_blank">Aviso de privacidad</a>
+								<a class="[ light ]" href="<?php echo THEMEPATH ?>doc/aviso_de_privacidad_sunland.pdf" target="_blank">Aviso de privacidad</a>
 							</div>
 						</div>
 					</div>
@@ -53,8 +53,7 @@
 						<div class="[ modal-content ]">
 							<div class="[ modal-body ]">
 								<form id="nl-form" class="[ nl-form ][ js-mas-info-form ]">
-
-									Hola, mi nombre es <input class="required" type="text" name="nombre" placeholder="tu nombre" />, pueden enviarme información a <input class="required" type="text" name="email" placeholder="tu correo" />, o comunicarse al <input class="required" type="text" name="tel" placeholder="tu número" />.
+									Hola, mi nombre es <input class="required" type="text" name="nombre" value="" placeholder="tu nombre" />, pueden enviarme información a <input class="[ required email ]" type="text" name="email" value="" placeholder="tu correo" />, o comunicarse al <input class="[ required ]" type="text" value="" name="tel" placeholder="tu número" />.
 									<input type="hidden" name="action" value="send_email_more_information">
 									<input type="hidden" name="to_email" value="miguel@pcuervo.com">
 									<?php
@@ -63,11 +62,11 @@
 									<input type="hidden" name="section" value="<?php echo $section; ?>">
 
 									<div class="[ clear ][ margin-bottom ]"></div>
-									<div class="nl-overlay"></div>	
+									<div class="nl-overlay"></div>
 									<div class="[ text-center ]">
 										<button class="[ button button--large button--highlight ]" type="submit">Enviar</button>
 									</div>
-									
+
 								</form>
 							</div><!-- modal-body -->
 						</div><!-- modal-content -->

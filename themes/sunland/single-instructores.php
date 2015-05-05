@@ -17,23 +17,27 @@
 	<!-- INFO -->
 	<section class="[ info ]">
 		<div class="[ wrapper ]">
-			<div class="[ row ]">
-				<div class="[ columna xmall-12 ] [ margin-bottom ]">
+			<div class="[ xmall-12 medium-8 ]">
+				<div class="[ margin-bottom ]">
 					<h2 class="[ title ]"><?php echo the_title(); ?></h2>
 				</div>
-				<div class="[ columna xmall-12 medium-6 ]">
+				<div class="">
 					<?php the_content(); ?>
 				</div>
-				<div class="[ xmall-12 margin-bottom--large ] [ clearfix ]">
+				<div class="[ margin-bottom--large ] [ clearfix ]">
 					<h2 class="title">Demos</h2>
 					<?php if ( $soundcloud ){ ?>
-						<i class="[ icon-soundcloud ] [ icon-large ] [ highlight ]"></i>
+						<a target="_blank" href="<?php echo $soundcloud; ?>">
+							<i class="[ icon-soundcloud ] [ icon-large ] [ highlight ]"></i>
+						</a>
 					<?php }
 					if ( $youtube ){ ?>
-						<i class="[ icon-youtube-play ] [ icon-large ] [ highlight ]"></i>
+						<a target="_blank" href="<?php echo $youtube; ?>">
+							<i class="[ icon-youtube-play ] [ icon-large ] [ highlight ]"></i>
+						</a>
 					<?php } ?>
 				</div>
-			</div><!-- row -->
+			</div><!-- xmall-12 medium-8 -->
 		</div><!-- wrapper -->
 	</section> <!-- INFO -->
 

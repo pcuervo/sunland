@@ -26,8 +26,11 @@
 
 						//Natural language form
 						var nlform = new NLForm( document.getElementById( 'nl-form' ) );
-						$('#nl-form').validate();
-
+						$('#nl-form').validate({
+					        submitHandler:function(){
+					            sendMoreInfoEmail();
+					        }
+					    });
 
 						/**
 						 * Triggered events
@@ -46,11 +49,6 @@
 
 						$('.close-modal').on('click', function(event) {
 							$('.modal-wrapper').toggleClass('hidden');
-						});
-
-						$('.js-mas-info-form button[type="submit"]').on('click', function(e){
-							e.preventDefault();
-							sendMoreInfoEmail();
 						});
 
 
@@ -96,6 +94,8 @@
 							/**
 							 * On load
 							**/
+
+							$('.video-wrapper').fitVids();
 
 							<?php
 								$eventos = get_events();

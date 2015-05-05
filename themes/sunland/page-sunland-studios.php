@@ -5,7 +5,7 @@
 
 	$cover_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
 	$images = get_attached_media( 'image' );
-	
+
 ?>
 
 	<div class="[ bg-image ] [ margin-bottom--large ]" style="background-image: url(<?php echo $cover_url[0] ?>)">
@@ -50,7 +50,7 @@
 			<div class="[ columna xmall-12 medium-4 ]">
 				<h3>General</h3>
 				<ul>
-					<?php 
+					<?php
 					$equipo_args = array(
 						'post_type' 		=> 'equipos',
 						'posts_per_page' 	=> -1,
@@ -63,11 +63,11 @@
 						),
 					);
 					$query_equipo = new WP_Query( $equipo_args );
-					if ( $query_equipo->have_posts() ) : while ( $query_equipo->have_posts() ) : $query_equipo->the_post();			
+					if ( $query_equipo->have_posts() ) : while ( $query_equipo->have_posts() ) : $query_equipo->the_post();
 					?>
 						<li class="[ xmall-12 ]">
 							- <?php the_title()?>
-						</li>	
+						</li>
 				    <?php endwhile; endif; wp_reset_query(); ?>
 	    		</ul>
     		</div>
@@ -75,7 +75,7 @@
 			<div class="[ columna xmall-12 medium-4 ]">
 				<h3>DAW</h3>
 	    		<ul>
-					<?php 
+					<?php
 					$equipo_args = array(
 						'post_type' 		=> 'equipos',
 						'posts_per_page' 	=> -1,
@@ -88,11 +88,11 @@
 						),
 					);
 					$query_equipo = new WP_Query( $equipo_args );
-					if ( $query_equipo->have_posts() ) : while ( $query_equipo->have_posts() ) : $query_equipo->the_post();			
+					if ( $query_equipo->have_posts() ) : while ( $query_equipo->have_posts() ) : $query_equipo->the_post();
 					?>
 						<li class="[ xmall-12 ]">
 							- <?php the_title()?>
-						</li>	
+						</li>
 				    <?php endwhile; endif; wp_reset_query(); ?>
 	    		</ul>
 	    	</div>
@@ -100,7 +100,7 @@
 			<div class="[ columna xmall-12 medium-4 ]">
 				<h3>Microfonía</h3>
 	    		<ul>
-					<?php 
+					<?php
 					$equipo_args = array(
 						'post_type' 		=> 'equipos',
 						'posts_per_page' 	=> -1,
@@ -113,11 +113,11 @@
 						),
 					);
 					$query_equipo = new WP_Query( $equipo_args );
-					if ( $query_equipo->have_posts() ) : while ( $query_equipo->have_posts() ) : $query_equipo->the_post();			
+					if ( $query_equipo->have_posts() ) : while ( $query_equipo->have_posts() ) : $query_equipo->the_post();
 					?>
 						<li class="[ xmall-12 ]">
 							- <?php the_title()?>
-						</li>	
+						</li>
 				    <?php endwhile; endif; wp_reset_query(); ?>
 	    		</ul>
 	    	</div>
@@ -130,7 +130,7 @@
 		<div class="[ wrapper ]">
 			<div class="[ row ]">
 				<div class="[ span xmall-12 ] [ padding ] [ text-center ][ center block ]">
-					<h3 class="[ sub-title ] [ text-center ] [ inline-block align-middle ] [ padding ]">Conoce más acerca de Sunland Studios</h2><div class="[ inline-block block align middle ] [ text-center ][ padding ]"><a href="#" class="[ button button--medium button--dark ] [ padding ]">más información</a></div>
+					<h3 class="[ sub-title ] [ text-center ] [ inline-block align-middle ] [ padding ]">Conoce más acerca de Sunland Studios</h2><div class="[ inline-block block align middle ] [ text-center ][ padding ]"><a href="#" class="[ button button--medium button--dark ] [ padding ][ js-modal-opener ]" data-modal="natural-form">más información</a></div>
 				</div>
 			</div>
 		</div>
@@ -143,7 +143,7 @@
 				<div class="[ span xmall-10 ] [ center block ] [ margin-bottom ]">
 					<h2 class="[ title ] [ text-center ] [ padding ]">Colaboradores</h2>
 				</div>
-				<?php 
+				<?php
 				$instructores_args = array(
 					'post_type' 		=> 'instructores',
 					'posts_per_page' 	=> -1,

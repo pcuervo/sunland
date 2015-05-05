@@ -19,7 +19,7 @@
 					<h2 class="[ title ]"><?php the_title(); ?></h2>
 					<?php the_content(); ?>
 				</div>
-				<?php 
+				<?php
 					$danza_args = array(
 						'post_type' 		=> 'talleres',
 						'posts_per_page' 	=> -1,
@@ -95,7 +95,7 @@
 			<div class="[ columna xmall-12 ] [ margin-bottom ]">
 				<h2 class="[ title ]">Galerías de danza</h2>
 			</div>
-			<?php 
+			<?php
 				$galeria_args = array(
 					'post_type' 		=> 'talleres',
 					'posts_per_page' 	=> -1,
@@ -116,7 +116,7 @@
 				$query_galeria = new WP_Query( $galeria_args );
 				if ( $query_galeria->have_posts() ) : while ( $query_galeria->have_posts() ) : $query_galeria->the_post();
 
-					$galeria_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
+					$galeria_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'thumbnail' );
 					$images = get_attached_media( 'image', 80 );
 			?>
 					<div class="[ columna xmall-12 medium-4 ]">
@@ -134,7 +134,7 @@
 				<div class="[ span xmall-10 ] [ center block ] [ margin-bottom ]">
 					<h2 class="[ title ] [ text-center ] [ padding ]">Instructores de danza</h2>
 				</div>
-				<?php 
+				<?php
 				$instructores_args = array(
 					'post_type' 		=> 'instructores',
 					'posts_per_page' 	=> -1,
@@ -155,7 +155,7 @@
 				$query_instructores = new WP_Query( $instructores_args );
 				if ( $query_instructores->have_posts() ) : while ( $query_instructores->have_posts() ) : $query_instructores->the_post();
 
-					$instructor_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
+					$instructor_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'thumbnail' );
 				?>
 					<div class="[ span xmall-12 medium-4 ] [ padding ]">
 						<div class="[ bg-light ] [ relative ] [ instructor-image ]">
