@@ -111,3 +111,9 @@
 				</div>
 			</header>
 			<div class="main">
+<?php 
+	global $section;
+
+	$section = get_the_title();
+	if( 'nosotros' == get_post_type() ) $section = 'Nosotros'; 
+?>

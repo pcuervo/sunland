@@ -157,7 +157,6 @@ function toggleModal(element){
 function saveContactPost(){
 	data = $('.js-contact-form').serialize();
 
-	console.log( data );
 	$.post(
 		ajax_url,
 		data,
@@ -181,10 +180,13 @@ function saveContactPost(){
 function sendMoreInfoEmail(){
 	data = $('.js-mas-info-form').serialize();
 
+	console.log( data );
+	
 	$.post(
 		ajax_url,
 		data,
 		function( response ){
+			console.log(response);
 			$('.close-modal').click();
 			
 			var message_json = $.parseJSON( response );
