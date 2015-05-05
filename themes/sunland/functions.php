@@ -37,7 +37,7 @@
 
 
 /*------------------------------------*\
-	GENERAL ACTIONS
+	GENERAL FUNCTIONS
 \*------------------------------------*/
 
 
@@ -94,9 +94,9 @@
 	}// print_title
 
 	/**
-	 * Return the name of a month in Spanish
+	 * Return the name of a month in Spanish.
 	 * @param string $month - Number of month
-	 * @return string $month_name - The name of a month in Spanish
+	 * @return string $month_name - The name of month in Spanish
 	 */
 	function get_month_name( $month ){
 
@@ -129,6 +129,33 @@
 
 	}// get_month_name
 
+	/**
+	 * Send contact email to Sunland School.
+	 * @param string $name - Name of person requesting more info
+	 * @param string $email - Email of person requesting more info
+	 * @param string $tel - Telephone numbre of person requesting more info
+	 * @param string $section - Website section from where the form was sent
+	 * @param string $to_email - Email to where the info has to be sent
+	 */
+	function send_email_contacto($name, $email, $tel, $msg, $section, $to_email ){
+
+		$to = $to_email;
+		$subject = 'Informes acerca de: ' . $section;
+		$headers = 'From: My Name <' . $to_email . '>' . "\r\n";
+		$message = '<html><body>';
+		$message .= '<h3>Contacto a través de www.sunland.mx</h3>';
+		$message .= '<p>Nombre: '.$name.'</p>';
+		$message .= '<p>Email: '. $email . '</p>';
+		if( $tel != '' ) $message .= '<p>Teléfono: '. $tel . '</p>';
+		if( $msg != '' ) $message .= '<p>Mensaje: '. $msg . '</p>';
+		$message .= '</body></html>';
+
+		add_filter('wp_mail_content_type',create_function('', 'return "text/html"; '));
+		wp_mail($to, $subject, $message, $headers );
+
+	}// send_email_contacto
+	
+
 
 
 
@@ -140,7 +167,7 @@
 
 
 	/**
-	 * Separates a group of "subjects" with AND (y) and commas (,).
+	 * Separates a group of "materias" with AND (y) and commas (,).
 	 * @param array $materias_arr - Materias belonging to an instructor
 	 * @return string $materias - Materias separated by commas and 'y'
 	 */
@@ -240,8 +267,9 @@
 	}// get_map_coordinates
 
 	/**
-	 * Extract a specified meta data from 'Información general contacto'
-	 * @return string $metafield - The metabox value to be retrieved
+	 * Extract a specified metabox from page 'Información general contacto'
+	 * @param string $field - The metabox field to be retrieved
+	 * @return string $metafield - The metabox value
 	*/
 	function get_info_general( $field ){
 		global $post;
@@ -342,11 +370,17 @@
 	*/
 	function send_email_more_information(){
 
-		$nombre = $_POST['nombre'];
+		$name = $_POST['nombre'];
+		$email = $_POST['email'];
+		$to_email = $_POST['to_email'];
+		$section = $_POST['section'];
+		$tel = isset( $_POST['tel'] ) ? $_POST['tel'] : '-';
+
+		send_email_contacto($name, $email, $tel, '', $section, $to_email );
 
 		$message = array(
 			'error'		=> 0,
-			'message'	=> '¡Gracias por contactarnos ' . $nombre .'!',
+			'message'	=> '¡Gracias por contactarnos ' . $name .'!',
 			);
 		echo json_encode($message , JSON_FORCE_OBJECT);
 		exit();
