@@ -332,23 +332,26 @@
 	*/
 	function save_contact_post(){
 
-		$nombre = $_POST['nombre'];
+		$name = $_POST['nombre'];
 		$email = $_POST['email'];
+		$to_email = 'miguel@pcuervo.com';
 		$tel = $_POST['tel'];
-		$msg = $_POST['msg'];
+		$msg = $_POST['mensaje'];
 
 		$contact_post = array(
-		  'post_title' 		=> $nombre,
-		  'post_content' 	=> 'Nombre: '.$nombre."\r\n".'Email: '.$email."\r\n".'Teléfono: '.$tel."\r\n".'Mensaje: '.$msg,
+		  'post_title' 		=> $name,
+		  'post_content' 	=> 'Nombre: '.$name."\r\n".'Email: '.$email."\r\n".'Teléfono: '.$tel."\r\n".'Mensaje: '.$msg,
 		  'post_status'   	=> 'draft',
 		  'post_type'   	=> 'contacto-recibido',
 		);
+
+		send_email_contacto($name, $email, $tel, $msg, 'Contacto', $to_email );
 
 		// Insert the post into the database
 		if ( wp_insert_post( $contact_post ) ){
 			$message = array(
 				'error'		=> 0,
-				'message'	=> 'Gracias por tu mensaje ' . $nombre . ', muy pronto nos pondremos en contacto contigo.',
+				'message'	=> 'Gracias por tu mensaje ' . $name . ', muy pronto nos pondremos en contacto contigo.',
 				);
 			echo json_encode($message , JSON_FORCE_OBJECT);
 			exit();
