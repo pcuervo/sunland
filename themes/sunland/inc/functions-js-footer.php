@@ -4,10 +4,7 @@
 	* Here we add all the javascript that needs to be run on the footer.
 	**/
 	function footer_scripts(){
-		global $post, $section;
-
-		$section = get_the_title();
-		if( 'nosotros' == get_post_type() ) $section = 'Nosotros';
+		global $post;
 
 		if( wp_script_is( 'functions', 'done' ) ) {
 ?>
@@ -15,7 +12,7 @@
 				(function( $ ) {
 					"use strict";
 					$(function(){
-
+						console.log('<?php echo $section ?>')
 						/*------------------------------------*\
 							#ALL PAGES
 						\*------------------------------------*/

@@ -53,14 +53,13 @@
 						<div class="[ modal-content ]">
 							<div class="[ modal-body ]">
 								<form id="nl-form" class="[ nl-form ][ js-mas-info-form ]">
-
 									Hola, mi nombre es <input class="[ required ]" type="text" name="nombre" value="" placeholder="tu nombre" />, pueden enviarme información a <input class="[ required email ]" type="text" name="email" value="" placeholder="tu correo" />, o comunicarse al <input class="[ required number ]" type="text" value="" name="tel" placeholder="tu número" />.
 									<input type="hidden" name="action" value="send_email_more_information">
-									<input type="hidden" name="email" value="miguel@pcuervo.com">
+									<input type="hidden" name="to_email" value="miguel@pcuervo.com">
 									<?php
-										global $seccion;
+										global $section;
 									?>
-									<input type="hidden" name="section" value="<?php echo $seccion; ?>">
+									<input type="hidden" name="section" value="<?php echo $section; ?>">
 
 									<div class="[ clear ][ margin-bottom ]"></div>
 									<div class="nl-overlay"></div>
