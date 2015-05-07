@@ -22,8 +22,7 @@
 						<p><?php the_content(); ?></p>
 						<div class="[ row ]">
 							<div class="[ span xmall-12 ][ padding--large ][ text-center ]">
-								<h3 class="[ sub-title ][ inline-block align-middle ] [ padding ]">Conoce más sobre nuestros talleres y cursos.
-								</h3><div class="[ inline-block align-middle ][ text-center ][ padding ]">
+								<div class="[ inline-block align-middle ][ text-center ][ padding ]">
 									<a href="#" class="[ button button--medium button--highlight ][ padding ][ js-modal-opener ]" data-modal="natural-form">más información</a>
 								</div>
 							</div>

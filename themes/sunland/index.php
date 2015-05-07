@@ -5,7 +5,7 @@
 
 	<!-- BANNER -->
 	<div class="relative">
-		<div class="[ bg-image ] [ margin-bottom--large ]">
+		<div class="[ bg-image bg-image-home ] [ margin-bottom--large ]">
 			<div class="[ opacity-gradient square ]">
 				<div class="[ media-info ] [ xmall-10 medium-7 center-bottom ]">
 					<h2 class="[ text-center light ]">Sunland School of the Arts, Escuela multidisciplinaria de artes escénicas en la Ciudad de México.</h2>

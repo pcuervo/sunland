@@ -4,7 +4,18 @@
 	overflow: hidden;
 }
 
+.bg-image-home{
+	background: url('images/intro.png') no-repeat center center;
+	background-size: cover;
+}
+
 .bg-video-home{
-	background: url('images/intro.png') no-repeat;
+	display: none;
+
+	@media (min-width: @large){
+		display: block;
+	}
+
+	background: url('images/intro.png') no-repeat center center;
 	background-size: cover;
 }
