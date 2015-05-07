@@ -16,7 +16,7 @@
 		<div class="[ wrapper ]">
 			<div class="[ row ]">
 				<div class="[ columna xmall-12 ] [ margin-bottom ]">
-					<h2 class="[ title ]"><?php the_title(); ?></h2>
+					<h1 class="[ title ]"><?php the_title(); ?></h1>
 				</div>
 				<div class="[ columna xmall-12 ]">
 					<p><?php the_content(); ?></p>

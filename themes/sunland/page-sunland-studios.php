@@ -6,6 +6,8 @@
 	$cover_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
 	$images = get_attached_media( 'image' );
 
+	$soundcloud = get_post_meta($post->ID, '_soundcloud_studios_meta', true);
+
 ?>
 
 	<div class="[ bg-image ] [ margin-bottom--large ]" style="background-image: url(<?php echo $cover_url[0] ?>)">
@@ -18,7 +20,7 @@
 		<div class="[ wrapper ]">
 			<div class="[ xmall-12 medium-8 ]">
 				<div class="[ margin-bottom ]">
-					<h2 class="[ title ]"><?php the_title(); ?></h2>
+					<h1 class="[ title ]"><?php the_title(); ?></h1>
 				</div>
 				<div class="">
 					<?php the_content(); ?>
@@ -27,26 +29,35 @@
 		</div><!-- wrapper -->
 	</section> <!-- INFO -->
 
-	<!-- GALERÍA ESTÁTICA -->
-	<section class="[ wrapper ]">
-		<div class="[ row ]">
-			<div class="[ span xmall-12 margin-bottom--large ] [ clearfix ]">
-				<?php foreach ( $images as $image ) : ?>
-					<div class="[ columna xmall-12 medium-4 ]">
-						<?php
-							$image_url = wp_get_attachment_url( $image->ID );
+	<!-- GALERÍA -->
+	<?php
+	$content = $post->post_content;
+	if( has_shortcode( $content, 'gallery' ) ) {
+		$galleries = get_galleries_from_content($content);
+		foreach ($galleries as $gallery => $galleryIDs) { ?>
+			<div class="[ span xmall-12 margin-bottom--large ]">
+				<div class="[ row ]">
+					<?php
+					$images = sga_gallery_images('thumbnail', $galleryIDs);
+
+					foreach ($images as $key => $image) {
+						$imageID         = $image[4];
+						$imageURL        = $image[0];
+
 						?>
-						<img src="<?php echo $image_url ?>" class="[ image-responsive ] [ margin-bottom ]">
-					</div>
-				<?php endforeach ?>
+						<div class="[ columna xmall-12 medium-4 large-3 ]">
+							<img class="[ image-responsive ][ margin-bottom ]" src="<?php echo $imageURL; ?>" />
+						</div>
+					<?php } ?>
+				</div>
 			</div>
-		</div>
-	</section><!-- GALERÍA ESTÁTICA -->
+		<?php }
+	} ?>
+	<!-- GALERÍA -->
 
 	<!-- EQUIPO POST -->
-	<div class="[ row ] [ margin-bottom--large ]">
-		<div class="wrapper">
-
+	<section class="[ wrapper ]">
+		<div class="[ row ] [ margin-bottom--large ]">
 			<div class="[ columna xmall-12 medium-4 ]">
 				<h3>General</h3>
 				<ul>
@@ -68,13 +79,13 @@
 						<li class="[ xmall-12 ]">
 							- <?php the_title()?>
 						</li>
-				    <?php endwhile; endif; wp_reset_query(); ?>
-	    		</ul>
-    		</div>
+					<?php endwhile; endif; wp_reset_query(); ?>
+				</ul>
+			</div>
 
 			<div class="[ columna xmall-12 medium-4 ]">
 				<h3>DAW</h3>
-	    		<ul>
+				<ul>
 					<?php
 					$equipo_args = array(
 						'post_type' 		=> 'equipos',
@@ -93,13 +104,13 @@
 						<li class="[ xmall-12 ]">
 							- <?php the_title()?>
 						</li>
-				    <?php endwhile; endif; wp_reset_query(); ?>
-	    		</ul>
-	    	</div>
+					<?php endwhile; endif; wp_reset_query(); ?>
+				</ul>
+			</div>
 
 			<div class="[ columna xmall-12 medium-4 ]">
 				<h3>Microfonía</h3>
-	    		<ul>
+				<ul>
 					<?php
 					$equipo_args = array(
 						'post_type' 		=> 'equipos',
@@ -118,12 +129,23 @@
 						<li class="[ xmall-12 ]">
 							- <?php the_title()?>
 						</li>
-				    <?php endwhile; endif; wp_reset_query(); ?>
-	    		</ul>
-	    	</div>
-
+					<?php endwhile; endif; wp_reset_query(); ?>
+				</ul>
+			</div>
 		</div>
-    </div><!-- EQUIPO POST -->
+	</section><!-- EQUIPO POST -->
+
+	<?php if ( $soundcloud ){ ?>
+		<section class="[ soundcloud ]">
+			<div class="[ text-center ">
+				<h3>Checa nuestro Soundcloud</h3>
+				<a target="_blank" href="<?php echo $soundcloud; ?>">
+					<i class="[ icon-soundcloud ] [ icon-large ] [ highlight ]"></i>
+				</a>
+			</div>
+		</section><!-- soundcloud -->
+	<?php } ?>
+
 
 	<!-- CALL TO ACTION -->
 	<section class="[ bg-highlight ]">

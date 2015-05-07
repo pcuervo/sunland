@@ -1,32 +1,34 @@
 <?php
 	get_header();
 
+	$counter = 0;
 	$nosotros_args = array(
 		'post_type' 		=> 'nosotros',
 		'posts_per_page' 	=> -1,
 	);
 	$query_nosotros = new WP_Query( $nosotros_args );
 	if ( $query_nosotros->have_posts() ) : while ( $query_nosotros->have_posts() ) : $query_nosotros->the_post();
-
+		$counter++;
 		$bg_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
 ?>
 		<section class="[ clearfix ]">
 			<div class="[ row ]">
 				<div class="[ bg-image ][ span xmall-12 medium-5 large-6 ]" style="background-image: url(<?php echo $bg_image[0] ?>)">
-					<div class="[ opacity-gradient ] [ full-height ]">
-					</div>
+					<div class="[ opacity-gradient ] [ full-height ]"></div>
 				</div>
 				<div class="[ span xmall-12 medium-7 large-6 ] [ ] [ padding ] [ relative ]">
 					<div>
-						<h2 class="[ title ]"><?php the_title(); ?></h2>
+						<h1 class="[ title ]"><?php the_title(); ?></h1>
 						<p><?php the_content(); ?></p>
-						<div class="[ row ]">
-							<div class="[ span xmall-12 ][ padding--large ][ text-center ]">
-								<div class="[ inline-block align-middle ][ text-center ][ padding ]">
-									<a href="#" class="[ button button--medium button--highlight ][ padding ][ js-modal-opener ]" data-modal="natural-form">más información</a>
+						<?php if ( $counter == 1 ){ ?>
+							<div class="[ row ]">
+								<div class="[ span xmall-12 ][ padding--large ][ text-center ]">
+									<div class="[ inline-block align-middle ][ text-center ][ padding ]">
+										<a href="#" class="[ button button--medium button--highlight ][ padding ][ js-modal-opener ]" data-modal="natural-form">más información</a>
+									</div>
 								</div>
 							</div>
-						</div>
+						<?php } ?>
 					</div>
 				</div>
 			</div>
@@ -39,7 +41,7 @@
 		<div class="wrapper">
 			<div class="[ row ]">
 				<div class="[ span xmall-10 ] [ center block ] [ margin-bottom ]">
-					<h2 class="[ title ] [ text-center ] [ padding ]">Nuestros instructores</h2>
+					<h1 class="[ title ] [ text-center ] [ padding ]">Nuestros instructores</h1>
 				</div>
 				<?php
 				$instructores_args = array(

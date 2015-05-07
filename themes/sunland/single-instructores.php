@@ -2,14 +2,21 @@
 	get_header();
 	the_post();
 
-	$cover_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
+	if ( has_term('studios', 'tipo-de-staff', $post) ){
+
+		$cover_url = THEMEPATH.'images/colaboradores.jpg';
+	} else{
+		$cover_url = THEMEPATH.'images/instructores.jpg';
+	}
+
+
 	$images = get_attached_media( 'image' );
 
 	$soundcloud = get_post_meta($post->ID, '_soundcloud_meta', true);
 	$youtube = get_post_meta($post->ID, '_youtube_meta', true);
 ?>
 
-	<div class="[ bg-image ] [ margin-bottom--large ]" style="background-image: url(<?php echo $cover_url[0] ?>)">
+	<div class="[ bg-image ] [ margin-bottom--large ]" style="background-image: url(<?php echo $cover_url ?>)">
 		<div class="[ opacity-gradient banner-height ]">
 		</div>
 	</div>

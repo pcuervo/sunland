@@ -21,6 +21,7 @@
 				break;
 			case 'sunland-studios':
 				add_meta_box( 'descripcion_home_studios', 'Descripción página de inicio', 'metabox_home_studios', 'page', 'advanced', 'high' );
+				add_meta_box( 'soundcloud_studios', 'Soundcloud URL', 'metabox_soundcloud_studios', 'page', 'advanced', 'high' );
 				break;
 			case 'foro-sunland':
 				add_meta_box( 'url_videos', 'Videos YouTube', 'metabox_videos_artes', 'page', 'advanced', 'high' );
@@ -125,6 +126,14 @@ END;
 
 		echo "<textarea type='text' class='[ widefat ]' name='_descripcion_home_studios_meta'>$descripcion_home_studios</textarea>";
 	}// metabox_home_studios
+
+	function metabox_soundcloud_studios($post){
+		$soundcloud_studios = get_post_meta($post->ID, '_soundcloud_studios_meta', true);
+
+		wp_nonce_field(__FILE__, '_soundcloud_studios_meta_nonce');
+
+		echo "<input type='text' class='[ widefat ]' name='_soundcloud_studios_meta' value='$soundcloud_studios' />";
+	}// metabox_soundcloud_studios
 
 	function metabox_fecha_evento($post){
 		$dia = get_post_meta($post->ID, '_dia_meta', true);
@@ -274,6 +283,11 @@ END;
 		// Descripción para home sobre Sunland Express
 		if ( isset($_POST['_descripcion_home_studios_meta']) and check_admin_referer(__FILE__, '_descripcion_home_studios_meta_nonce') ){
 			update_post_meta($post_id, '_descripcion_home_studios_meta', $_POST['_descripcion_home_studios_meta']);
+		}
+
+		// Link al soundcloud de Sunland Studios
+		if ( isset($_POST['_soundcloud_studios_meta']) and check_admin_referer(__FILE__, '_soundcloud_studios_meta_nonce') ){
+			update_post_meta($post_id, '_soundcloud_studios_meta', $_POST['_soundcloud_studios_meta']);
 		}
 
 		// Fecha del evento en Foro Sunland

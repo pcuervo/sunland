@@ -12,7 +12,6 @@
 				(function( $ ) {
 					"use strict";
 					$(function(){
-						console.log('<?php echo $section ?>')
 						/*------------------------------------*\
 							#ALL PAGES
 						\*------------------------------------*/

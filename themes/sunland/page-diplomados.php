@@ -16,7 +16,7 @@
 	<section class="[ wrapper ]">
 		<div class="[ xmall-12 medium-9 ]">
 			<div class="[ padding ] [ relative ]">
-				<h2 class="[ title ]"><?php the_title(); ?></h2>
+				<h1 class="[ title ]"><?php the_title(); ?></h1>
 				<div class="[ margin-bottom ]">
 					<?php the_content(); ?>
 				</div>
@@ -24,23 +24,37 @@
 					<a href="<?php echo THEMEPATH; ?>pdf/diplomados.pdf" class="button button--highlight">Descarga la información</a>
 				</div>
 			</div>
-			<div class="[ clearfix ]">
-				<div class="[ row ]">
-					<div class="[ span xmall-12 margin-bottom--large ] [ clearfix ]">
-						<?php foreach ( $images as $image ) : ?>
-							<div class="[ columna xmall-12 medium-4 ]">
-								<?php
-									$image_url = wp_get_attachment_url( $image->ID );
-								?>
-								<img src="<?php echo $image_url ?>" class="[ image-responsive ] [ margin-bottom ]">
-							</div>
-						<?php endforeach ?>
-					</div>
-				</div>
-			</div>
 		</div>
-	</section><!-- DIPLOMADOS -->
+		<div class="[ clear ]"></div>
+		<!-- GALERÍA -->
+		<article class="[ bg-highlight ]">
+			<?php
+			$content = $post->post_content;
+			if( has_shortcode( $content, 'gallery' ) ) {
+				$galleries = get_galleries_from_content($content);
+				foreach ($galleries as $gallery => $galleryIDs) { ?>
+					<div class="[ span xmall-12 margin-bottom--large ]">
+						<div class="[ row ]">
+							<?php
+							$images = sga_gallery_images('thumbnail', $galleryIDs);
 
+							foreach ($images as $key => $image) {
+								$imageID         = $image[4];
+								$imageURL        = $image[0];
+
+								?>
+								<div class="[ columna xmall-12 medium-4 large-3 ]">
+									<img class="[ image-responsive ][ margin-bottom ]" src="<?php echo $imageURL; ?>" />
+								</div>
+							<?php } ?>
+						</div>
+					</div>
+				<?php }
+			} ?>
+		</article>
+		<!-- GALERÍA -->
+	</section><!-- DIPLOMADOS -->
+	<div class="[ clear ]"></div>
 	<!-- CALL TO ACTION -->
 	<section class="[ bg-highlight ]">
 		<div class="[ wrapper ]">

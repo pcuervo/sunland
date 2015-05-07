@@ -16,26 +16,36 @@
 	<section class="[ wrapper ]">
 		<div class="[ row ]">
 			<div class="[ columna xmall-12 medium-9 ] [ ] [ padding ] [ relative ]">
-				<h2 class="[ title ]"><?php the_title(); ?></h2>
+				<h1 class="[ title ]"><?php the_title(); ?></h1>
 				<?php the_content(); ?>
 			</div>
 			<div class="[ columna shown--medium medium-3 ]">
 				<img src="<?php echo THEMEPATH ?>images/express-poster.png" class="[ image-responsive ] [ padding ] [ margin-bottom ]">
 			</div>
-			<div class="[ span xmall-12 margin-bottom--large ] [ clearfix ]">
-				<div class="[ row ]">
-					<div class="[ span xmall-12 margin-bottom--large ] [ clearfix ]">
-						<?php foreach ( $images as $image ) : ?>
-							<div class="[ columna xmall-12 medium-4 ]">
-								<?php
-									$image_url = wp_get_attachment_url( $image->ID );
+
+			<?php
+			$content = $post->post_content;
+			if( has_shortcode( $content, 'gallery' ) ) {
+				$galleries = get_galleries_from_content($content);
+				foreach ($galleries as $gallery => $galleryIDs) { ?>
+					<div class="[ span xmall-12 margin-bottom--large ]">
+						<div class="[ row ]">
+							<?php
+							$images = sga_gallery_images('thumbnail', $galleryIDs);
+
+							foreach ($images as $key => $image) {
+								$imageID         = $image[4];
+								$imageURL        = $image[0];
+
 								?>
-								<img src="<?php echo $image_url ?>" class="[ image-responsive ] [ margin-bottom ]">
-							</div>
-						<?php endforeach ?>
+								<div class="[ columna xmall-12 medium-4 large-3 ]">
+									<img class="[ image-responsive ][ margin-bottom ]" src="<?php echo $imageURL; ?>" />
+								</div>
+							<?php } ?>
+						</div>
 					</div>
-				</div>
-			</div>
+				<?php }
+			} ?>
 		</div>
 	</section><!-- SUNLAND EXPRESS -->
 
