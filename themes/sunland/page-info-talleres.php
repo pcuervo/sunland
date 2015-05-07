@@ -1,8 +1,8 @@
-<?php 
+<?php
 
 	get_header();
 	the_post();
-	
+
 	$cover_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
 	$images = get_attached_media( 'image' );
 ?>
@@ -27,7 +27,7 @@
 			<div class="[ span xmall-12 margin-bottom--large ] [ clearfix ]">
 				<?php foreach ( $images as $image ) : ?>
 					<div class="[ columna xmall-12 medium-4 ]">
-						<?php 
+						<?php
 							$image_url = wp_get_attachment_url( $image->ID );
 						?>
 						<img src="<?php echo $image_url ?>" class="[ image-responsive ] [ margin-bottom ]">
@@ -36,7 +36,7 @@
 			</div>
 		</div>
 	</section><!-- GALERÍA ESTÁTICA -->
-	
+
 	<!-- INSTRUCTORES -->
 	<section class="[ hidden--xmall shown--medium ] [ bg-dark ]">
 		<div class="wrapper">
@@ -65,7 +65,7 @@
 				?>
 					<div class="[ span xmall-12 medium-4 ] [ padding ]">
 						<div class="[ bg-light ] [ relative ] [ instructor-image ]">
-							<div class="[ text-center ] [ center-full ] [ z-index-10 ]">
+							<div class="[ text-center ] [ center-full ][ xmall-11 ][ z-index-10 ]">
 								<a href="<?php the_permalink() ?>" class="[ button button--large button--highlight ]">ver perfil</a>
 							</div>
 							<img src="<?php echo $instructor_img_url[0] ?>" class="[ image-responsive ] [ margin-bottom ]">
@@ -78,6 +78,6 @@
 		</div>
 	</section><!-- INSTRUCTORES -->
 
-<?php 
+<?php
 	get_footer();
 ?>

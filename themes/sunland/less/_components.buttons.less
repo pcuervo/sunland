@@ -2,7 +2,7 @@
 	#BUTTONS
 \*------------------------------------*/
 .button{
-	padding: 8px 8px 6px 8px;
+	padding: 8px;
 	.font( 1em, 1, 100, 'lato' ); text-align: center; text-decoration: none; color: @light; background-color: @highlight;
 	cursor: pointer;
 }
@@ -24,6 +24,11 @@
 	&.active{
 		cursor: default;
 		background-color: @highlight;
+	}
+
+	&.active--light{
+		background-color: @light;
+		color: @dark;
 	}
 }
 

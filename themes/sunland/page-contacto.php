@@ -35,11 +35,11 @@
 					</fieldset>
 					<fieldset class="[ margin-bottom ]">
 						<label class="[ block ]"  for="email">Correo electrónico</label>
-						<input class="[ block ][ xmall-12 medium-10 ][ required ]" type="text" name="email">
+						<input class="[ block ][ xmall-12 medium-10 ][ required email ]" type="text" name="email">
 					</fieldset>
 					<fieldset class="[ margin-bottom ]">
 						<label class="[ block ]"  for="tel">Teléfono</label>
-						<input class="[ block ][ xmall-12 medium-10 ]" type="text" name="tel">
+						<input class="[ block ][ xmall-12 medium-10 ][ number ]" name="tel">
 					</fieldset>
 					<fieldset class="[ margin-bottom ]">
 						<label class="[ block ]"  for="mensaje">Tu mensaje</label>

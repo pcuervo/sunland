@@ -43,7 +43,7 @@
 					<ul class="[ no-margin ]">
 						<li><a href="<?php echo site_url() ?>">Inicio</a></li>
 						<li><a href="<?php echo site_url() . '/nosotros' ?>">Nosotros</a></li>
-						<li><a href="#artes">Artes escénicas</a>
+						<li><a href="#artes">Oferta académica</a>
 							<ul>
 								<li><a href="#artes/talleres">Talleres</a>
 									<ul>
@@ -52,7 +52,7 @@
 										<li><a href="<?php echo site_url( 'teatro' ) ?>">Teatro</a></li>
 									</ul>
 								</li>
-								<li><a href="<?php echo site_url( 'diplomados' );?>">Diplomado</a></li>
+								<li><a href="<?php echo site_url( 'diplomados' );?>">Programa intensivo</a></li>
 							</ul>
 						</li>
 						<li><a href="<?php echo site_url() . '/foro-sunland' ?>">Foro Sunland</a></li>
@@ -66,13 +66,13 @@
 						<div class="[ xmall-6 large-1 ][ inline-block align-middle ]">
 							<h1 class="">
 								<a href="<?php echo site_url() ?>">
-									<img src="<?php echo THEMEPATH ?>images/logo-rojo.png" class="[ image-responsive ]">
+									<img alt="Sunland - School of arts" src="<?php echo THEMEPATH ?>images/logo-rojo.png" class="[ image-responsive ]">
 								</a>
 							</h1>
 						</div><div class="[ xmall-6 ][ hidden--large-inline ][ light ][ padding ][ inline-block align-middle ]">
 						<a class="[ pull-right ]" href="#sunland-mmenu"><i class="fa fa-bars fa-2x"></i></a>
 						</div><nav class="[ shown--large--inline ] [ large-10 ] [ bg-dark-shade ] [ clearfix ] [ menu-container ] [ inline-block align-middle ]">
-							<a class="<?php echo ( 'Contacto' == get_the_title() ) ? '[ active ]' : '' ?>[ shown--medium--inline middle ][ inline-block align-middle ][ button button--menu ][ pull-right ]" href="<?php echo site_url() . '/contacto' ?>">
+							<a class="<?php echo ( 'Contacto' == get_the_title() ) ? '[ active ]' : '' ?>[ active--light ][ shown--medium--inline middle ][ inline-block align-middle ][ button button--menu ][ pull-right ]" href="<?php echo site_url() . '/contacto' ?>">
 								Contacto
 							</a>
 							<a class="<?php echo ( 'Sunland Express' == get_the_title() ) ? '[ active ]' : '' ?>[ shown--medium--inline align-middle ][ button button--menu ][ pull-right ]" href="<?php echo site_url() . '/sunland-express' ?>">
@@ -91,7 +91,7 @@
 								}
 							?>
 							<div class="[ shown--medium--inline align-middle ][ button button--menu ][ pull-right ] <?php echo $active_artes ?>">
-								Artes escénicas
+								Oferta académica
 								<ul class="[ dropdown ][ no-margin ]">
 									<li><a href="#artes/talleres">Talleres <i class="[ icon-angle-down ][ pull-right ]"></i></a>
 										<ul class="[ sub-dropdown ]">
@@ -100,7 +100,7 @@
 											<li><a href="<?php echo site_url( 'teatro' ) ?>">Teatro</a></li>
 										</ul>
 									</li>
-									<li><a href="<?php echo site_url( 'diplomados' );?>">Diplomado</a></li>
+									<li><a href="<?php echo site_url( 'diplomados' );?>">Programa intensivo</a></li>
 								</ul>
 							</div>
 							<a class="<?php echo ( 'nosotros' == get_post_type() ) ? '[ active ]' : '' ?>[ no-xmall medium large ][ inline-block middle ][ button button--menu ][ pull-right ]" href="<?php echo site_url() . '/nosotros' ?>">

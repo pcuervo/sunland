@@ -91,7 +91,7 @@
 	<section class="[ wrapper ]">
 		<div class="[ row ]">
 			<div class="[ columna xmall-12 ] [ margin-bottom ]">
-				<h2 class="[ title ]">Galerías de danza</h2>
+				<h2 class="[ title ]">Galerías de teatro</h2>
 			</div>
 			<?php
 				$galeria_args = array(
@@ -157,7 +157,7 @@
 				?>
 					<div class="[ span xmall-12 medium-4 ] [ padding ]">
 						<div class="[ bg-light ] [ relative ] [ instructor-image ]">
-							<div class="[ text-center ] [ center-full ] [ z-index-10 ]">
+							<div class="[ text-center ] [ center-full ][ xmall-11 ][ z-index-10 ]">
 								<a href="<?php the_permalink() ?>" class="[ button button--large button--highlight ]">ver perfil</a>
 							</div>
 							<img src="<?php echo $instructor_img_url[0] ?>" class="[ image-responsive ] [ margin-bottom ]">

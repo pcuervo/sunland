@@ -30,10 +30,10 @@
 						//Natural language form
 						var nlform = new NLForm( document.getElementById( 'nl-form' ) );
 						$('#nl-form').validate({
-					        submitHandler:function(){
-					            sendMoreInfoEmail();
-					        }
-					    });
+							submitHandler:function(){
+								sendMoreInfoEmail();
+							}
+						});
 
 						/**
 						 * Triggered events
@@ -78,12 +78,11 @@
 							/**
 							 * Triggered events
 							**/
-							$('.js-contact-form button').on('click', function(e){
-								e.preventDefault();
-								saveContactPost();
+							$('.js-contact-form').validate({
+								submitHandler:function(){
+									saveContactPost();
+								}
 							});
-
-							$('.form-contacto').validate();
 
 						<?php } ?>
 

@@ -55,7 +55,7 @@
 				?>
 					<div class="[ span xmall-12 medium-4 large-3 ] [ padding ]">
 						<div class="[ bg-light ] [ relative ] [ instructor-image ]">
-							<div class="[ text-center ] [ center-full ] [ z-index-10 ]">
+							<div class="[ text-center ] [ center-full ][ xmall-11 ][ z-index-10 ]">
 								<a href="<?php the_permalink() ?>" class="[ button button--large button--highlight ]">ver perfil</a>
 							</div>
 							<img src="<?php echo $instructor_img_url[0] ?>" class="[ image-responsive ] [ margin-bottom ]">
@@ -72,8 +72,11 @@
 	<section class="[ bg-dark ]">
 		<div class="[ wrapper ]">
 			<div class="[ row ]">
-				<div class="[ span xmall-12 ] [ padding--large ]">
-					<h3 class="[ sub-title ] [ text-center ] [ inline-block align-middle ] [ padding ]">Conoce más sobre nuestros talleres y cursos.</h2><a href="#" class="[ inline-block align middle ][ button button--medium button--highlight ] [ padding ]">más información</a>
+				<div class="[ span xmall-12 ][ padding--large ][ text-center ]">
+					<h3 class="[ sub-title ][ inline-block align-middle ] [ padding ]">Conoce más sobre nuestros talleres y cursos.
+					</h3><div class="[ inline-block align-middle ][ text-center ][ padding ]">
+						<a href="#" class="[ button button--medium button--highlight ][ padding ][ js-modal-opener ]" data-modal="natural-form">más información</a>
+					</div>
 				</div>
 			</div>
 		</div>

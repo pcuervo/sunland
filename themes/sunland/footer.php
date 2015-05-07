@@ -28,7 +28,7 @@
 								</p>
 							</div>
 							<div class="[ columna xmall-12 medium-4 ] [ text-center ] [ margin-bottom ]">
-								<p>Teléfonos: <a href="tel:+55890527" class="[ light ]"><?php echo $telefono1 ?></a> / <a href="tel:+52946813" class="[ light ]"><?php echo $telefono2 ?></a></p>
+								<p>Teléfonos: <a href="tel:+5555890527" onclick="_gaq.push(['_trackEvent', 'ClickToCall', 'Llamada 5589-0527'])" class="[ light ]"><?php echo $telefono1 ?></a> / <a href="tel:+5552946813" onclick="_gaq.push(['_trackEvent', 'ClickToCall', 'Llamada 5294-6813'])" class="[ light ]"><?php echo $telefono2 ?></a></p>
 								<p>E-mail: <a href="mailto:<?php echo $email ?>" class="[ light ]"><?php echo $email ?></a></p>
 							</div>
 							<div class="[ columna xmall-12 medium-4 xm ] [ ] [ margin-bottom ]">
@@ -54,7 +54,7 @@
 							<div class="[ modal-body ]">
 								<form id="nl-form" class="[ nl-form ][ js-mas-info-form ]">
 
-									Hola, mi nombre es <input class="required" type="text" name="nombre" value="" placeholder="tu nombre" />, pueden enviarme información a <input class="[ required email ]" type="text" name="email" value="" placeholder="tu correo" />, o comunicarse al <input class="[ required ]" type="text" value="" name="tel" placeholder="tu número" />.
+									Hola, mi nombre es <input class="[ required ]" type="text" name="nombre" value="" placeholder="tu nombre" />, pueden enviarme información a <input class="[ required email ]" type="text" name="email" value="" placeholder="tu correo" />, o comunicarse al <input class="[ required number ]" type="text" value="" name="tel" placeholder="tu número" />.
 									<input type="hidden" name="action" value="send_email_more_information">
 									<input type="hidden" name="email" value="miguel@pcuervo.com">
 									<?php
