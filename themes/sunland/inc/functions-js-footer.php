@@ -58,6 +58,35 @@
 
 
 						/*------------------------------------*\
+							#HOME
+						\*------------------------------------*/
+
+						<?php if( is_home() ) { ?>
+
+							/**
+							 * On load
+							**/
+							var min_w = 300; // minimum video width allowed
+							var vid_w_orig;  // original video dimensions
+							var vid_h_orig;
+							vid_w_orig = parseInt( $('.bg-video').innerWidth() );
+							vid_h_orig = parseInt( $('.bg-video').innerHeight() );
+
+							$(window).resize(function () { resizeToCover(min_w, vid_w_orig, vid_h_orig); });
+							$(window).trigger('resize');
+
+
+							/**
+							 * Triggered events
+							**/
+
+
+						<?php } ?>
+
+
+
+
+						/*------------------------------------*\
 							#PAGE HOME/CONTACTO
 						\*------------------------------------*/
 

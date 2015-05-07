@@ -12,9 +12,9 @@
 				</div>
 			</div>
 			<video class="[ bg-video bg-video-home ]" autoplay loop poster="<?php echo THEMEPATH; ?>images/intro.png">
-				<source src="<?php echo THEMEPATH; ?>/videos/intro.webm" type="video/webm">
-				<source src="<?php echo THEMEPATH; ?>/videos/intro.mp4" type="video/mp4">
-				<source src="<?php echo THEMEPATH; ?>/videos/intro.ogv" type="video/ogg">
+				<source src="<?php echo THEMEPATH; ?>videos/intro.webm" type="video/webm">
+				<source src="<?php echo THEMEPATH; ?>videos/intro.mp4" type="video/mp4">
+				<source src="<?php echo THEMEPATH; ?>videos/intro.ogv" type="video/ogg">
 			</video>
 		</div>
 	</div><!-- relative -->

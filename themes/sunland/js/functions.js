@@ -23,11 +23,11 @@ function loadMap(lat, lon, address){
 			draggable: 		false,
 			scrollwheel: 	false
 		};
-	  	map = new google.maps.Map(document.getElementById('mapa'),
-	      mapOptions);
+		map = new google.maps.Map(document.getElementById('mapa'),
+		  mapOptions);
 
-	  	// Agregar marcador con imagen
-	  	var image = theme_url+'images/marker.png';
+		// Agregar marcador con imagen
+		var image = theme_url+'images/marker.png';
 		var marker = new google.maps.Marker({
 			position: new google.maps.LatLng(lat, lon),
 			map: map,
@@ -141,6 +141,28 @@ function toggleModal(element){
 	$('.modal-'+element).toggleClass('hidden');
 }
 
+function resizeToCover( min_w, vid_w_orig, vid_h_orig ) {
+
+	// set the video viewport to the window size
+	$('.bg-video').width($(window).width());
+	$('.bg-video').height($(window).height());
+
+	// use largest scale factor of horizontal/vertical
+	var scale_h = $(window).width() / vid_w_orig;
+	var scale_v = $(window).height() / vid_h_orig;
+	var scale = scale_h > scale_v ? scale_h : scale_v;
+
+	// don't allow scaled width < minimum video width
+	if (scale * vid_w_orig < min_w) {scale = min_w / vid_w_orig;};
+
+	// now scale the video
+	$('video').width(scale * vid_w_orig);
+	$('video').height(scale * vid_h_orig);
+	// and center it by scrolling the video viewport
+	$('#video-viewport').scrollLeft(($('video').width() - $(window).width()) / 2);
+	$('#video-viewport').scrollTop(($('video').height() - $(window).height()) / 2);
+};
+
 
 
 
@@ -186,12 +208,12 @@ function sendMoreInfoEmail(){
 		data,
 		function( response ){
 			$('.close-modal').click();
-			
+
 			var message_json = $.parseJSON( response );
 			if( ! message_json.error ){
 				alert( message_json.message );
 				return;
-			}			
+			}
 		}
 	);
 }// sendMoreInfoEmail
