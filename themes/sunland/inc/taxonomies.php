@@ -35,6 +35,33 @@
 			register_taxonomy( 'arte', 'talleres', $args );
 		}
 
+		// TIPO DE ARTE
+		if( ! taxonomy_exists('disciplinas')){
+
+			$labels = array(
+				'name'              => 'Disciplinas',
+				'singular_name'     => 'Disciplinas',
+				'search_items'      => 'Buscar',
+				'all_items'         => 'Todos',
+				'edit_item'         => 'Editar isciplinas',
+				'update_item'       => 'Actualizar isciplinas',
+				'add_new_item'      => 'Nuevo isciplinas',
+				'new_item_name'     => 'Nombre Nuevo isciplinas',
+				'menu_name'         => 'Disciplinas'
+			);
+			$args = array(
+				'hierarchical'      => true,
+				'labels'            => $labels,
+				'show_ui'           => true,
+				'show_admin_column' => true,
+				'show_in_nav_menus' => true,
+				'query_var'         => true,
+				'rewrite'           => array( 'slug' => 'disciplinas' ),
+			);
+
+			register_taxonomy( 'disciplinas', 'instructores', $args );
+		}
+
 		// TIPO DE CONTENIDO
 		if( ! taxonomy_exists('tipo-de-contenido')){
 
@@ -179,6 +206,7 @@
 		insert_term_tipo_de_contenido();
 		insert_term_tipo_de_staff();
 		insert_term_equipo_taxonomy();
+		insert_term_disciplinas();
 
 	}// custom_taxonomies_callback
 
@@ -245,8 +273,8 @@
 		if ( ! term_exists( 'Talleres', 'tipo-de-staff' ) ){
 			wp_insert_term( 'Talleres', 'tipo-de-staff' );
 		}
-		if ( ! term_exists( 'Diplomados', 'tipo-de-staff' ) ){
-			wp_insert_term( 'Diplomados', 'tipo-de-staff' );
+		if ( ! term_exists( 'Intensivo', 'tipo-de-staff' ) ){
+			wp_insert_term( 'Intensivo', 'tipo-de-staff' );
 		}
 	}// insert_term_tipo_de_staff
 
@@ -263,4 +291,19 @@
 		if ( ! term_exists( 'Microfonía', 'tipo-de-equipo' ) ){
 			wp_insert_term( 'Microfonía', 'tipo-de-equipo' );
 		}
-	}// insert_term_tipo_de_staff
+	}// insert_term_equipo_taxonomy
+
+	/**
+	* Insert terms for "Tipo de staff"
+	**/
+	function insert_term_disciplinas(){
+		if ( ! term_exists( 'Danza', 'disciplinas' ) ){
+			wp_insert_term( 'Danza', 'disciplinas' );
+		}
+		if ( ! term_exists( 'Música', 'disciplinas' ) ){
+			wp_insert_term( 'Música', 'disciplinas' );
+		}
+		if ( ! term_exists( 'Teatro', 'disciplinas' ) ){
+			wp_insert_term( 'Teatro', 'disciplinas' );
+		}
+	}// insert_term_disciplinas

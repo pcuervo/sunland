@@ -141,24 +141,8 @@
 							<?php
 								$eventos = get_events();
 							?>
-							var evento_php = <?php echo $eventos ?>;
-							var evento = '"<div class="[ evento ] [ clearfix ]"> \
-							<p class="titulo">- Jazz Alternativo</p> \
-							<p class="hora"><i class="fa fa-clock-o"></i> </p> \
-							<a href="#" class="[ boton ] [ abrir-info ]">más info</a> \
-							<div class="[ evento-full ]"> \
-							<span class="custom-content-close"></span> \
-							<h4 class="titulo">Jazz Alternativo</h4> \
-							<p class="hora"><i class="fa fa-clock-o"></i> 9am</p> \
-							<p class="contenido"><i class="fa fa-newspaper-o"></i> Si mire le puedo mostrar lo que es el jazz alternativo.</p> \
-							<p class="url"><i class="fa fa-link"></i> <a href="http://localhost:8888/sunland/eventos/jazz-alternativo/" target="_blank"></a></p>  \
-								</div> \
-							</div>"';
-							var calendarioEvents = {
-								'04-09-2015' : evento
-							};
-
-							initializeCalendar( evento_php );
+							var eventos = <?php echo $eventos ?>;
+							initializeCalendar( eventos );
 
 							/**
 							 * Triggered events

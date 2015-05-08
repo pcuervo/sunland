@@ -52,7 +52,7 @@
 										<li><a href="<?php echo site_url( 'teatro' ) ?>">Teatro</a></li>
 									</ul>
 								</li>
-								<li><a href="<?php echo site_url( 'diplomados' );?>">Programa intensivo</a></li>
+								<li><a href="<?php echo site_url( 'intensivo' );?>">Programa intensivo</a></li>
 							</ul>
 						</li>
 						<li><a href="<?php echo site_url() . '/foro-sunland' ?>">Foro Sunland</a></li>
@@ -86,7 +86,7 @@
 							</a>
 							<?php
 								$active_artes = '[]';
-								if( 'Danza' == get_the_title() || 'Teatro' == get_the_title() || 'Música' == get_the_title() || 'Diplomados' == get_the_title()  ){
+								if( 'Danza' == get_the_title() || 'Teatro' == get_the_title() || 'Música' == get_the_title() || 'Intensivo' == get_the_title()  ){
 									$active_artes = '[ active ]';
 								}
 							?>
@@ -100,7 +100,7 @@
 											<li><a href="<?php echo site_url( 'teatro' ) ?>">Teatro</a></li>
 										</ul>
 									</li>
-									<li><a href="<?php echo site_url( 'diplomados' );?>">Programa intensivo</a></li>
+									<li><a href="<?php echo site_url( 'intensivo' );?>">Programa intensivo</a></li>
 								</ul>
 							</div>
 							<a class="<?php echo ( 'nosotros' == get_post_type() ) ? '[ active ]' : '' ?>[ no-xmall medium large ][ inline-block middle ][ button button--menu ][ pull-right ]" href="<?php echo site_url() . '/nosotros' ?>">

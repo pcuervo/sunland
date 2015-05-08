@@ -12,7 +12,7 @@
 		</div>
 	</div>
 
-	<!-- DIPLOMADOS -->
+	<!-- INTENSIVO -->
 	<section class="[ wrapper ]">
 		<div class="[ xmall-12 medium-9 ]">
 			<div class="[ padding ] [ relative ]">
@@ -53,14 +53,15 @@
 			} ?>
 		</article>
 		<!-- GALERÍA -->
-	</section><!-- DIPLOMADOS -->
+	</section><!-- INTENSIVO -->
 	<div class="[ clear ]"></div>
+	
 	<!-- CALL TO ACTION -->
 	<section class="[ bg-highlight ]">
 		<div class="[ wrapper ]">
 			<div class="[ row ]">
 				<div class="[ span xmall-12 ] [ padding ] [ text-center ][ center block ]">
-					<h3 class="[ sub-title ] [ text-center ] [ inline-block align-middle ] [ padding ]">Conoce más acerca de nuestro diplomado</h2><div class="[ inline-block block align middle ] [ text-center ][ padding ]"><a href="#" class="[ button button--medium button--dark ] [ padding ][ js-modal-opener ]" data-modal="natural-form">más información</a></div>
+					<h3 class="[ sub-title ] [ text-center ] [ inline-block align-middle ] [ padding ]">Envíanos tu solicitud de inscripción</h2><div class="[ inline-block block align middle ] [ text-center ][ padding ]"><a href="#" class="[ button button--medium button--dark ] [ padding ][ js-modal-opener ]" data-modal="natural-form">enviar</a></div>
 				</div>
 			</div>
 		</div>
@@ -71,7 +72,7 @@
 		<div class="wrapper">
 			<div class="[ row ]">
 				<div class="[ span xmall-10 ] [ center block ] [ margin-bottom ]">
-					<h2 class="[ title ] [ text-center ] [ padding ]">Instructores del diplomado</h2>
+					<h2 class="[ title ] [ text-center ] [ padding ]">Instructores del programa intensivo</h2>
 				</div>
 				<?php
 				$instructores_args = array(
@@ -81,7 +82,7 @@
 						array(
 							'taxonomy' => 'tipo-de-staff',
 							'field'    => 'slug',
-							'terms'    => array( 'diplomados' ),
+							'terms'    => array( 'intensivo' ),
 						),
 					),
 				);

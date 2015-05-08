@@ -90,13 +90,13 @@
 			wp_insert_post( $page, true );
 		}
 
-		//  DIPLOMADOS
-		if( ! get_page_by_path('diplomados') ){
+		//  INTENSIVO
+		if( ! get_page_by_path('intensivo') ){
 			$page = array(
 				'post_author' => 1,
 				'post_status' => 'publish',
-				'post_title'  => 'Diplomados',
-				'post_name'   => 'diplomados',
+				'post_title'  => 'Programa Intensivo',
+				'post_name'   => 'intensivo',
 				'post_type'   => 'page'
 			);
 			wp_insert_post( $page, true );
