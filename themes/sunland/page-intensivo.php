@@ -21,7 +21,7 @@
 					<?php the_content(); ?>
 				</div>
 				<div class="[ text-right ]">
-					<a href="<?php echo THEMEPATH; ?>pdf/Programa_Intensivo_-_Artes_Escénicas_Contemporáneas_1.pdf" class="button button--highlight">Descarga la información</a>
+					<a href="<?php echo THEMEPATH; ?>pdf/programa_intensivo_artes_escenicas.pdf" class="button button--highlight" target="_blank">Descarga la información</a>
 				</div>
 			</div>
 		</div>

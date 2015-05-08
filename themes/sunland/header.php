@@ -85,7 +85,7 @@
 						</div><div class="[ xmall-6 ][ hidden--large-inline ][ light ][ padding ][ inline-block align-middle ]">
 						<a class="[ pull-right ]" href="#sunland-mmenu"><i class="fa fa-bars fa-2x"></i></a>
 						</div><nav class="[ shown--large--inline ] [ large-11 ] [ bg-dark-shade ] [ clearfix ] [ menu-container ] [ inline-block align-middle ]">
-							<a class="<?php echo ( 'Contacto' == get_the_title() ) ? '[ active ]' : '' ?>[ active--light ][ shown--medium--inline middle ][ inline-block align-middle ][ button button--menu ][ pull-right ]" href="<?php echo site_url() . '/contacto' ?>">
+							<a class="<?php echo ( 'Contacto' == get_the_title() ) ? '[ active ]' : '[ active--light ]' ?>[ shown--medium--inline middle ][ inline-block align-middle ][ button button--menu ][ pull-right ]" href="<?php echo site_url() . '/contacto' ?>">
 								Contacto
 							</a>
 							<a class="<?php echo ( 'Sunland Express' == get_the_title() ) ? '[ active ]' : '' ?>[ shown--medium--inline align-middle ][ button button--menu ][ pull-right ]" href="<?php echo site_url() . '/sunland-express' ?>">
