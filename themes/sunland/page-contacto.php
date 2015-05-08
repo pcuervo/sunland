@@ -6,8 +6,6 @@
 	$contact_info_query = new WP_Query( 'pagename=info-general' );
 	if ( $contact_info_query->have_posts() ) : $contact_info_query->the_post();
 		$telefono1 = get_post_meta( $post->ID, '_telefono1_meta', TRUE );
-		$telefono2 = get_post_meta( $post->ID, '_telefono2_meta', TRUE );
-		$email = get_post_meta( $post->ID, '_email_meta', TRUE );
 		$direccion = get_post_meta( $post->ID, '_direccion_meta', TRUE );
 	endif;
 	wp_reset_query();
@@ -24,9 +22,6 @@
 			<div class="[ columna xmall-12 medium-5 ] [ margin-bottom ] [ js-form-container ]">
 				<h3>Teléfonos</h3>
 				<p><?php echo $telefono1 ?></p>
-				<p><?php echo $telefono2 ?></p>
-				<h3>E-mail</h3>
-				<p><?php echo $email ?></p>
 
 				<form class="[ form form-contacto ] [ js-contact-form ]" action="">
 					<fieldset class="[ margin-bottom ]">

@@ -14,6 +14,9 @@
 
 	$soundcloud = get_post_meta($post->ID, '_soundcloud_meta', true);
 	$youtube = get_post_meta($post->ID, '_youtube_meta', true);
+
+	var_dump($soundcloud);
+	var_dump($youtube);
 ?>
 
 	<div class="[ bg-image ] [ margin-bottom--large ]" style="background-image: url(<?php echo $cover_url ?>)">
@@ -32,17 +35,21 @@
 					<?php the_content(); ?>
 				</div>
 				<div class="[ margin-bottom--large ] [ clearfix ]">
-					<h2 class="title">Demos</h2>
-					<?php if ( $soundcloud ){ ?>
+					<?php if ( $soundcloud || $youtube ) : ?>
+						<h2 class="title">Demos</h2>
+					<?php endif; ?>
+					
+					<?php if ( $soundcloud ) : ?>
 						<a target="_blank" href="<?php echo $soundcloud; ?>">
 							<i class="[ icon-soundcloud ] [ icon-large ] [ highlight ]"></i>
 						</a>
-					<?php }
-					if ( $youtube ){ ?>
+					<?php endif; 
+
+					if ( $youtube )  : ?>
 						<a target="_blank" href="<?php echo $youtube; ?>">
 							<i class="[ icon-youtube-play ] [ icon-large ] [ highlight ]"></i>
 						</a>
-					<?php } ?>
+					<?php endif; ?>
 				</div>
 			</div><!-- xmall-12 medium-8 -->
 		</div><!-- wrapper -->
