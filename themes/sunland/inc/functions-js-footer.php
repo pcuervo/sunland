@@ -122,6 +122,31 @@
 							**/
 							$('.fancybox').fancybox();
 
+						<?php } ?>
+
+						/*------------------------------------*\
+							#STUDIOS
+						\*------------------------------------*/
+
+						<?php if( is_page('sunland-studios') ) { ?>
+
+							/**
+							 * On load
+							**/
+							$('.fancybox').fancybox();
+
+						<?php } ?>
+
+						/*------------------------------------*\
+							#DIPLOMADOS
+						\*------------------------------------*/
+
+						<?php if( is_page('diplomados') ) { ?>
+
+							/**
+							 * On load
+							**/
+							$('.fancybox').fancybox();
 
 						<?php } ?>
 
