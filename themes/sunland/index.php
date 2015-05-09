@@ -127,7 +127,7 @@
 						array(
 							'taxonomy' => 'tipo-de-staff',
 							'field'    => 'slug',
-							'terms'    => array('talleres', 'diplomados'),
+							'terms'    => array('talleres', 'intensivo'),
 						),
 					),
 				);
@@ -158,7 +158,7 @@
 		<div class="wrapper">
 			<div class="row">
 				<div class="[ span xmall-10 ] [ center block ] [ margin-bottom ]">
-					<h2 class="[ title ] [ text-center ] [ margin-bottom ]">Próximos eventos en el foro Sunland</h2>
+					<h2 class="[ title ] [ text-center ] [ margin-bottom ]">Próximos eventos en el Foro Sunland</h2>
 					<i class="[ icon-marker ] [ icon-medium ] [ highlight ] [ text-center center block ]"></i>
 				</div>
 

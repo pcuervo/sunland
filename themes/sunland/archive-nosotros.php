@@ -51,7 +51,7 @@
 						array(
 							'taxonomy' => 'tipo-de-staff',
 							'field'    => 'slug',
-							'terms'    => array('talleres', 'diplomados'),
+							'terms'    => array('talleres', 'intensivo'),
 						),
 					),
 				);

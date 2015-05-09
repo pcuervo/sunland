@@ -34,6 +34,19 @@
 	</head>
 
 	<body>
+		<!-- Google Tag Manager -->
+		<noscript>
+			<iframe src="//www.googletagmanager.com/ns.html?id=GTM-WFG9VW"
+		height="0" width="0" style="display:none;visibility:hidden"></iframe>
+		</noscript>
+		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-WFG9VW');</script>
+		<!-- End Google Tag Manager -->
+
+
 		<!--[if lt IE 9]>
 			<p class="chromeframe">Estás usando una versión <strong>vieja</strong> de tu explorador. Por favor <a href="http://browsehappy.com/" target="_blank"> actualiza tu explorador</a> para tener una experiencia completa.</p>
 		<![endif]-->
@@ -52,7 +65,7 @@
 										<li><a href="<?php echo site_url( 'teatro' ) ?>">Teatro</a></li>
 									</ul>
 								</li>
-								<li><a href="<?php echo site_url( 'diplomados' );?>">Programa intensivo</a></li>
+								<li><a href="<?php echo site_url( 'intensivo' );?>">Programa intensivo</a></li>
 							</ul>
 						</li>
 						<li><a href="<?php echo site_url() . '/foro-sunland' ?>">Foro Sunland</a></li>
@@ -72,7 +85,7 @@
 						</div><div class="[ xmall-6 ][ hidden--large-inline ][ light ][ padding ][ inline-block align-middle ]">
 						<a class="[ pull-right ]" href="#sunland-mmenu"><i class="fa fa-bars fa-2x"></i></a>
 						</div><nav class="[ shown--large--inline ] [ large-11 ] [ bg-dark-shade ] [ clearfix ] [ menu-container ] [ inline-block align-middle ]">
-							<a class="<?php echo ( 'Contacto' == get_the_title() ) ? '[ active ]' : '' ?>[ active--light ][ shown--medium--inline middle ][ inline-block align-middle ][ button button--menu ][ pull-right ]" href="<?php echo site_url() . '/contacto' ?>">
+							<a class="<?php echo ( 'Contacto' == get_the_title() ) ? '[ active ]' : '[ active--light ]' ?>[ shown--medium--inline middle ][ inline-block align-middle ][ button button--menu ][ pull-right ]" href="<?php echo site_url() . '/contacto' ?>">
 								Contacto
 							</a>
 							<a class="<?php echo ( 'Sunland Express' == get_the_title() ) ? '[ active ]' : '' ?>[ shown--medium--inline align-middle ][ button button--menu ][ pull-right ]" href="<?php echo site_url() . '/sunland-express' ?>">
@@ -86,7 +99,7 @@
 							</a>
 							<?php
 								$active_artes = '[]';
-								if( 'Danza' == get_the_title() || 'Teatro' == get_the_title() || 'Música' == get_the_title() || 'Diplomados' == get_the_title()  ){
+								if( 'Danza' == get_the_title() || 'Teatro' == get_the_title() || 'Música' == get_the_title() || 'Intensivo' == get_the_title()  ){
 									$active_artes = '[ active ]';
 								}
 							?>
@@ -100,7 +113,7 @@
 											<li><a href="<?php echo site_url( 'teatro' ) ?>">Teatro</a></li>
 										</ul>
 									</li>
-									<li><a href="<?php echo site_url( 'diplomados' );?>">Programa intensivo</a></li>
+									<li><a href="<?php echo site_url( 'intensivo' );?>">Programa intensivo</a></li>
 								</ul>
 							</div>
 							<a class="<?php echo ( 'nosotros' == get_post_type() ) ? '[ active ]' : '' ?>[ no-xmall medium large ][ inline-block middle ][ button button--menu ][ pull-right ]" href="<?php echo site_url() . '/nosotros' ?>">

@@ -420,6 +420,7 @@
 	function get_events(){
 		global $post;
 		$json_events = array();
+		$last_date = '';
 
 		$args = array(
 			'post_type' 		=> 'eventos',
@@ -434,6 +435,13 @@
 			$new_date_format = $date_arr[1] . '-' . $date_arr[2] . '-' . $date_arr[0];
 
 			$html_evento = get_event_html_format( $new_date_format, $time, get_the_title(), get_the_content(), get_permalink( ) );
+
+			if( $last_date == $new_date_format ){
+				$json_events[$new_date_format] = $json_events[$new_date_format] . $html_evento;
+				continue;
+			}
+
+			$last_date = $new_date_format;
 			$json_events[$new_date_format] = $html_evento;
 
 		endwhile; endif;

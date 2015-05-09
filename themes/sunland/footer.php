@@ -12,7 +12,6 @@
 									$instagram = get_post_meta( $post->ID, '_instagram_meta', TRUE );
 									$youtube = get_post_meta( $post->ID, '_youtube_meta', TRUE );
 									$telefono1 = get_post_meta( $post->ID, '_telefono1_meta', TRUE );
-									$telefono2 = get_post_meta( $post->ID, '_telefono2_meta', TRUE );
 									$email = get_post_meta( $post->ID, '_email_meta', TRUE );
 									$direccion = get_post_meta( $post->ID, '_direccion_meta', TRUE );
 								endif;
@@ -28,7 +27,7 @@
 								</p>
 							</div>
 							<div class="[ columna xmall-12 medium-4 ] [ text-center ] [ margin-bottom ]">
-								<p>Teléfonos: <a href="tel:+5555890527" onclick="_gaq.push(['_trackEvent', 'ClickToCall', 'Llamada 5589-0527'])" class="[ light ]"><?php echo $telefono1 ?></a> / <a href="tel:+5552946813" onclick="_gaq.push(['_trackEvent', 'ClickToCall', 'Llamada 5294-6813'])" class="[ light ]"><?php echo $telefono2 ?></a></p>
+								<p>Teléfonos: <a href="tel:+5255<?php echo $telefono1 ?>" onclick="_gaq.push(['_trackEvent', 'ClickToCall', 'Llamada 5589-0527'])" class="[ light ]"><?php echo $telefono1 ?></a></p>
 								<p>E-mail: <a href="mailto:<?php echo $email ?>" class="[ light ]"><?php echo $email ?></a></p>
 							</div>
 							<div class="[ columna xmall-12 medium-4 xm ] [ ] [ margin-bottom ]">
