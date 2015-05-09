@@ -138,10 +138,10 @@
 						<?php } ?>
 
 						/*------------------------------------*\
-							#DIPLOMADOS
+							#INTENSIVO
 						\*------------------------------------*/
 
-						<?php if( is_page('diplomados') ) { ?>
+						<?php if( is_page('intensivo') ) { ?>
 
 							/**
 							 * On load
