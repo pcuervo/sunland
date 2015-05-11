@@ -30,32 +30,36 @@
 	</section> <!-- INFO -->
 
 	<!-- GALERÍA -->
-	<?php
-	$content = $post->post_content;
-	if( has_shortcode( $content, 'gallery' ) ) {
-		$galleries = get_galleries_from_content($content);
-		foreach ($galleries as $gallery => $galleryIDs) { ?>
-			<div class="[ span xmall-12 margin-bottom--large ]">
-				<div class="[ row ]">
-					<?php
-					$images = sga_gallery_images('thumbnail', $galleryIDs);
+	<section class="[ info ]">
+		<div class="[ wrapper ]">
+			<?php
+			$content = $post->post_content;
+			if( has_shortcode( $content, 'gallery' ) ) {
+				$galleries = get_galleries_from_content($content);
+				foreach ($galleries as $gallery => $galleryIDs) { ?>
+					<div class="[ span xmall-12 margin-bottom--large ]">
+						<div class="[ row ]">
+							<?php
+							$images = sga_gallery_images('thumbnail', $galleryIDs);
 
-					foreach ($images as $key => $image) {
-						$imageID                   = $image[4];
-						$imageURL                  = $image[0];
-						$galeria_img_url_thumbnail = wp_get_attachment_image_src( $imageID, 'thumbnail' );
-						$galeria_img_url_full      = wp_get_attachment_image_src( $imageID, 'full' );
-						?>
-						<div class="[ columna xmall-12 medium-4 large-3 ]">
-							<a class="[ fancybox ]" rel="group" href="<?php echo $galeria_img_url_full[0] ?>">
-								<img class="[ image-responsive ][ margin-bottom ]" src="<?php echo $galeria_img_url_thumbnail[0]; ?>" />
-							</a>
+							foreach ($images as $key => $image) {
+								$imageID                   = $image[4];
+								$imageURL                  = $image[0];
+								$galeria_img_url_thumbnail = wp_get_attachment_image_src( $imageID, 'medium' );
+								$galeria_img_url_full      = wp_get_attachment_image_src( $imageID, 'full' );
+								?>
+								<div class="[ columna xmall-12 medium-4 large-3 ]">
+									<a class="[ fancybox ]" rel="group" href="<?php echo $galeria_img_url_full[0] ?>">
+										<img class="[ image-responsive ][ margin-bottom ]" src="<?php echo $galeria_img_url_thumbnail[0]; ?>" />
+									</a>
+								</div>
+							<?php } ?>
 						</div>
-					<?php } ?>
-				</div>
-			</div>
-		<?php }
-	} ?>
+					</div>
+				<?php }
+			} ?>
+		</div>
+	</section>
 	<!-- GALERÍA -->
 
 	<!-- EQUIPO POST -->
@@ -122,7 +126,7 @@
 							array(
 								'taxonomy' => 'tipo-de-equipo',
 								'field'    => 'slug',
-								'terms'    => array( 'microfonía' ),
+								'terms'    => array( 'microfonia' ),
 							),
 						),
 					);
@@ -183,7 +187,7 @@
 				$query_instructores = new WP_Query( $instructores_args );
 				if ( $query_instructores->have_posts() ) : while ( $query_instructores->have_posts() ) : $query_instructores->the_post();
 
-					$instructor_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
+					$instructor_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
 					$term_materias = wp_get_post_terms( $post->ID, 'materia', array('fields' => 'names') );
 					$materias = get_formatted_materias( $term_materias );
 				?>

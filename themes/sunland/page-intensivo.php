@@ -41,7 +41,7 @@
 							foreach ($images as $key => $image) {
 								$imageID                   = $image[4];
 								$imageURL                  = $image[0];
-								$galeria_img_url_thumbnail = wp_get_attachment_image_src( $imageID, 'thumbnail' );
+								$galeria_img_url_thumbnail = wp_get_attachment_image_src( $imageID, 'medium' );
 								$galeria_img_url_full      = wp_get_attachment_image_src( $imageID, 'full' );
 
 								?>
@@ -59,7 +59,7 @@
 		<!-- GALERÍA -->
 	</section><!-- INTENSIVO -->
 	<div class="[ clear ]"></div>
-	
+
 	<!-- CALL TO ACTION -->
 	<section class="[ bg-highlight ]">
 		<div class="[ wrapper ]">
@@ -93,7 +93,7 @@
 				$query_instructores = new WP_Query( $instructores_args );
 				if ( $query_instructores->have_posts() ) : while ( $query_instructores->have_posts() ) : $query_instructores->the_post();
 
-					$instructor_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'thumbnail' );
+					$instructor_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
 				?>
 					<div class="[ span xmall-12 medium-4 large-3 ] [ padding ]">
 						<div class="[ bg-light ] [ relative ] [ instructor-image ]">
