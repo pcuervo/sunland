@@ -27,7 +27,7 @@
 								</p>
 							</div>
 							<div class="[ columna xmall-12 medium-4 ] [ text-center ] [ margin-bottom ]">
-								<p>Teléfonos: <a href="tel:+5255<?php echo $telefono1 ?>" onclick="_gaq.push(['_trackEvent', 'ClickToCall', 'Llamada 5589-0527'])" class="[ light ]"><?php echo $telefono1 ?></a></p>
+								<p>Teléfono: <a href="tel:+5255<?php echo $telefono1 ?>" onclick="_gaq.push(['_trackEvent', 'ClickToCall', 'Llamada 5589-0527'])" class="[ light ]"><?php echo $telefono1 ?></a></p>
 								<p>E-mail: <a href="mailto:<?php echo $email ?>" class="[ light ]"><?php echo $email ?></a></p>
 							</div>
 							<div class="[ columna xmall-12 medium-4 xm ] [ ] [ margin-bottom ]">

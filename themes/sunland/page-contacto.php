@@ -20,7 +20,7 @@
 	<section class="[ wrapper ]">
 		<div class="[ row ]">
 			<div class="[ columna xmall-12 medium-5 ] [ margin-bottom ] [ js-form-container ]">
-				<h3>Teléfonos</h3>
+				<h3>Teléfono</h3>
 				<p><?php echo $telefono1 ?></p>
 
 				<form class="[ form form-contacto ] [ js-contact-form ]" action="">

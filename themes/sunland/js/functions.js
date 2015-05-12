@@ -186,10 +186,14 @@ function saveContactPost(){
 			var message_json = $.parseJSON( response );
 
 			if( message_json.error ){
+				dataLayer.push({
+					'event':'VirtualPageview',
+					'virtualPageURL':'/contacto-enviado',
+					'virtualPageTitle' : 'Mensaje de Contacto Enviado'
+				});
 				alert( message_json.message );
 				return;
 			}
-
 			$('.js-form-container').empty();
 			$('.js-form-container').html( '<h3>' + message_json.message + '</h3>' );
 		}
@@ -212,7 +216,7 @@ function sendMoreInfoEmail(){
 			$('.close-modal').click();
 
 			var message_json = $.parseJSON( response );
-			if( ! message_json.error ){
+			if( ! message_json.error ){	
 				alert( message_json.message );
 				return;
 			}

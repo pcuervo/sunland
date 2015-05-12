@@ -119,7 +119,7 @@
 							array(
 								'taxonomy' => 'tipo-de-equipo',
 								'field'    => 'slug',
-								'terms'    => array( 'microfonía' ),
+								'terms'    => array( 'microfonia' ),
 							),
 						),
 					);
