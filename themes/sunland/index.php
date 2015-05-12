@@ -134,7 +134,7 @@
 				$query_instructores = new WP_Query( $instructores_args );
 				if ( $query_instructores->have_posts() ) : while ( $query_instructores->have_posts() ) : $query_instructores->the_post();
 
-					$instructor_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'thumbnail' );
+					$instructor_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
 					$term_materias = wp_get_post_terms( $post->ID, 'materia', array('fields' => 'names') );
 					$materias = get_formatted_materias( $term_materias );
 				?>
@@ -169,7 +169,7 @@
 					);
 					$query_events = new WP_Query( $instructores_args );
 					if ( $query_events->have_posts() ) : while ( $query_events->have_posts() ) : $query_events->the_post();
-						$event_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'thumbnail' );
+						$event_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
 						$meta_date = get_post_meta( $post->ID, '_dia_meta', true );
 						$formatted_date = get_formatted_event_date( $meta_date );
 				?>

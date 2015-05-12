@@ -12,7 +12,7 @@
 		</div>
 	</div>
 
-	<!-- INTENSIVO -->
+	<!-- DIPLOMADOS -->
 	<section class="[ wrapper ]">
 		<div class="[ xmall-12 medium-9 ]">
 			<div class="[ padding ] [ relative ]">
@@ -21,7 +21,7 @@
 					<?php the_content(); ?>
 				</div>
 				<div class="[ text-right ]">
-					<a href="<?php echo THEMEPATH; ?>pdf/programa_intensivo_artes_escenicas.pdf" class="button button--highlight" target="_blank">Descarga la información</a>
+					<a href="<?php echo THEMEPATH; ?>pdf/Programa_Intensivo_-_Artes_Escénicas_Contemporáneas_1.pdf" class="button button--highlight">Descarga la información</a>
 				</div>
 			</div>
 		</div>
@@ -57,15 +57,14 @@
 			} ?>
 		</article>
 		<!-- GALERÍA -->
-	</section><!-- INTENSIVO -->
+	</section><!-- DIPLOMADOS -->
 	<div class="[ clear ]"></div>
-
 	<!-- CALL TO ACTION -->
 	<section class="[ bg-highlight ]">
 		<div class="[ wrapper ]">
 			<div class="[ row ]">
 				<div class="[ span xmall-12 ] [ padding ] [ text-center ][ center block ]">
-					<h3 class="[ sub-title ] [ text-center ] [ inline-block align-middle ] [ padding ]">Envíanos tu solicitud de inscripción</h2><div class="[ inline-block block align middle ] [ text-center ][ padding ]"><a href="#" class="[ button button--medium button--dark ] [ padding ][ js-modal-opener ]" data-modal="natural-form">enviar</a></div>
+					<h3 class="[ sub-title ] [ text-center ] [ inline-block align-middle ] [ padding ]">Conoce más acerca de nuestro diplomado</h2><div class="[ inline-block block align middle ] [ text-center ][ padding ]"><a href="#" class="[ button button--medium button--dark ] [ padding ][ js-modal-opener ]" data-modal="natural-form">más información</a></div>
 				</div>
 			</div>
 		</div>
@@ -76,7 +75,7 @@
 		<div class="wrapper">
 			<div class="[ row ]">
 				<div class="[ span xmall-10 ] [ center block ] [ margin-bottom ]">
-					<h2 class="[ title ] [ text-center ] [ padding ]">Instructores del programa intensivo</h2>
+					<h2 class="[ title ] [ text-center ] [ padding ]">Instructores del diplomado</h2>
 				</div>
 				<?php
 				$instructores_args = array(
@@ -86,7 +85,7 @@
 						array(
 							'taxonomy' => 'tipo-de-staff',
 							'field'    => 'slug',
-							'terms'    => array( 'intensivo' ),
+							'terms'    => array( 'diplomados' ),
 						),
 					),
 				);

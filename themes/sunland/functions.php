@@ -529,6 +529,16 @@
 
 
 
+// POST THUMBNAILS SUPPORT ///////////////////////////////////////////////////////////
+	if ( function_exists('add_theme_support') ){
+		add_theme_support('post-thumbnails');
+	}
+	if ( function_exists('add_image_size') ){
 
+		update_option( 'medium_size_h', 350 );
+		update_option( 'medium_size_w', 350 );
+		update_option( 'medium_crop', true );
+
+	}
 
 

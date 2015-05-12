@@ -116,7 +116,7 @@
 				$query_galeria = new WP_Query( $galeria_args );
 				if ( $query_galeria->have_posts() ) : while ( $query_galeria->have_posts() ) : $query_galeria->the_post();
 
-					$galeria_img_url_thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'thumbnail' );
+					$galeria_img_url_thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
 					$galeria_img_url_full = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
 					$images = get_attached_media( 'image', 80 );
 			?>
@@ -157,7 +157,7 @@
 				$query_instructores = new WP_Query( $instructores_args );
 				if ( $query_instructores->have_posts() ) : while ( $query_instructores->have_posts() ) : $query_instructores->the_post();
 
-					$instructor_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'thumbnail' );
+					$instructor_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
 				?>
 					<div class="[ span xmall-12 medium-4 ] [ padding ]">
 						<div class="[ bg-light ] [ relative ] [ instructor-image ]">
