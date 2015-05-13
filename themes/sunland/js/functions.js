@@ -189,7 +189,7 @@ function saveContactPost(){
 				alert( message_json.message );
 				return;
 			}
-
+			ga('send', 'pageview', '/contacto-enviado');
 			$('.js-form-container').empty();
 			$('.js-form-container').html( '<h3>' + message_json.message + '</h3>' );
 		}
@@ -210,9 +210,10 @@ function sendMoreInfoEmail(){
 		function( response ){
 			console.log(response);
 			$('.close-modal').click();
-
+			
+			ga('send', 'pageview', '/more-info');
 			var message_json = $.parseJSON( response );
-			if( ! message_json.error ){
+			if( ! message_json.error ){	
 				alert( message_json.message );
 				return;
 			}
