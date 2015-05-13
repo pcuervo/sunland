@@ -8,7 +8,6 @@
 	);
 	$query_nosotros = new WP_Query( $nosotros_args );
 	if ( $query_nosotros->have_posts() ) : while ( $query_nosotros->have_posts() ) : $query_nosotros->the_post();
-		$counter++;
 		$bg_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
 ?>
 		<section class="[ clearfix ]">
@@ -34,7 +33,8 @@
 			</div>
 		</section>
 <?php
-	endwhile; endif; wp_reset_query();
+	$counter++; endwhile; endif; wp_reset_query();
+	$counter = 0;
 ?>
 	<!-- INSTRUCTORES -->
 	<section class="[ hidden--xmall shown--medium ] [ bg-highlight ]">
@@ -72,7 +72,16 @@
 						<h2 class="[ sub-title ] [ ]"><?php the_title() ?></h2>
 						<p class="[  ]"><?php echo $materias; ?></p>
 					</div>
-				<?php endwhile; endif; wp_reset_query(); ?>
+
+					<?php if($counter % 3 == 0){ ?>
+						<div class="[ clear--medium ]"></div>
+					<?php } ?>
+					<?php if($counter % 4 == 0){ ?>
+						<div class="[ clear--medium ]"></div>
+					<?php } ?>
+
+
+				<?php $counter++; endwhile; endif; wp_reset_query(); ?>
 			</div>
 		</div>
 	</section><!-- INSTRUCTORES -->

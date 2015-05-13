@@ -31,7 +31,7 @@
 					<div class="[ span xmall-12 margin-bottom--large ]">
 						<div class="[ row ]">
 							<?php
-							$images = sga_gallery_images('thumbnail', $galleryIDs);
+							$images = sga_gallery_images('medium', $galleryIDs);
 
 							foreach ($images as $key => $image) {
 								$imageID         = $image[4];
