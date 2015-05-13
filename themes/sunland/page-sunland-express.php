@@ -8,7 +8,7 @@
 ?>
 
 	<div class="[ bg-image ] [ margin-bottom--large ]" style="background-image: url(<?php echo $cover_url[0] ?>)">
-		<div class="[ opacity-gradient main-tile ]">
+		<div class="[ opacity-gradient banner-height ]">
 		</div>
 	</div>
 
@@ -37,9 +37,14 @@
 								$imageID         = $image[4];
 								$imageURL        = $image[0];
 
+								$galeria_img_url_thumbnail = wp_get_attachment_image_src( $imageID, 'medium' );
+								$galeria_img_url_full = wp_get_attachment_image_src( $imageID, 'full' );
+
 								?>
 								<div class="[ columna xmall-12 medium-4 large-3 ]">
-									<img class="[ image-responsive ][ margin-bottom ]" src="<?php echo $imageURL; ?>" />
+									<a class="[ fancybox ]" rel="group" href="<?php echo $galeria_img_url_full[0] ?>">
+										<img class="[ image-responsive ][ margin-bottom ]" src="<?php echo $galeria_img_url_thumbnail[0]; ?>" />
+									</a>
 								</div>
 							<?php } ?>
 						</div>

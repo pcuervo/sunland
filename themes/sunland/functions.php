@@ -468,7 +468,7 @@
 
 		$name = $_POST['nombre'];
 		$email = $_POST['email'];
-		$to_email = 'miguel@pcuervo.com';
+		$to_email = 'contactos@sunland.mx';
 		$tel = $_POST['tel'];
 		$msg = $_POST['mensaje'];
 

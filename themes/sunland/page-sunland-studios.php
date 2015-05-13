@@ -168,11 +168,10 @@
 	<!-- INSTRUCTORES -->
 	<section class="[ hidden--xmall shown--medium ] [ bg-dark ]">
 		<div class="wrapper">
+			<h2 class="[ title ][ text-center ][ padding ]">Colaboradores</h2>
 			<div class="[ row ]">
-				<div class="[ span xmall-10 ] [ center block ] [ margin-bottom ]">
-					<h2 class="[ title ] [ text-center ] [ padding ]">Colaboradores</h2>
-				</div>
 				<?php
+				$counter = 1;
 				$instructores_args = array(
 					'post_type' 		=> 'instructores',
 					'posts_per_page' 	=> -1,
@@ -201,7 +200,15 @@
 						<h2 class="[ sub-title ] [ ]"><?php the_title() ?></h2>
 						<p class="[  ]"><?php echo $materias; ?></p>
 					</div>
-				<?php endwhile; endif; wp_reset_query(); ?>
+
+					<?php if($counter % 3 == 0){ ?>
+						<div class="[ clear--medium ]"></div>
+					<?php } ?>
+					<?php if($counter % 4 == 0){ ?>
+						<div class="[ clear--large ]"></div>
+					<?php } ?>
+
+				<?php $counter++; endwhile; endif; wp_reset_query(); ?>
 			</div>
 		</div>
 	</section><!-- INSTRUCTORES -->

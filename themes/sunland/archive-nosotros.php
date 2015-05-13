@@ -15,10 +15,10 @@
 				<div class="[ bg-image ][ span xmall-12 medium-5 large-6 ]" style="background-image: url(<?php echo $bg_image[0] ?>)">
 					<div class="[ opacity-gradient ] [ full-height ]"></div>
 				</div>
-				<div class="[ span xmall-12 medium-7 large-6 ] [ ] [ padding ] [ relative ]">
-					<div>
+				<div class="[ span xmall-12 medium-7 large-6 ][ relative ]">
+					<div class="[ padding ]">
 						<h1 class="[ title ]"><?php the_title(); ?></h1>
-						<p><?php the_content(); ?></p>
+						<?php the_content(); ?>
 						<?php if ( $counter == 1 ){ ?>
 							<div class="[ row ]">
 								<div class="[ span xmall-12 ][ padding--large ][ text-center ]">
@@ -34,15 +34,13 @@
 		</section>
 <?php
 	$counter++; endwhile; endif; wp_reset_query();
-	$counter = 0;
+	$counter = 1;
 ?>
 	<!-- INSTRUCTORES -->
 	<section class="[ hidden--xmall shown--medium ] [ bg-highlight ]">
 		<div class="wrapper">
+			<h1 class="[ title ][ text-center ][ padding ][ light ]">Nuestros instructores</h1>
 			<div class="[ row ]">
-				<div class="[ span xmall-10 ] [ center block ] [ margin-bottom ]">
-					<h1 class="[ title ] [ text-center ] [ padding ]">Nuestros instructores</h1>
-				</div>
 				<?php
 				$instructores_args = array(
 					'post_type' 		=> 'instructores',
@@ -62,22 +60,23 @@
 					$term_materias = wp_get_post_terms( $post->ID, 'materia', array('fields' => 'names') );
 					$materias = get_formatted_materias( $term_materias );
 				?>
+
 					<div class="[ span xmall-12 medium-4 large-3 ] [ padding ]">
-						<div class="[ bg-light ] [ relative ] [ instructor-image ]">
-							<div class="[ text-center ] [ center-full ][ xmall-11 ][ z-index-10 ]">
+						<div class="[ bg-light ][ relative ][ instructor-image ]">
+							<div class="[ text-center ][ center-full ][ xmall-11 ][ z-index-10 ]">
 								<a href="<?php the_permalink() ?>" class="[ button button--large button--highlight ]">ver perfil</a>
 							</div>
-							<img src="<?php echo $instructor_img_url[0] ?>" class="[ image-responsive ] [ margin-bottom ]">
+							<img src="<?php echo $instructor_img_url[0] ?>" class="[ image-responsive ][ margin-bottom ]">
 						</div>
-						<h2 class="[ sub-title ] [ ]"><?php the_title() ?></h2>
-						<p class="[  ]"><?php echo $materias; ?></p>
+						<h2 class="[ sub-title ]"><?php the_title() ?></h2>
+						<p class="[]"><?php echo $materias; ?></p>
 					</div>
 
 					<?php if($counter % 3 == 0){ ?>
 						<div class="[ clear--medium ]"></div>
 					<?php } ?>
 					<?php if($counter % 4 == 0){ ?>
-						<div class="[ clear--medium ]"></div>
+						<div class="[ clear--large ]"></div>
 					<?php } ?>
 
 
