@@ -17,7 +17,7 @@
 								endif;
 								wp_reset_query();
 							?>
-							<div class="[ columna xmall-12 medium-4 ] [ text-center ] [ margin-bottom ]">
+							<div class="[ columna xmall-12 medium-4 large-3 ] [ text-center ] [ margin-bottom ]">
 								<p>Síguenos en:</p>
 								<p>
 									<a href="<?php echo $facebook ?>" target="_blank"><i class="[ icon-facebook ] [ icon-medium ]"></i></a>
@@ -52,20 +52,30 @@
 						<div class="[ modal-content ]">
 							<div class="[ modal-body ]">
 								<form id="nl-form" class="[ nl-form ][ js-mas-info-form ]">
-									Hola, mi nombre es <input class="[ required ]" type="text" name="nombre" value="" placeholder="tu nombre" />, pueden enviarme información a <input class="[ required email ]" type="text" name="email" value="" placeholder="tu correo" />, o comunicarse al <input class="[ required number ]" type="text" value="" name="tel" placeholder="tu número" />.
-									<input type="hidden" name="action" value="send_email_more_information">
-									<input type="hidden" name="to_email" value="miguel@pcuervo.com">
-									<?php
-										global $section;
-									?>
-									<input type="hidden" name="section" value="<?php echo $section; ?>">
+									<?php global $section; ?>
+									<?php if ( 'intensivo' == $post->post_name ) : ?>
+										Hola, mi nombre es <input class="[ required ]" type="text" name="nombre" value="" placeholder="tu nombre" />, estoy interesado en inscribirme al Programa Intensivo. Favor de contactarme a <input class="[ required email ]" type="text" name="email" value="" placeholder="tu correo" />, o comunicarse al <input class="[ required number ]" type="text" value="" name="tel" placeholder="tu número" />.
+										<input type="hidden" name="action" value="send_email_more_information">
+										<input type="hidden" name="to_email" value="miguel@pcuervo.com">
+										<input type="hidden" name="section" value="<?php echo $section; ?>">
 
-									<div class="[ clear ][ margin-bottom ]"></div>
-									<div class="nl-overlay"></div>
-									<div class="[ text-center ]">
-										<button class="[ button button--large button--highlight ]" type="submit">Enviar</button>
-									</div>
+										<div class="[ clear ][ margin-bottom ]"></div>
+										<div class="nl-overlay"></div>
+										<div class="[ text-center ]">
+											<button class="[ button button--large button--highlight ]" type="submit">Enviar</button>
+										</div>
+									<?php else : ?>
+										Hola, mi nombre es <input class="[ required ]" type="text" name="nombre" value="" placeholder="tu nombre" />, pueden enviarme información a <input class="[ required email ]" type="text" name="email" value="" placeholder="tu correo" />, o comunicarse al <input class="[ required number ]" type="text" value="" name="tel" placeholder="tu número" />.
+										<input type="hidden" name="action" value="send_email_more_information">
+										<input type="hidden" name="to_email" value="miguel@pcuervo.com">
+										<input type="hidden" name="section" value="<?php echo $section; ?>">
 
+										<div class="[ clear ][ margin-bottom ]"></div>
+										<div class="nl-overlay"></div>
+										<div class="[ text-center ]">
+											<button class="[ button button--large button--highlight ]" type="submit">Enviar</button>
+										</div>
+									<?php endif; ?>
 								</form>
 							</div><!-- modal-body -->
 						</div><!-- modal-content -->

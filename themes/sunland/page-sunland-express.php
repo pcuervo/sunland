@@ -5,8 +5,8 @@
 
 	$cover_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
 	$images = get_attached_media( 'image' );
+	$video_express = get_post_meta( $post->ID, '_video_express_meta', TRUE );
 ?>
-
 	<div class="[ bg-image ] [ margin-bottom--large ]" style="background-image: url(<?php echo $cover_url[0] ?>)">
 		<div class="[ opacity-gradient banner-height ]">
 		</div>
@@ -53,6 +53,18 @@
 			} ?>
 		</div>
 	</section><!-- SUNLAND EXPRESS -->
+
+	<!-- VIDEOS -->
+	<section class="[ wrapper ][ margin-bottom ]">
+		<div class="[ row ]">
+			<div class="[ columna xmall-12 medium-8 center ]">
+				<div class="[ video-wrapper ]">
+					<iframe src="<?php echo $video_express ?>" frameborder="0" allowfullscreen></iframe>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- VIDEOS -->
 
 	<!-- CALL TO ACTION -->
 	<section class="[ bg-dark ]">

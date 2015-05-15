@@ -37,7 +37,7 @@
 	$counter = 1;
 ?>
 	<!-- INSTRUCTORES -->
-	<section class="[ hidden--xmall shown--medium ] [ bg-highlight ]">
+	<section class="[ hidden--xmall shown--medium ] [ bg-highlight ]" id="instructores">
 		<div class="wrapper">
 			<h1 class="[ title ][ text-center ][ padding ][ light ]">Nuestros instructores</h1>
 			<div class="[ row ]">

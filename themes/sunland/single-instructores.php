@@ -2,13 +2,7 @@
 	get_header();
 	the_post();
 
-	if ( has_term('studios', 'tipo-de-staff', $post) ){
-
-		$cover_url = THEMEPATH.'images/colaboradores.jpg';
-	} else{
-		$cover_url = THEMEPATH.'images/instructores.jpg';
-	}
-
+	$cover_url = THEMEPATH.'images/instructores.jpg';
 	$instructor_photo = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
 	$soundcloud = get_post_meta($post->ID, '_soundcloud_meta', true);
 	$youtube = get_post_meta($post->ID, '_youtube_meta', true);

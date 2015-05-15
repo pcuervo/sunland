@@ -87,7 +87,7 @@
 	<section class="[ wrapper ]">
 		<div class="[ row ]">
 			<div class="[ columna xmall-12 ] [ margin-bottom ]">
-				<h2 class="[ title ]">Galerías de música</h2>
+				<h2 class="[ title ]">Galería</h2>
 			</div>
 			<?php
 				$galeria_args = array(
@@ -142,7 +142,7 @@
 							'terms'    => array( 'talleres' ),
 						),
 						array(
-							'taxonomy' => 'materia',
+							'taxonomy' => 'disciplinas',
 							'field'    => 'slug',
 							'terms'    => array( 'musica' ),
 						),
@@ -153,7 +153,7 @@
 
 					$instructor_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
 				?>
-					<div class="[ span xmall-12 medium-4 ] [ padding ]">
+					<div class="[ span xmall-12 medium-4 large-3 ] [ padding ]">
 						<div class="[ bg-light ] [ relative ] [ instructor-image ]">
 							<div class="[ text-center ] [ center-full ][ xmall-11 ][ z-index-10 ]">
 								<a href="<?php the_permalink() ?>" class="[ button button--large button--highlight ]">ver perfil</a>

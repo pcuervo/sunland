@@ -91,7 +91,7 @@
 	<section class="[ wrapper ]">
 		<div class="[ row ]">
 			<div class="[ columna xmall-12 ] [ margin-bottom ]">
-				<h2 class="[ title ]">Galerías de teatro</h2>
+				<h2 class="[ title ]">Galería</h2>
 			</div>
 			<?php
 				$galeria_args = array(
@@ -146,7 +146,7 @@
 							'terms'    => array( 'talleres' ),
 						),
 						array(
-							'taxonomy' => 'materia',
+							'taxonomy' => 'disciplinas',
 							'field'    => 'slug',
 							'terms'    => array( 'teatro' ),
 						),

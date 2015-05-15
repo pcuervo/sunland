@@ -147,6 +147,7 @@
 							 * On load
 							**/
 							$('.fancybox').fancybox();
+							$('.video-wrapper').fitVids();
 
 						<?php } ?>
 
@@ -174,6 +175,7 @@
 							 * On load
 							**/
 
+							$('.fancybox').fancybox();
 							$('.video-wrapper').fitVids();
 
 							<?php
