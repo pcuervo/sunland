@@ -170,7 +170,7 @@ function resizeToCover( min_w, vid_w_orig, vid_h_orig ) {
 * Scroll past the cover
 **/
 function scrollDown(){
-	var position = $('.bg-image-home').offset().top;
+	var position = $('.scroll-anchor').offset().top;
 	position = position - 20;
 	$('html, body').animate({scrollTop: position}, 650);
 }

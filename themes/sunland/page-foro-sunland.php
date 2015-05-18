@@ -4,6 +4,52 @@
 
 	$cover_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
 	$images = get_attached_media( 'image' );
+
+	$videoHost = NULL;
+	$video_src = '';
+
+	/**
+	 * Danza
+	**/
+	$url_video_danza = get_post_meta($post->ID, '_video_danza_meta', true);
+	if (strpos($url_video_danza,'yout') !== false) {
+		$video_danza_host = 'youtube';
+	}
+	if (strpos($url_video_danza,'vim') !== false) {
+		$video_danza_host = 'vimeo';
+	}
+	if( $video_danza_host ){
+		$video_danza_src = get_video_src($url_video_danza, $video_danza_host);
+	}
+
+	/**
+	 * Música
+	**/
+	$url_video_musica = get_post_meta($post->ID, '_video_musica_meta', true);
+	if (strpos($url_video_musica,'yout') !== false) {
+		$video_musica_host = 'youtube';
+	}
+	if (strpos($url_video_musica,'vim') !== false) {
+		$video_musica_host = 'vimeo';
+	}
+	if( $video_musica_host ){
+		$video_musica_src = get_video_src($url_video_musica, $video_musica_host);
+	}
+
+	/**
+	 * Teatro
+	**/
+	$url_video_teatro = get_post_meta($post->ID, '_video_teatro_meta', true);
+	if (strpos($url_video_teatro,'yout') !== false) {
+		$video_teatro_host = 'youtube';
+	}
+	if (strpos($url_video_teatro,'vim') !== false) {
+		$video_teatro_host = 'vimeo';
+	}
+	if( $video_teatro_host ){
+		$video_teatro_src = get_video_src($url_video_teatro, $video_teatro_host);
+	}
+
 ?>
 
 	<div class="[ bg-image ] [ margin-bottom--large ]" style="background-image: url(<?php echo $cover_url[0] ?>)">
@@ -28,24 +74,30 @@
 	<!-- GALERÍA ESTÁTICA -->
 	<section class="[ wrapper ]">
 		<div class="[ row ]">
-			<div class="[ columna xmall-12 medium-4 ]">
-				<div class="[ video-wrapper ]">
-					<iframe src="https://www.youtube.com/embed/qaZxyJEfLCg" frameborder="0" allowfullscreen></iframe>
+			<?php if ( ! empty($video_danza_src) ){ ?>
+				<div class="[ columna xmall-12 medium-4 ]">
+					<div class="[ video-wrapper ]">
+						<iframe src="https:<?php echo $video_danza_src; ?>?color=1aa2dc&title=0&byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+					</div>
+					<h3>Danza</h3>
 				</div>
-				<h3>Teatro</h3>
-			</div>
-			<div class="[ columna xmall-12 medium-4 ]">
-				<div class="[ video-wrapper ]">
-					<iframe src="https://www.youtube.com/embed/pPpzw_1kZUM" frameborder="0" allowfullscreen></iframe>
+			<?php } ?>
+			<?php if ( ! empty($video_musica_src) ){ ?>
+				<div class="[ columna xmall-12 medium-4 ]">
+					<div class="[ video-wrapper ]">
+						<iframe src="https:<?php echo $video_musica_src; ?>?color=1aa2dc&title=0&byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+					</div>
+					<h3>Música</h3>
 				</div>
-				<h3>Danza</h3>
-			</div>
-			<div class="[ columna xmall-12 medium-4 ]">
-				<div class="[ video-wrapper ]">
-					<iframe src="https://www.youtube.com/embed/jclFhixqvEs" frameborder="0" allowfullscreen></iframe>
+			<?php } ?>
+			<?php if ( ! empty($video_teatro_src) ){ ?>
+				<div class="[ columna xmall-12 medium-4 ]">
+					<div class="[ video-wrapper ]">
+						<iframe src="https:<?php echo $video_teatro_src; ?>?color=1aa2dc&title=0&byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+					</div>
+					<h3>Teatro</h3>
 				</div>
-				<h3>Música</h3>
-			</div>
+			<?php } ?>
 		</div>
 	</section>
 	<!-- GALERÍA ESTÁTICA -->

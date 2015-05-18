@@ -20,13 +20,14 @@
 		</div>
 	</div><!-- relative -->
 
+	<div class="[ scroll-anchor ]"></div>
 
 	<!-- ¿POR QUÉ SUNLAND? -->
 	<?php
 		$home_info_query = new WP_Query( 'pagename=info-home' );
 		if ( $home_info_query->have_posts() ) : $home_info_query->the_post();
 	?>
-		   <div class="[ row ] [ margin-bottom--large ]">
+			<div class="[ row ] [ margin-bottom--large ]">
 				<div class="wrapper">
 					<div class="row">
 						<div class="[ span xmall-12 ] [ center block ] [ margin-bottom--large ]">
