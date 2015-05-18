@@ -17,7 +17,7 @@
 								endif;
 								wp_reset_query();
 							?>
-							<div class="[ columna xmall-12 medium-4 large-3 ] [ text-center ] [ margin-bottom ]">
+							<div class="[ columna xmall-12 medium-4  ] [ text-center ] [ margin-bottom ]">
 								<p>Síguenos en:</p>
 								<p>
 									<a href="<?php echo $facebook ?>" target="_blank"><i class="[ icon-facebook ] [ icon-medium ]"></i></a>
@@ -30,7 +30,7 @@
 								<p>Teléfono: <a href="tel:+5255<?php echo $telefono1 ?>" onclick="_gaq.push(['_trackEvent', 'ClickToCall', 'Llamada 5589-0527'])" class="[ light ]"><?php echo $telefono1 ?></a></p>
 								<p>E-mail: <a href="mailto:<?php echo $email ?>" class="[ light ]"><?php echo $email ?></a></p>
 							</div>
-							<div class="[ columna xmall-12 medium-4 xm ] [ ] [ margin-bottom ]">
+							<div class="[ columna xmall-12 medium-4 ] [ ] [ margin-bottom ]">
 								<img src="<?php echo THEMEPATH ?>images/logo-sierra-nevada.png" class="[ span xmall-6 medium-8 xmedium-5 large-4 center block ][ image-responsive ]">
 							</div>
 							<div class="clear"></div>

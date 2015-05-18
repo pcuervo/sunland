@@ -11,7 +11,7 @@
 					<h1 class="[ text-center light ]">Sunland School of the Arts, Escuela multidisciplinaria de artes escénicas en la Ciudad de México.</h1>
 				</div>
 			</div>
-			<video class="[ bg-video bg-video-home ]" autoplay loop poster="<?php echo THEMEPATH; ?>images/home_movil.png">
+			<video class="[ bg-video bg-video-home ]" autoplay loop poster="<?php echo THEMEPATH; ?>images/intro.png">
 				<source src="<?php echo THEMEPATH; ?>videos/intro.webm" type="video/webm">
 				<source src="<?php echo THEMEPATH; ?>videos/intro.mp4" type="video/mp4">
 				<source src="<?php echo THEMEPATH; ?>videos/intro.ogv" type="video/ogg">

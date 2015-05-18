@@ -100,7 +100,7 @@
 	</section><!-- EVENTOS -->
 
 	<!-- CALL TO ACTION -->
-	<section class="[ bg-dark ]">
+	<section class="[ bg-dark ][ margin-bottom ]">
 		<div class="[ wrapper ]">
 			<div class="[ row ]">
 				<div class="[ span xmall-12 ] [ padding ] [ text-center ][ center block ]">
