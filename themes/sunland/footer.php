@@ -56,7 +56,7 @@
 									<?php if ( 'intensivo' == $post->post_name ) : ?>
 										Hola, mi nombre es <input class="[ required ]" type="text" name="nombre" value="" placeholder="tu nombre" />, estoy interesado en inscribirme al Programa Intensivo. Favor de contactarme a <input class="[ required email ]" type="text" name="email" value="" placeholder="tu correo" />, o comunicarse al <input class="[ required number ]" type="text" value="" name="tel" placeholder="tu número" />.
 										<input type="hidden" name="action" value="send_email_more_information">
-										<input type="hidden" name="to_email" value="miguel@pcuervo.com">
+										<input type="hidden" name="to_email" value="contacto@sunland.mx">
 										<input type="hidden" name="section" value="<?php echo $section; ?>">
 
 										<div class="[ clear ][ margin-bottom ]"></div>
@@ -67,7 +67,7 @@
 									<?php else : ?>
 										Hola, mi nombre es <input class="[ required ]" type="text" name="nombre" value="" placeholder="tu nombre" />, pueden enviarme información a <input class="[ required email ]" type="text" name="email" value="" placeholder="tu correo" />, o comunicarse al <input class="[ required number ]" type="text" value="" name="tel" placeholder="tu número" />.
 										<input type="hidden" name="action" value="send_email_more_information">
-										<input type="hidden" name="to_email" value="miguel@pcuervo.com">
+										<input type="hidden" name="to_email" value="contacto@sunland.mx">
 										<input type="hidden" name="section" value="<?php echo $section; ?>">
 
 										<div class="[ clear ][ margin-bottom ]"></div>

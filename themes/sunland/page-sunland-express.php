@@ -1,11 +1,22 @@
 <?php
-
 	get_header();
 	the_post();
 
 	$cover_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
 	$images = get_attached_media( 'image' );
+
+	$videoHost = NULL;
+	$video_src = '';
 	$video_express = get_post_meta( $post->ID, '_video_express_meta', TRUE );
+	if (strpos($video_express,'yout') !== false) {
+		$video_express_host = 'youtube';
+	}
+	if (strpos($video_express,'vim') !== false) {
+		$video_express_host = 'vimeo';
+	}
+	if( $video_express_host ){
+		$video_express_src = get_video_src($video_express, $video_express_host);
+	}
 ?>
 	<div class="[ bg-image ] [ margin-bottom--large ]" style="background-image: url(<?php echo $cover_url[0] ?>)">
 		<div class="[ opacity-gradient banner-height ]">
@@ -55,15 +66,18 @@
 	</section><!-- SUNLAND EXPRESS -->
 
 	<!-- VIDEOS -->
-	<section class="[ wrapper ][ margin-bottom ]">
-		<div class="[ row ]">
-			<div class="[ columna xmall-12 medium-8 center ]">
-				<div class="[ video-wrapper ]">
-					<iframe src="<?php echo $video_express ?>" frameborder="0" allowfullscreen></iframe>
+	<?php if ( ! empty($video_express_src) ){ ?>
+		<section class="[ wrapper ][ margin-bottom ]">
+			<div class="[ row ]">
+				<div class="[ columna xmall-12 medium-8 center ]">
+					<div class="[ video-wrapper ]">
+						<iframe src="https:<?php echo $video_express_src; ?>?color=1aa2dc&title=0&byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+					</div>
 				</div>
 			</div>
-		</div>
-	</section>
+		</section>
+	<?php } ?>
+
 	<!-- VIDEOS -->
 
 	<!-- CALL TO ACTION -->
