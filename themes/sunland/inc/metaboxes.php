@@ -18,6 +18,7 @@
 				break;
 			case 'sunland-express':
 				add_meta_box( 'descripcion_home', 'Descripción página de inicio', 'metabox_home_express', 'page', 'advanced', 'high' );
+				add_meta_box( 'video_express', 'Video Sunland Express', 'metabox_video_express', 'page', 'advanced', 'high' );
 				break;
 			case 'sunland-studios':
 				add_meta_box( 'descripcion_home_studios', 'Descripción página de inicio', 'metabox_home_studios', 'page', 'advanced', 'high' );
@@ -42,7 +43,7 @@
 
 
 
-	function metabox_social($post){
+	function metabox_social( $post ){
 		$facebook = get_post_meta($post->ID, '_facebook_meta', true);
 		$twitter = get_post_meta($post->ID, '_twitter_meta', true);
 		$instagram = get_post_meta($post->ID, '_instagram_meta', true);
@@ -67,7 +68,7 @@ echo <<<END
 END;
 	}// metabox_social
 
-	function metabox_telefono($post){
+	function metabox_telefono( $post ){
 		$telefono1 = get_post_meta($post->ID, '_telefono1_meta', true);
 		$telefono2 = get_post_meta($post->ID, '_telefono2_meta', true);
 
@@ -84,7 +85,7 @@ echo <<<END
 END;
 	}// metabox_telefono
 
-	function metabox_email($post){
+	function metabox_email( $post ){
 		$email = get_post_meta($post->ID, '_email_meta', true);
 
 		wp_nonce_field(__FILE__, '_email_meta_nonce');
@@ -93,7 +94,7 @@ END;
 		echo "<input type='text' class='[ widefat ]' name='_email_meta' value='$email' />";
 	}// metabox_email
 
-	function metabox_direccion($post){
+	function metabox_direccion( $post ){
 		$direccion 	= get_post_meta($post->ID, '_direccion_meta', true);
 		$lat 	 	= get_post_meta($post->ID, '_lat_meta', true);
 		$lon 		= get_post_meta($post->ID, '_lon_meta', true);
@@ -111,7 +112,7 @@ echo <<<END
 END;
 	}// metabox_direccion
 
-	function metabox_home_express($post){
+	function metabox_home_express( $post ){
 		$descripcion_home_express = get_post_meta($post->ID, '_descripcion_home_express_meta', true);
 
 		wp_nonce_field(__FILE__, '_descripcion_home_express_meta_nonce');
@@ -119,7 +120,15 @@ END;
 		echo "<textarea type='text' class='[ widefat ]' name='_descripcion_home_express_meta'>$descripcion_home_express</textarea>";
 	}// metabox_home_express
 
-	function metabox_home_studios($post){
+	function metabox_video_express( $post ){
+		$video_express = get_post_meta($post->ID, '_video_express_meta', true);
+
+		wp_nonce_field(__FILE__, '_video_express_meta_nonce');
+
+		echo "<textarea type='text' class='[ widefat ]' name='_video_express_meta'>$video_express</textarea>";
+	}// metabox_video_express
+
+	function metabox_home_studios( $post ){
 		$descripcion_home_studios = get_post_meta($post->ID, '_descripcion_home_studios_meta', true);
 
 		wp_nonce_field(__FILE__, '_descripcion_home_studios_meta_nonce');
@@ -127,7 +136,7 @@ END;
 		echo "<textarea type='text' class='[ widefat ]' name='_descripcion_home_studios_meta'>$descripcion_home_studios</textarea>";
 	}// metabox_home_studios
 
-	function metabox_soundcloud_studios($post){
+	function metabox_soundcloud_studios( $post ){
 		$soundcloud_studios = get_post_meta($post->ID, '_soundcloud_studios_meta', true);
 
 		wp_nonce_field(__FILE__, '_soundcloud_studios_meta_nonce');
@@ -135,7 +144,7 @@ END;
 		echo "<input type='text' class='[ widefat ]' name='_soundcloud_studios_meta' value='$soundcloud_studios' />";
 	}// metabox_soundcloud_studios
 
-	function metabox_fecha_evento($post){
+	function metabox_fecha_evento( $post ){
 		$dia = get_post_meta($post->ID, '_dia_meta', true);
 		$hora = get_post_meta($post->ID, '_hora_meta', true);
 
@@ -152,7 +161,7 @@ echo <<<END
 END;
 	}// metabox_fecha_evento
 
-	function metabox_audiencia($post){
+	function metabox_audiencia( $post ){
 		$audiencia = get_post_meta($post->ID, '_audiencia_meta', true);
 
 		wp_nonce_field(__FILE__, '_audiencia_meta_nonce');
@@ -160,7 +169,7 @@ END;
 		echo "<textarea type='text' class='[ widefat ]' name='_audiencia_meta'>$audiencia</textarea>";
 	}// metabox_audiencia
 
-	function metabox_horario_taller($post){
+	function metabox_horario_taller( $post ){
 		$horario_taller = get_post_meta($post->ID, '_horario_taller_meta', true);
 
 		wp_nonce_field(__FILE__, '_horario_taller_meta_nonce');
@@ -168,7 +177,7 @@ END;
 		echo "<input type='text' class='[ widefat ]' name='_horario_taller_meta' value='$horario_taller'>";
 	}// metabox_horario_taller
 
-	function metabox_duracion_taller($post){
+	function metabox_duracion_taller( $post ){
 		$duracion_taller = get_post_meta($post->ID, '_duracion_taller_meta', true);
 
 		wp_nonce_field(__FILE__, '_duracion_taller_meta_nonce');
@@ -176,7 +185,7 @@ END;
 		echo "<input type='text' class='[ widefat ]' name='_duracion_taller_meta' value='$duracion_taller'>";
 	}// metabox_duracion_taller
 
-	function metabox_videos_artes($post){
+	function metabox_videos_artes( $post ){
 		$video_danza = get_post_meta($post->ID, '_video_danza_meta', true);
 		$video_musica = get_post_meta($post->ID, '_video_musica_meta', true);
 		$video_teatro = get_post_meta($post->ID, '_video_teatro_meta', true);
@@ -193,7 +202,7 @@ END;
 		echo "<input type='text' class='[ widefat ]' name='_video_teatro_meta' value='$video_teatro'>";
 	}// metabox_video_artes
 
-	function metabox_demos_instructor($post){
+	function metabox_demos_instructor( $post ){
 		$soundcloud = get_post_meta($post->ID, '_soundcloud_meta', true);
 		$youtube = get_post_meta($post->ID, '_youtube_meta', true);
 
@@ -202,9 +211,9 @@ END;
 
 echo <<<END
 
-	<label>Soundcloud:</label>
+	<label>Soundcloud <small>(incluir http://)</small></label>
 	<input type="text" class="[ widefat ]" name="_soundcloud_meta" value="$soundcloud" />
-	<label>Youtube:</label>
+	<label>Youtube <small>(incluir http://)</small></label>
 	<input type="text" class="[ widefat ]" name="_youtube_meta" value="$youtube" />
 
 END;
@@ -275,12 +284,16 @@ END;
 			update_post_meta($post_id, '_motivo_contacto_meta', $_POST['_motivo_contacto_meta']);
 		}
 
-		// Descripción para home sobre Sunland Express
+		// Descripción para home sobre Sunland Express y video
 		if ( isset($_POST['_descripcion_home_express_meta']) and check_admin_referer(__FILE__, '_descripcion_home_express_meta_nonce') ){
 			update_post_meta($post_id, '_descripcion_home_express_meta', $_POST['_descripcion_home_express_meta']);
 		}
 
-		// Descripción para home sobre Sunland Express
+		if ( isset($_POST['_video_express_meta']) and check_admin_referer(__FILE__, '_video_express_meta_nonce') ){
+			update_post_meta($post_id, '_video_express_meta', $_POST['_video_express_meta']);
+		}
+
+		// Descripción para home sobre Sunland Studios
 		if ( isset($_POST['_descripcion_home_studios_meta']) and check_admin_referer(__FILE__, '_descripcion_home_studios_meta_nonce') ){
 			update_post_meta($post_id, '_descripcion_home_studios_meta', $_POST['_descripcion_home_studios_meta']);
 		}

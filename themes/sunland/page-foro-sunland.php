@@ -71,7 +71,7 @@
 		</div><!-- wrapper -->
 	</section> <!-- INFO -->
 
-	<!-- GALERÍA ESTÁTICA -->
+	<!-- VIDEOS -->
 	<section class="[ wrapper ]">
 		<div class="[ row ]">
 			<?php if ( ! empty($video_danza_src) ){ ?>
@@ -100,7 +100,7 @@
 			<?php } ?>
 		</div>
 	</section>
-	<!-- GALERÍA ESTÁTICA -->
+	<!-- VIDEOS -->
 
 	<!-- CALENDAR -->
 	<section id="calendar-section" class="[ calendar ][ margin-bottom--large ]">
@@ -131,7 +131,7 @@
 				<?php
 					$args = array(
 						'post_type' 		=> 'eventos',
-						'posts_per_page' 	=> -1
+						'posts_per_page' 	=> 4
 					);
 					$query_eventos = new WP_Query( $args );
 					if ( $query_eventos->have_posts() ) : while ( $query_eventos->have_posts() ) : $query_eventos->the_post();
@@ -152,7 +152,7 @@
 	</section><!-- EVENTOS -->
 
 	<!-- CALL TO ACTION -->
-	<section class="[ bg-dark ]">
+	<section class="[ bg-dark ][ margin-bottom ]">
 		<div class="[ wrapper ]">
 			<div class="[ row ]">
 				<div class="[ span xmall-12 ] [ padding ] [ text-center ][ center block ]">
@@ -164,5 +164,42 @@
 			</div>
 		</div>
 	</section>
+
+	<section>
+		<div class="[ wrapper ]">
+			<div class="[ row ]">
+				<!-- GALERÍA -->
+				<article class="[ bg-highlight ]">
+					<?php
+					$content = $post->post_content;
+					if( has_shortcode( $content, 'gallery' ) ) {
+						$galleries = get_galleries_from_content($content);
+						foreach ($galleries as $gallery => $galleryIDs) { ?>
+							<div class="[ span xmall-12 margin-bottom--large ]">
+								<div class="[ row ]">
+									<?php
+									$images = sga_gallery_images('medium', $galleryIDs);
+
+									foreach ($images as $key => $image) {
+										$imageID                   = $image[4];
+										$imageURL                  = $image[0];
+										$galeria_img_url_thumbnail = wp_get_attachment_image_src( $imageID, 'medium' );
+										$galeria_img_url_full      = wp_get_attachment_image_src( $imageID, 'full' );
+
+										?>
+										<div class="[ columna xmall-12 medium-4 large-3 ]">
+											<a class="[ fancybox ]" rel="group" href="<?php echo $galeria_img_url_full[0] ?>">
+												<img class="[ image-responsive ][ margin-bottom ]" src="<?php echo $galeria_img_url_thumbnail[0]; ?>" />
+											</a>
+										</div>
+									<?php } ?>
+								</div>
+							</div>
+						<?php }
+					} ?>
+				</article>
+			</div>
+		</div>
+	</section><!-- GALERÍA -->
 
 <?php get_footer(); ?>

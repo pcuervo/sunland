@@ -151,6 +151,10 @@
 						<p class="[  ]"><?php echo $materias; ?></p>
 					</div>
 				<?php endwhile; endif; wp_reset_query(); ?>
+				<div class="clear"></div>
+				<div class="[ text-center ][ margin-bottom ]">
+					<a href="<?php echo site_url('nosotros'); ?>#instructores" class="[ button button--large button--dark ] [ inline-block ]">ver todos nuestros instructores</a>
+				</div>
 			</div>
 		</div>
 	</section><!-- INSTRUCTORES -->
