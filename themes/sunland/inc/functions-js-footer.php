@@ -76,6 +76,11 @@
 							 * Triggered events
 							**/
 
+							$('.scroll-down').on('click', function(e){
+								e.preventDefault();
+								scrollDown();
+							});
+
 
 						<?php } ?>
 

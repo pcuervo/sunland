@@ -166,6 +166,17 @@ function resizeToCover( min_w, vid_w_orig, vid_h_orig ) {
 
 
 
+/**
+* Scroll past the cover
+**/
+function scrollDown(){
+	var position = $('.bg-image-home').offset().top;
+	position = position - 20;
+	$('html, body').animate({scrollTop: position}, 650);
+}
+
+
+
 
 /*------------------------------------*\
 	AJAX FUNCTIONS
@@ -203,17 +214,17 @@ function sendMoreInfoEmail(){
 	data = $('.js-mas-info-form').serialize();
 
 	console.log( data );
-	
+
 	$.post(
 		ajax_url,
 		data,
 		function( response ){
 			console.log(response);
 			$('.close-modal').click();
-			
+
 			ga('send', 'pageview', '/more-info');
 			var message_json = $.parseJSON( response );
-			if( ! message_json.error ){	
+			if( ! message_json.error ){
 				alert( message_json.message );
 				return;
 			}
