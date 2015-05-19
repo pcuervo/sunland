@@ -20,7 +20,7 @@
 
 /*------------------------------------*\
 	INCLUDES
-\*------------------------------------*/
+\*----------s--------------------------*/
 
 
 
@@ -31,6 +31,9 @@
 	require_once('inc/users.php');
 	require_once('inc/functions-admin.php');
 	require_once('inc/functions-js-footer.php');
+	require_once('inc/functions-js-footer-admin.php');
+	include 'demo.php';
+
 
 
 
@@ -193,16 +196,17 @@
 	 * @param string $date - A date in YYYY-MM-DD format
 	 * @return string $formatted_date - Date in Spanish
 	 */
-	function get_formatted_event_date( $date ){
+	function get_formatted_event_datetime( $date ){
 
-		$date_arr = explode('-', $date);
+		$date_time_arr = explode(' ', $date);
+		$date_arr = explode('-', $date_time_arr[0]);
 		$day = $date_arr[2];
 		$month = get_month_name( $date_arr[1] );
 		$year = $date_arr[0];
 
-		return $day . ' de ' . $month . ', ' . $year;
+		return $day . ' de ' . $month . ', ' . $year . ' a las ' . $date_time_arr[1];
 
-	}// get_formatted_event_date
+	}// get_formatted_event_datetime
 
 	/**
 	 * Create a HTML event for a calendar.
@@ -420,7 +424,6 @@
 	function get_events(){
 		global $post;
 		$json_events = array();
-		$last_date = '';
 
 		$args = array(
 			'post_type' 		=> 'eventos',
@@ -429,28 +432,56 @@
 		$query_eventos = new WP_Query( $args );
 		if ( $query_eventos->have_posts() ) : while ( $query_eventos->have_posts() ) : $query_eventos->the_post();
 
-			$date = get_post_meta( $post->ID, '_dia_meta', TRUE );
-			$time = get_post_meta( $post->ID, '_hora_meta', TRUE );
-			$date_arr = explode('-', $date);
-			$new_date_format = $date_arr[1] . '-' . $date_arr[2] . '-' . $date_arr[0];
+			$meta_date = rwmb_meta( '_fecha', '', $post->ID );
 
-			$html_evento = get_event_html_format( $new_date_format, $time, get_the_title(), get_the_content(), get_permalink( ) );
+			if( ! $meta_date ) continue;
 
-			if( $last_date == $new_date_format ){
-				$json_events[$new_date_format] = $json_events[$new_date_format] . $html_evento;
-				continue;
+			foreach ( $meta_date as $key => $datetime ) {
+
+				$date_time_arr = explode(' ', $datetime );
+				$date_arr = explode('-', $date_time_arr[0]);
+				$day = $date_arr[2];
+				$month = $date_arr[1];
+				$year = $date_arr[0];
+				$new_date_format = $month . '-' . $day . '-' . $year;
+
+				$html_evento = get_event_html_format( $new_date_format, $date_time_arr[1], get_the_title(), get_the_content(), get_permalink( ) );
+
+				if ( array_key_exists( $new_date_format , $json_events) ){
+					$json_events[$new_date_format] = $json_events[$new_date_format] . $html_evento;
+					continue;
+				}
+				
+				$json_events[$new_date_format] = $html_evento;
 			}
-
-			$last_date = $new_date_format;
-			$json_events[$new_date_format] = $html_evento;
 
 		endwhile; endif;
 		wp_reset_query();
 
 		return wp_json_encode( $json_events );
 
-	}// get_upcoming_events
+	}// get_events
 
+	/**
+	 * Get total number of dates an event has.
+	 * @return int $num_dates 
+	*/
+	function get_num_event_dates( $post_id ){
+		global $wpdb;
+
+		$query = "
+			SELECT COUNT(*) AS num_dates FROM wp_posts P
+			INNER JOIN wp_postmeta PM ON P.ID = PM.post_id
+			WHERE meta_key LIKE '_dia_%'
+			AND post_type = 'eventos'
+			AND post_status = 'publish'
+			AND post_id = " . $post_id;
+		$num_events_results = $wpdb->get_results( $query, OBJECT );
+
+		return $num_events_results[0]->num_dates;
+
+	}// get_num_event_dates
+	
 
 
 

@@ -83,13 +83,18 @@
 					);
 					$query_eventos = new WP_Query( $args );
 					if ( $query_eventos->have_posts() ) : while ( $query_eventos->have_posts() ) : $query_eventos->the_post();
-
-						$dia = get_post_meta( $post->ID, '_dia_meta', TRUE );
-						$date = ( ! empty( $dia ) ) ? get_formatted_event_date( $dia ) : '';
-
+					
+						$meta_date = rwmb_meta( '_fecha', '', $post->ID );
 				?>
 						<h2><?php echo the_title(); ?></h2>
-						<h3 class="[ dark ]"><?php echo $date; ?></h3>
+						<h3 class="[ dark ]">
+							<?php if( $meta_date ) : 
+								foreach ( $meta_date as $key => $date_time ) : 
+									$formatted_datetime = get_formatted_event_datetime( $date_time ); 
+									echo $formatted_datetime . '<br />';
+								endforeach;
+							endif; ?>
+						</h3>
 						<p><?php the_excerpt(); ?></p>
 						<a href="<?php the_permalink() ?>" class="[ button button--small button-ink ] [ inline-block ][ margin-bottom--large ]">Ver más <i class="[ fa fa-chevron-right ]"></i></a>
 				<?php

@@ -28,7 +28,7 @@
 				add_meta_box( 'url_videos', 'Videos YouTube', 'metabox_videos_artes', 'page', 'advanced', 'high' );
 				break;
 			default:
-				add_meta_box( 'fecha_evento', 'Fecha del evento', 'metabox_fecha_evento', 'eventos', 'advanced', 'high' );
+				//add_meta_box( 'fecha_evento', 'Fecha(s) del evento', 'metabox_fecha_evento', 'eventos', 'advanced', 'high' );
 				add_meta_box( 'audiencia', 'Audiencia', 'metabox_audiencia', 'talleres', 'advanced', 'high' );
 				add_meta_box( 'horario_taller', 'Horario', 'metabox_horario_taller', 'talleres', 'advanced', 'high' );
 				add_meta_box( 'duracion_taller', 'Duración', 'metabox_duracion_taller', 'talleres', 'advanced', 'high' );
@@ -145,21 +145,38 @@ END;
 	}// metabox_soundcloud_studios
 
 	function metabox_fecha_evento( $post ){
-		$dia = get_post_meta($post->ID, '_dia_meta', true);
-		$hora = get_post_meta($post->ID, '_hora_meta', true);
+		$dia1 = get_post_meta($post->ID, '_dia1_meta', true);
+		$hora1 = get_post_meta($post->ID, '_hora1_meta', true);
 
-		wp_nonce_field(__FILE__, '_dia_meta_nonce');
-		wp_nonce_field(__FILE__, '_hora_meta_nonce');
+		wp_nonce_field(__FILE__, '_dia1_meta_nonce');
+		wp_nonce_field(__FILE__, '_hora1_meta_nonce');
 
 echo <<<END
 
-	<label>Día:</label>
-	<input type="text" class="[ widefat ][ js-datepicker ]" name="_dia_meta" value="$dia" />
-	<label>Hora:</label>
-	<input type="text" class="[ widefat ]" name="_hora_meta" value="$hora" />
+	<label>Día 1:</label>
+	<input type="text" class="[ widefat ][ js-datepicker ]" name="_dia1_meta" value="$dia1" />
+	<label>Hora 1:</label>
+	<input type="text" class="[ widefat ]" name="_hora1_meta" value="$hora1" /><a href="#" class="[ js-add-date-metaboxes ]" data-post="$post->ID">Agregar otra fecha</a>
 
 END;
 	}// metabox_fecha_evento
+
+	function add_metabox_fecha_evento( $post ){
+		$dia1 = get_post_meta($post->ID, '_dia1_meta', true);
+		$hora1 = get_post_meta($post->ID, '_hora1_meta', true);
+
+		wp_nonce_field(__FILE__, '_dia1_meta_nonce');
+		wp_nonce_field(__FILE__, '_hora1_meta_nonce');
+
+// echo <<<END
+
+// 	<label>Día 1:</label>
+// 	<input type="text" class="[ widefat ][ js-datepicker ]" name="_dia1_meta" value="$dia1" />
+// 	<label>Hora 1:</label>
+// 	<input type="text" class="[ widefat ]" name="_hora1_meta" value="$hora1" /><a href="#" class="[ js-add-date-metaboxes ]" data-post="$post->ID">Agregar otra fecha</a>
+
+// END;
+	}// add_metabox_fecha_evento
 
 	function metabox_audiencia( $post ){
 		$audiencia = get_post_meta($post->ID, '_audiencia_meta', true);
@@ -304,11 +321,17 @@ END;
 		}
 
 		// Fecha del evento en Foro Sunland
-		if ( isset($_POST['_dia_meta']) and check_admin_referer(__FILE__, '_dia_meta_nonce') ){
-			update_post_meta($post_id, '_dia_meta', $_POST['_dia_meta']);
+		if ( isset($_POST['_dia1_meta']) and check_admin_referer(__FILE__, '_dia1_meta_nonce') ){
+			update_post_meta($post_id, '_dia1_meta', $_POST['_dia1_meta']);
 		}
-		if ( isset($_POST['_hora_meta']) and check_admin_referer(__FILE__, '_hora_meta_nonce') ){
-			update_post_meta($post_id, '_hora_meta', $_POST['_hora_meta']);
+		if ( isset($_POST['_hora1_meta']) and check_admin_referer(__FILE__, '_hora1_meta_nonce') ){
+			update_post_meta($post_id, '_hora1_meta', $_POST['_hora1_meta']);
+		}
+		if ( isset($_POST['_dia2_meta']) and check_admin_referer(__FILE__, '_dia2_meta_nonce') ){
+			update_post_meta($post_id, '_dia2_meta', $_POST['_dia2_meta']);
+		}
+		if ( isset($_POST['_hora2_meta']) and check_admin_referer(__FILE__, '_hora2_meta_nonce') ){
+			update_post_meta($post_id, '_hora2_meta', $_POST['_hora2_meta']);
 		}
 
 		// Audiencia talleres

@@ -174,8 +174,7 @@
 					$query_events = new WP_Query( $instructores_args );
 					if ( $query_events->have_posts() ) : while ( $query_events->have_posts() ) : $query_events->the_post();
 						$event_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
-						$meta_date = get_post_meta( $post->ID, '_dia_meta', true );
-						$formatted_date = get_formatted_event_date( $meta_date );
+						$meta_date = rwmb_meta( '_fecha', '', $post->ID );
 				?>
 						<div class="[ columna xmall-12 medium-4 ]">
 							<a class="[ dark ]" href="<?php the_permalink(); ?>">
@@ -186,7 +185,14 @@
 									<?php the_title() ?>
 								</a>
 							</h2>
-							<p class="[ text-center ]"><?php echo $formatted_date ?></p>
+							<p class="[ text-center ]">
+							<?php if( $meta_date ) : 
+								foreach ( $meta_date as $key => $date_time ) : 
+									$formatted_datetime = get_formatted_event_datetime( $date_time ); 
+									echo $formatted_datetime . '<br />';
+								endforeach;
+							endif; ?>
+							</p>
 						</div>
 				<?php endwhile; endif; wp_reset_query(); ?>
 				<div class="[ clear ]"></div>
