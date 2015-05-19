@@ -4,11 +4,12 @@
 <?php get_header(); ?>
 
 	<!-- BANNER -->
-	<div class="relative">
+	<div class="[ relative ]">
 		<div class="[ bg-image bg-image-home ] [ margin-bottom--large ]">
 			<div class="[ opacity-gradient square ]">
 				<div class="[ media-info ] [ xmall-10 medium-7 center-bottom ]">
 					<h1 class="[ text-center light ]">Sunland School of the Arts, Escuela multidisciplinaria de artes escénicas en la Ciudad de México.</h1>
+					<i class="[ scroll-down ][ block ][ xmall-12 ][ light ][ text-center ][ icon-angle-down ]"></i>
 				</div>
 			</div>
 			<video class="[ bg-video bg-video-home ]" autoplay loop poster="<?php echo THEMEPATH; ?>images/intro.png">
@@ -19,13 +20,14 @@
 		</div>
 	</div><!-- relative -->
 
+	<div class="[ scroll-anchor ]"></div>
 
 	<!-- ¿POR QUÉ SUNLAND? -->
 	<?php
 		$home_info_query = new WP_Query( 'pagename=info-home' );
 		if ( $home_info_query->have_posts() ) : $home_info_query->the_post();
 	?>
-		   <div class="[ row ] [ margin-bottom--large ]">
+			<div class="[ row ] [ margin-bottom--large ]">
 				<div class="wrapper">
 					<div class="row">
 						<div class="[ span xmall-12 ] [ center block ] [ margin-bottom--large ]">

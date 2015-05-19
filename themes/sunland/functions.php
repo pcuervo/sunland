@@ -573,3 +573,25 @@
 	}
 
 
+/* Devuelve la url del video de acuerdo al host.
+ * @param string $advisor_data
+ * @return int $advisor_id or FALSE
+ */
+function get_video_src($url, $host){
+	if($url == '-')
+		return 0;
+	if($host == 'vimeo'){
+		$id = (int) substr(parse_url($url, PHP_URL_PATH), 1);
+		return '//player.vimeo.com/video/'.$id;
+	}
+
+	$id = explode('v=', $url)[1];
+	$ampersand_position = strpos($id, '&');
+	if( $ampersand_position > 0 )
+		$id = substr($id, $ampersand_position);
+
+	parse_str( parse_url( $url, PHP_URL_QUERY ), $url_array );
+	$id = $url_array['v'];
+	return '//www.youtube.com/embed/'.$id;
+}// get_video_src
+
