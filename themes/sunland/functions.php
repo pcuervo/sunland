@@ -499,7 +499,7 @@
 
 		$name = $_POST['nombre'];
 		$email = $_POST['email'];
-		$to_email = 'contactos@sunland.mx';
+		$to_email = 'contacto@sunland.mx';
 		$tel = $_POST['tel'];
 		$msg = $_POST['mensaje'];
 
