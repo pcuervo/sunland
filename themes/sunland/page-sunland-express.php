@@ -5,8 +5,8 @@
 	$cover_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
 	$images = get_attached_media( 'image' );
 
-	$videoHost = NULL;
-	$video_src = '';
+	$video_express_host = NULL;
+	$video_express_src = '';
 	$video_express = get_post_meta( $post->ID, '_video_express_meta', TRUE );
 	if (strpos($video_express,'yout') !== false) {
 		$video_express_host = 'youtube';
