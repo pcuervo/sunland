@@ -5,7 +5,9 @@
 	$cover_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
 	$images = get_attached_media( 'image' );
 
-	$videoHost = NULL;
+	$url_video_danza = NULL;
+	$url_video_teatro = NULL;
+	$url_video_musica = NULL;
 	$video_src = '';
 
 	/**
