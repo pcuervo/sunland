@@ -7,6 +7,7 @@
 
 	$video_express_host = NULL;
 	$video_src = '';
+
 	$video_express = get_post_meta( $post->ID, '_video_express_meta', TRUE );
 	if (strpos($video_express,'yout') !== false) {
 		$video_express_host = 'youtube';
