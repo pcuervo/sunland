@@ -54,6 +54,18 @@
 
 		<?php wp_head(); ?>
 
+		<!-- Hotjar Tracking Code for sunland.mx -->
+		<script>
+		    (function(h,o,t,j,a,r){
+		        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+		        h._hjSettings={hjid:35954,hjsv:5};
+		        a=o.getElementsByTagName('head')[0];
+		        r=o.createElement('script');r.async=1;
+		        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+		        a.appendChild(r);
+		    })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+		</script>
+
 	</head>
 
 	<body>
@@ -70,7 +82,8 @@
 		<!-- End Google Tag Manager -->
 
 		<!--[if lt IE 9]>
-			<p class="chromeframe">Estás usando una versión <strong>vieja</strong> de tu explorador. Por favor <a href="http://browsehappy.com/" target="_blank"> actualiza tu explorador</a> para tener una experiencia completa.</p>
+			<p class="chromeframe">Estás usando una versión <strong>vieja</strong> de tu explorador. Por favor 
+				<a href="http://browsehappy.com/" target="_blank"> actualiza tu explorador</a> para tener una experiencia completa.</p>
 		<![endif]-->
 		<div class="container">
 			<header class="[ bg-dark-shade ]">

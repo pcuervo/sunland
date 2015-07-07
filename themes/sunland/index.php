@@ -18,7 +18,7 @@
 				<source src="<?php echo THEMEPATH; ?>videos/intro.ogv" type="video/ogg">
 			</video>
 		</div>
-	</div><!-- relative -->
+	</div><!-- BANNER -->
 
 	<div class="[ scroll-anchor ]"></div>
 

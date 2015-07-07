@@ -163,9 +163,6 @@ function resizeToCover( min_w, vid_w_orig, vid_h_orig ) {
 	$('#video-viewport').scrollTop(($('video').height() - $(window).height()) / 2);
 };
 
-
-
-
 /**
 * Scroll past the cover
 **/
@@ -175,13 +172,23 @@ function scrollDown(){
 	$('html, body').animate({scrollTop: position}, 650);
 }
 
-
+/**
+* Analytics code for contact and sent information.
+**/
 
 
 /*------------------------------------*\
 	AJAX FUNCTIONS
 \*------------------------------------*/
+function contactoAnalytics(){
+	dataLayer.push({
+		'virtualPageURL' : '/contacto-enviado'
+	});
 
+	var contactoIFrame = '<iframe src="//www.googletagmanager.com/ns.html?id=GTM-WFG9VW"
+height="0" width="0" style="display:none;visibility:hidden"></iframe>';
+	$('body').append( contactoIFrame );
+}// contactoAnalytics
 
 
 /**
@@ -200,7 +207,7 @@ function saveContactPost(){
 				alert( message_json.message );
 				return;
 			}
-			ga('send', 'pageview', '/contacto-enviado');
+			contactoAnalytics();
 			$('.js-form-container').empty();
 			$('.js-form-container').html( '<h3>' + message_json.message + '</h3>' );
 		}
