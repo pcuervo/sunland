@@ -175,20 +175,24 @@ function scrollDown(){
 /**
 * Analytics code for contact and sent information.
 **/
+function contactoAnalytics(){
+	dataLayer.push({
+		'event' : 'VirtualPageview',
+		'virtualPageURL' : '/contacto-enviado'
+	});
+
+	var contactoIFrame = '<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WFG9VW" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>';
+	$('body').append( contactoIFrame );
+}// contactoAnalytics
+
+
+
 
 
 /*------------------------------------*\
 	AJAX FUNCTIONS
 \*------------------------------------*/
-function contactoAnalytics(){
-	dataLayer.push({
-		'virtualPageURL' : '/contacto-enviado'
-	});
 
-	var contactoIFrame = '<iframe src="//www.googletagmanager.com/ns.html?id=GTM-WFG9VW"
-height="0" width="0" style="display:none;visibility:hidden"></iframe>';
-	$('body').append( contactoIFrame );
-}// contactoAnalytics
 
 
 /**
