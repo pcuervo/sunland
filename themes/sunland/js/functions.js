@@ -185,6 +185,19 @@ function contactoAnalytics(){
 	$('body').append( contactoIFrame );
 }// contactoAnalytics
 
+/**
+* Analytics code for contact and sent information.
+**/
+function masInfoAnalytics(){
+	dataLayer.push({
+		'event' : 'VirtualPageview',
+		'virtualPageURL':'/mensaje-enviado',
+	});
+
+	var contactoIFrame = '<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WFG9VW" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>';
+	$('body').append( contactoIFrame );
+}// masInfoAnalytics
+
 
 
 
@@ -230,15 +243,14 @@ function sendMoreInfoEmail(){
 		ajax_url,
 		data,
 		function( response ){
-			console.log(response);
-			$('.close-modal').click();
 
-			ga('send', 'pageview', '/more-info');
+			$('.close-modal').click();
 			var message_json = $.parseJSON( response );
 			if( ! message_json.error ){
 				alert( message_json.message );
 				return;
 			}
+			masInfoAnalytics();
 		}
 	);
 }// sendMoreInfoEmail
