@@ -247,10 +247,11 @@ function sendMoreInfoEmail(){
 			$('.close-modal').click();
 			var message_json = $.parseJSON( response );
 			if( ! message_json.error ){
+                masInfoAnalytics();
 				alert( message_json.message );
 				return;
 			}
-			masInfoAnalytics();
+			
 		}
 	);
 }// sendMoreInfoEmail
